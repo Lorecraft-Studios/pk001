@@ -38,6 +38,16 @@ mobs.remus = {
 };
 
 mobs.aerus = {
-	short: 'Aerus',
-	long: 'Aerus the shy little girl looks around uneasily.'
+    shortDesc: 'Aerus',
+    longDesc: {
+    part1: '',
+    part2: '',
+    part3: ' looks around uneasily.',
+    clickPart1: 'Aerus ',
+    clickPart2: 'the shy little girl',
+    clickPart3: ''
+   }
 };
+
+
+
