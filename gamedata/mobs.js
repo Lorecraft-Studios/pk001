@@ -13,13 +13,28 @@ mobs.trainer = {
 };
 
 mobs.romulus = {
-	short: 'Romulus',
-	long: 'A brazen kid known as \'Romulus\' stands here looking for trouble.'
+	shortDesc: 'Romulus',
+	longDesc: {
+    part1: 'A ',
+    part2: '',
+    part3: ' stands here looking for trouble.',
+    clickPart1: '',
+    clickPart2: 'brazen kid known as Romulus',
+    clickPart3: ''
+  }
+
 };
 
 mobs.remus = {
-	short: 'Remus',
-	long: 'Remus the mischievious kid runs around causing trouble.'
+	shortDesc: 'Remus',
+	longDesc: {
+    part1: '',
+    part2: '',
+    part3: ' runs around causing trouble.',
+    clickPart1: 'Remus ',
+    clickPart2: 'the mischievious kid',
+    clickPart3: ''
+   }
 };
 
 mobs.aerus = {
