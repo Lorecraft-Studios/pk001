@@ -1,5 +1,9 @@
+/* Note: Since this file is not explicitly stated to be on the
+ * client or server, Meteor will ship everything to both the client and server.
+ */
 
-/*  Area structure
+
+/*  Area structure with corresponding IDs
  *		  
  *					              013
  *					               |
