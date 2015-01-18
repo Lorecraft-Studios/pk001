@@ -1,9 +1,16 @@
 var mobs = {};
 
 mobs.trainer = {
-	short: 'The old trainer',
-	long: 'An old man weathered by war stands here ready to train his recruits.'
-}
+	shortDesc: 'The old trainer',
+	longDesc: {
+    part1: 'An ',
+    part2: '',
+    part3: ' weathered by war stands here ready to train his recruits.',
+    clickPart1: '',
+    clickPart2: 'old man',
+    clickPart3: ''
+  }
+};
 
 mobs.romulus = {
 	short: 'Romulus',
