@@ -1,7 +1,7 @@
 var player = {
-	userName: "";
-	roomAt: "";
-	inv:[];
-	eventLog: [];
+	userName: "",
+	roomAt: "",
+	inv:[],
+	eventLog: []
 };
 
