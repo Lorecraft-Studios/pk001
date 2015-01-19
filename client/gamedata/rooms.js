@@ -27,7 +27,6 @@
 Rooms = new Mongo.Collection();
 
 //***********************************************************//
-//There is an 'a' in front of every room ID because object properties have to start with an alphabet character.
 Rooms.insert({
 	_id: 'r001',
 	title: 'A Cobblestoned Courtyard',
