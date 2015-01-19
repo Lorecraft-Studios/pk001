@@ -1,6 +1,7 @@
-mobs = {};
+//Initialize a new local minimongo instance
+Mobs = Mongo.Collection();
 
-mobs.trainer = {
+Mobs.insert({
 	shortDesc: 'The old trainer',
 	longDesc: {
     part1: 'An ',
@@ -10,9 +11,9 @@ mobs.trainer = {
     clickPart2: 'old man',
     clickPart3: ''
   }
-};
+});
 
-mobs.romulus = {
+Mobs.insert({
 	shortDesc: 'Romulus',
 	longDesc: {
     part1: 'A ',
@@ -23,9 +24,9 @@ mobs.romulus = {
     clickPart3: ''
   }
 
-};
+});
 
-mobs.remus = {
+Mobs.insert({
 	shortDesc: 'Remus',
 	longDesc: {
     part1: '',
@@ -35,9 +36,9 @@ mobs.remus = {
     clickPart2: 'the mischievious kid',
     clickPart3: ''
    }
-};
+});
 
-mobs.aerus = {
+Mobs.insert({
     shortDesc: 'Aerus',
     longDesc: {
     part1: '',
@@ -47,7 +48,7 @@ mobs.aerus = {
     clickPart2: 'the shy little girl',
     clickPart3: ''
    }
-};
+});
 
 
 
