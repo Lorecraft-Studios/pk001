@@ -4,7 +4,7 @@ Player = new Mongo.Collection();
 Player.insert({
 	_id: "p001",
 	userName: "",
-	roomAt: "",
+	roomAt: {},
 	inv:[],
 	eventLog: []
 });

@@ -3,12 +3,46 @@
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+	{{> welcome}}
+	{{> roomDisplay}}
+	{{> eventDisplay}}
 
-  {{> hello}}
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
-</template>
+<Template name='welcome'>
+<p class='welcome'>Welcome to Project Knight: Prelude</p>
+<p>
+<input type='button' id='enter' value='enter'/>
+</p>
+</Template>
+
+<Template name='roomDisplay'>
+	{{> roomTitle}}
+	{{> roomDesc}}
+	{{> roomExits}}
+	{{> roomMobs}}
+	{{> roomItems}}
+</Template>
+
+<Template name='roomTitle'>
+	<p>{{roomTitle}}</p>
+</Template>
+
+<Template name='roomDesc'>
+	<p>{{roomDesc}}</p>
+</Template>
+
+<Template name='roomExits'>
+	<p>{{roomExits}}</p>
+</Template>
+
+<Template name='roomMobs'>
+	<p>{{roomMobs}}</p>
+</Template>
+
+<Template name='roomItems'>
+	<p>{{roomItems}}</p>
+</Template>
+
+<Template name='eventDisplay'>
+</Template>
