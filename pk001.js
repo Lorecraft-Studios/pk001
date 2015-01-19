@@ -18,17 +18,26 @@ if (Meteor.isClient) {
 	}),
 	Template.roomExits.helpers({
 		roomExits:function() {
-			return Player.find({_id: 'p001'}).fetch()[0].roomAt.exits;
+			var exitsArray = []
+			for (var key in Player.find({_id: 'p001'}).fetch()[0].roomAt.exits) {
+				if (Player.find({_id: 'p001'}).fetch()[0].roomAt.exits[key])
+					exitsArray.push(key.charAt(0).toUpperCase() + key.slice(1));
+			}
+			return exitsArray
 		}
 	}),
 	Template.roomMobs.helpers({
 		roomMobs:function() {
-			return Player.find({_id: 'p001'}).fetch()[0].roomAt.mobs;
+			if (Player.find({_id: 'p001'}).fetch()[0].roomAt.mobs.length > 1) {
+				return Player.find({_id: 'p001'}).fetch()[0].roomAt.mobs;
+			}
 		}
 	}),
 	Template.roomItems.helpers({
 		roomItems:function() {
-			return Player.find({_id: 'p001'}).fetch()[0].roomAt.items;
+			if  (Player.find({_id: 'p001'}).fetch()[0].roomAt.items.length > 1) {
+				return Player.find({_id: 'p001'}).fetch()[0].roomAt.items;
+			}
 		}
 	})
 
