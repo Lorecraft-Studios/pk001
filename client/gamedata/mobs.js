@@ -1,5 +1,5 @@
 //Initialize a new local minimongo instance
-Mobs = Mongo.Collection();
+Mobs = new Mongo.Collection();
 
 Mobs.insert({
 	shortDesc: 'The old trainer',
