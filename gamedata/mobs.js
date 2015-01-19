@@ -1,4 +1,4 @@
-var mobs = {};
+mobs = {};
 
 mobs.trainer = {
 	shortDesc: 'The old trainer',

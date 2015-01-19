@@ -28,7 +28,7 @@
  *			            007--008--009
  */
 
-var rooms = {};
+rooms = {};
 
 //***********************************************************//
 //There is an 'a' in front of every room ID because object properties have to start with an alphabet character.
