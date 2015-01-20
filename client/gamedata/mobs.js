@@ -2,6 +2,7 @@
 Mobs = new Mongo.Collection();
 
 Mobs.insert({
+    _id: 'm001',
 	shortDesc: 'The old trainer',
 	longDesc: {
     part1: 'An ',
