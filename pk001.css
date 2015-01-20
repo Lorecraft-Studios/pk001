@@ -5,3 +5,9 @@
 .mobclick:hover{
 	background-color:yellow;
 }
+.exitTrue {
+	background-color:yellow;
+}
+.exitFalse {
+	background-color:#999966;
+}

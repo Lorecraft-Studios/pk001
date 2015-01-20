@@ -18,15 +18,52 @@ if (Meteor.isClient) {
 	}),
 	Template.roomExits.helpers({
 		roomExits:function() {
-			var exitsArray = []
 			for (var key in Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].exits) {
-				if (Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].exits[key])
-					exitsArray.push(key.charAt(0).toUpperCase() + key.slice(1));
+				var targetExit = '.' + key + 'exit';
+				if (Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].exits[key]) {
+					$(targetExit).removeClass('exitTrue');
+					$(targetExit).removeClass('exitFalse');
+					$(targetExit).addClass('exitTrue');
+				} else {
+					$(targetExit).removeClass('exitTrue');
+					$(targetExit).removeClass('exitFalse');
+					$(targetExit).addClass('exitFalse');
+				}
 			}
-			var newExitsArray = exitsArray.join(', ');
-			return newExitsArray
 		}
 	}),
+	Template.roomExits.events({
+		'click .northexit':function() {
+			if (Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].exits.north) {
+				engine.teleportPlayer((Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].exits.north))
+			}
+		},
+		'click .eastexit':function() {
+			if (Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].exits.east) {
+				engine.teleportPlayer((Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].exits.east))
+			}
+		},
+		'click .southexit':function() {
+			if (Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].exits.south) {
+				engine.teleportPlayer((Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].exits.south))
+			}
+		},
+		'click .westexit':function() {
+			if (Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].exits.west) {
+				engine.teleportPlayer((Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].exits.west))
+			}
+		},
+		'click .upexit':function() {
+			if (Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].exits.up) {
+				engine.teleportPlayer((Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].exits.up))
+			}
+		},
+		'click .downexit':function() {
+			if (Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].exits.down) {
+				engine.teleportPlayer((Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].exits.down))
+			}
+		},
+	})
 	Template.roomMobs.helpers({
 		roomMobs:function() {
 			if (Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].mobs.length >= 1) {
