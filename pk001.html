@@ -37,7 +37,9 @@
 </Template>
 
 <Template name='roomMobs'>
-	<p>{{roomMobs}}</p>
+	{{#each roomMobs}}
+		<p>{{longDesc.part1}}<span class='mobclick'>{{longDesc.clickPart1}}</span>{{longDesc.part2}}<span class='mobclick'>{{longDesc.clickPart2}}</span>{{longDesc.part3}}<span class='mobclick'>{{longDesc.clickPart3}}</span></p>
+	{{/each}}
 </Template>
 
 <Template name='roomItems'>
