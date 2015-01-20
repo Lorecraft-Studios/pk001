@@ -38,7 +38,7 @@ engine.teleportPlayer = function(roomTo, playerId) {
 
   //Update the players roomAt key with the new room he's in.
   Player.update({_id: playerId},{$set:{'roomAt': roomTo}});
-}
+};
 
 
 
