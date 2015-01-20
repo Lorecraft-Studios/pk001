@@ -1,42 +1,43 @@
 if (Meteor.isClient) {
 	Template.welcome.events({
 		'click #enter':function() {
-			Player.update({_id: 'p001'}, {$set: {roomAt: Rooms.find({_id: 'r001'}).fetch()[0]}});
+			Player.update({_id: 'p001'}, {$set: {roomAt: 'r001'}});
 			$('#enter').remove();
 			$('.welcome').remove();
 		}
 	}),
 	Template.roomTitle.helpers({
 		roomTitle:function() {
-			return Player.find({_id: 'p001'}).fetch()[0].roomAt.title;
+			return Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].title;
 		}
 	}),
 	Template.roomDesc.helpers({
 		roomDesc:function() {
-			return Player.find({_id: 'p001'}).fetch()[0].roomAt.desc;
+			return Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].desc;
 		}
 	}),
 	Template.roomExits.helpers({
 		roomExits:function() {
 			var exitsArray = []
-			for (var key in Player.find({_id: 'p001'}).fetch()[0].roomAt.exits) {
-				if (Player.find({_id: 'p001'}).fetch()[0].roomAt.exits[key])
+			for (var key in Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].exits) {
+				if (Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].exits[key])
 					exitsArray.push(key.charAt(0).toUpperCase() + key.slice(1));
 			}
-			return exitsArray
+			var newExitsArray = exitsArray.join(', ');
+			return newExitsArray
 		}
 	}),
 	Template.roomMobs.helpers({
 		roomMobs:function() {
-			if (Player.find({_id: 'p001'}).fetch()[0].roomAt.mobs.length > 1) {
-				return Player.find({_id: 'p001'}).fetch()[0].roomAt.mobs;
+			if (Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].mobs.length >= 1) {
+				return Mobs.find({_id: Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].mobs[0]});
 			}
 		}
 	}),
 	Template.roomItems.helpers({
 		roomItems:function() {
-			if  (Player.find({_id: 'p001'}).fetch()[0].roomAt.items.length > 1) {
-				return Player.find({_id: 'p001'}).fetch()[0].roomAt.items;
+			if  (Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].items.length >= 1) {
+				return Mobs.find({_id: Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].items[0]});
 			}
 		}
 	})

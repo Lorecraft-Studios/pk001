@@ -1,1 +1,7 @@
 /* CSS declarations go here */
+.mobclick {
+	color:blue;
+}
+.mobclick:hover{
+	background-color:yellow;
+}
