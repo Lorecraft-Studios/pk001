@@ -71,12 +71,25 @@ if (Meteor.isClient) {
 			}
 		}
 	}),
+	Template.roomMobs.events({
+    'click span.mobclick':function(event) {
+      $('#menu').css('left', event.pageX+5);
+      $('#menu').css('top', event.pageY+5);
+      $('#menu').fadeToggle();
+      Session.set('clickId', this.id)
+    }
+	}),
 	Template.roomItems.helpers({
 		roomItems:function() {
 			if  (Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].items.length >= 1) {
 				return Mobs.find({_id: Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].items[0]});
 			}
 		}
+	}),
+	Template.contextMenu.events({
+    'click .menuItemCancel':function() {
+      $('#menu').fadeToggle();
+    }
 	})
 
 

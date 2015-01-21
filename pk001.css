@@ -1,13 +1,71 @@
 /* CSS declarations go here */
 .mobclick {
+	font-weight:bold;
 	color:blue;
+	cursor:default;
 }
 .mobclick:hover{
 	background-color:yellow;
 }
+.exits{
+	position:fixed;
+	top:30%;
+}
+.mobs {
+	position:fixed;
+	top:40%;
+}
 .exitTrue {
 	background-color:yellow;
+	cursor:default;
 }
 .exitFalse {
 	background-color:#999966;
+	cursor:default;
+}
+#menu {
+ background-color:#FFFFCC;
+ border: 2px solid #6A6A6A;
+ border-radius:5px;
+ box-shadow:5px 5px 10px #474747;
+ padding-top:5px;
+ padding-bottom:5px;
+ position:absolute;
+ display:none;
+ cursor:default;
+}
+.menuItem {
+	padding-left:5px;
+	padding-right:5px;
+	font-family:Arial, Helvetica, sans-serif;
+	cursor:default;
+}
+.menuItemSpeak {
+	padding-left:5px;
+	padding-right:5px;
+	font-family:Arial, Helvetica, sans-serif;
+	cursor:default;
+}
+.menuItemSpeak:hover {
+	background-color:#99CCFF;
+}
+.menuItemCancel {
+	padding-left:5px;
+	padding-right:5px;
+	font-family:Arial, Helvetica, sans-serif;
+	cursor:default;
+}
+.menuItemCancel:hover {
+	background-color:#99CCFF;
+}
+.menuItem:hover {
+	background-color:#99CCFF;
+}
+.lineBreak {
+	width: 95%;
+	height:1px;
+	background-color:#626262;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:2px;
 }
