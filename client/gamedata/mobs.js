@@ -2,8 +2,8 @@
 Mobs = new Mongo.Collection();
 
 Mobs.insert({
-    _id: 'm001',
-	shortDesc: 'The old trainer',
+  _id: 'm001',
+  shortDesc: 'The old trainer',
 	longDesc: {
     part1: 'An ',
     part2: '',
@@ -11,13 +11,13 @@ Mobs.insert({
     clickPart1: '',
     clickPart2: 'old man',
     clickPart3: '',
-    roomAt:''
-  }
+    },
+  roomAt:'r001'
 });
 
 Mobs.insert({
-    _id: 'm002',
-	shortDesc: 'Romulus',
+  _id: 'm002',
+  shortDesc: 'Romulus',
 	longDesc: {
     part1: 'A ',
     part2: '',
@@ -25,13 +25,12 @@ Mobs.insert({
     clickPart1: '',
     clickPart2: 'brazen kid known as Romulus',
     clickPart3: '',
-    roomAt:''
-  }
-
+  },
+  roomAt:''
 });
 
 Mobs.insert({
-    _id: 'm002',
+  _id: 'm002',
 	shortDesc: 'Remus',
 	longDesc: {
     part1: '',
@@ -40,13 +39,13 @@ Mobs.insert({
     clickPart1: 'Remus ',
     clickPart2: 'the mischievious kid',
     clickPart3: '',
-    roomAt:''
-   }
+   },
+  roomAt:''
 });
 
 Mobs.insert({
-    _id: 'm003',
-    shortDesc: 'Aerus',
+  _id: 'm003',
+  shortDesc: 'Aerus',
     longDesc: {
     part1: '',
     part2: '',
@@ -54,8 +53,8 @@ Mobs.insert({
     clickPart1: 'Aerus ',
     clickPart2: 'the shy little girl',
     clickPart3: '',
-    roomAt:''
-   }
+    },
+  roomAt:''
 });
 
 
