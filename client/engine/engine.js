@@ -21,22 +21,51 @@ engine.clearPlayerEventLog = function(player) {
 //Teleports player to location.  Pass the room _id to the roomTo parameter.
 //If no arguement is passed to playerId, it will default to "p001"
 engine.teleportPlayer = function(roomTo, playerId) {
-
-  //set default playerId to "p001" if no playerId parameter was passed through		
   if (!playerId) {playerId = "p001"};
-
-  //Set roomAt to the ID of the room the player is currently in.
   var roomAt = Player.findOne({_id: playerId},{'roomAt': 1}).roomAt;
-
-  //Remove the player ID from the room that player is currently in.
   Rooms.update({_id: roomAt},{$pull:{'mobs':playerId}});
-
-  //Push the player ID to the room that he will be teleported to.
   Rooms.update({_id: roomTo},{$push:{'mobs':playerId}});
-
-  //Update the players roomAt value with the new room he's in.
   Player.update({_id: playerId},{$set:{'roomAt': roomTo}});
-}
+};
+
+//Moves a mob in any cardinal direction, if player is in the room that mob is leaving or entering,
+//mobs movement will be echoe'd to the player's eventLog
+engine.moveMob = function(mobId, direction) {
+  var direction = direction.toLowerCase();
+  var playerCurrentRoom = Player.findOne({_id: 'p001'},{'roomAt': 1}).roomAt;
+  var mobCurrentRoom = Mobs.findOne({_id: mobId},{'roomAt': 1}).roomAt;
+  var mobNextRoom = Rooms.findOne({_id:mobCurrentRoom},{'exits': 1}).exits[direction];;
+
+  //check if player is in currentRoom, if he is, logs echo of mob leaving to player
+  if (playerCurrentRoom === mobCurrentRoom) {
+    var mobShortDesc = Mobs.findOne({_id:mobId},{'shortDesc': 1}).shortDesc;
+    var msg = mobShortDesc + " " + "leaves to the " + direction + ".";
+    Player.update({_id: "p001"}, {$push: {'eventLog': msg}})
+  };
+  //check if player is in mobs Next ROom, if so echoes an enter message.
+  if (playerCurrentRoom === mobNextroom) {
+    var oppositeDirection = {
+      north: 'south',
+      south: 'north',
+      east: 'west',
+      west: 'east',
+      up: 'below',
+      down: 'above'
+    };
+    var mobShortDesc = Mobs.findOne({_id:mobId},{'shortDesc': 1}).shortDesc;
+    var msg = mobShortDesc + " " + "comes in from the " + oppositeDirection[direction] + ".";
+    Player.update({_id: "p001"}, {$push: {'eventLog': msg}})
+  };
+
+
+  //function unbuilt yet
+  engine.teleportMob(mobNextRoom,mobId);
+
+
+};
+
+
+
 
 
 
