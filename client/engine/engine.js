@@ -2,8 +2,6 @@
 
 engine = {};
 
-engine.test = console.log('testing engine.test Hello');
-
 //echoes a message to the player log. Defaults to player p001
 //if no parameter is passed to player.
 engine.echoPlayerEventLog = function(msg, player) {
@@ -24,7 +22,7 @@ engine.clearPlayerEventLog = function(player) {
 //If no arguement is passed to playerId, it will default to "p001"
 engine.teleportPlayer = function(roomTo, playerId) {
 
-  //set default playerId to "p991" if no playerId parameter was passed through		
+  //set default playerId to "p001" if no playerId parameter was passed through		
   if (!playerId) {playerId = "p001"};
 
   //Set roomAt to the ID of the room the player is currently in.
@@ -36,7 +34,7 @@ engine.teleportPlayer = function(roomTo, playerId) {
   //Push the player ID to the room that he will be teleported to.
   Rooms.update({_id: roomTo},{$push:{'mobs':playerId}});
 
-  //Update the players roomAt key with the new room he's in.
+  //Update the players roomAt value with the new room he's in.
   Player.update({_id: playerId},{$set:{'roomAt': roomTo}});
 }
 
