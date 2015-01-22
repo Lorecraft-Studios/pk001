@@ -40,10 +40,10 @@ engine.moveMob = function(mobId, direction) {
   if (playerCurrentRoom === mobCurrentRoom) {
     var mobShortDesc = Mobs.findOne({_id:mobId},{'shortDesc': 1}).shortDesc;
     var msg = mobShortDesc + " " + "leaves to the " + direction + ".";
-    Player.update({_id: "p001"}, {$push: {'eventLog': msg}})
+    engine.echoPlayerEventLog(msg);
   };
   //check if player is in mobs Next ROom, if so echoes an enter message.
-  if (playerCurrentRoom === mobNextroom) {
+  if (playerCurrentRoom === mobNextRoom) {
     var oppositeDirection = {
       north: 'south',
       south: 'north',
@@ -54,7 +54,7 @@ engine.moveMob = function(mobId, direction) {
     };
     var mobShortDesc = Mobs.findOne({_id:mobId},{'shortDesc': 1}).shortDesc;
     var msg = mobShortDesc + " " + "comes in from the " + oppositeDirection[direction] + ".";
-    Player.update({_id: "p001"}, {$push: {'eventLog': msg}})
+    engine.echoPlayerEventLog(msg);
   };
 
 
