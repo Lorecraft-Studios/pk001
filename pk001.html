@@ -6,14 +6,14 @@
 	{{> welcome}}
 	{{> roomDisplay}}
 	{{> eventDisplay}}
+	{{> dialogueResponse}}
 
 </body>
 
 <Template name='welcome'>
 <p class='welcome'>Welcome to Project Knight: Prelude</p>
-<p>
+
 <input type='button' id='enter' value='enter'/>
-</p>
 </Template>
 
 <Template name='roomDisplay'>
@@ -61,4 +61,18 @@
 </Template>
 
 <Template name='eventDisplay'>
+	<div>
+		{{#each eventDisplay}}
+			<p class='eventDisplay'>{{eventDisplay}}</p>
+		{{/each}}
+	</div>
+</Template>
+
+<Template name='dialogueResponse'>
+<div>
+	{{#each dialogueResponse}}
+		{{response}}
+	{{/each}}
+	<p class='dialogueResponse'>test</p>
+</div>
 </Template>

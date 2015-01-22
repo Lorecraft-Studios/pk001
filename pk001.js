@@ -71,12 +71,24 @@ if (Meteor.isClient) {
 			}
 		}
 	}),
+	Template.eventDisplay.helpers({
+		eventDisplay: function(){
+			return Player.find({_id: 'p001'}).fetch()[0].eventLog
+		}
+
+	}),
+	Template.eventDisplay.events({
+		'click .eventDisplay':function(){
+			Session.set('click2', this._id);
+			console.log('test')
+		}
+	}),
 	Template.roomMobs.events({
     'click span.mobclick':function(event) {
       $('#menu').css('left', event.pageX+5);
       $('#menu').css('top', event.pageY+5);
       $('#menu').fadeToggle();
-      Session.set('clickId', this.id)
+      Session.set('clickId', this._id)
     }
 	}),
 	Template.roomItems.helpers({
@@ -89,7 +101,21 @@ if (Meteor.isClient) {
 	Template.contextMenu.events({
     'click .menuItemCancel':function() {
       $('#menu').fadeToggle();
+    },
+    'click .menuItemSpeak':function(){
+    	var status = Dialogue.find({_id: Session.get('clickId')}).fetch()[0].status;
+    	for (var i = 0; i < status.length;i++){
+    		engine.echoPlayerEventLog(Dialogue.find({_id: Session.get('clickId')}).fetch()[0].dialogue[status[i]].text)
+    	}
+    	$('#menu').fadeToggle();
+    	//Dialogue.find({_id: Session.get('clickId')})
+    	//engine.echoPlayerEventLog(Mobs.find({_id: this._id)}))
     }
+	}),
+	Template.dialogueReponse.helpers({
+		dialogueResponse:function(){
+			return Dialogue.find({_id: 'p001'});
+		}
 	})
 
 

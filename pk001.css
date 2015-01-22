@@ -15,6 +15,14 @@
 	position:fixed;
 	top:40%;
 }
+.eventDisplay{
+	position:fixed;
+	top:50%;
+}
+.dialogueResponse{
+	position:fixed;
+	top:70%;
+}
 .exitTrue {
 	background-color:yellow;
 	cursor:default;
