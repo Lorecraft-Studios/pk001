@@ -7,7 +7,6 @@
 .mobclick:hover{
 	background-color:yellow;
 }
-<<<<<<< HEAD
 .exits{
 	position:fixed;
 	top:30%;
@@ -27,8 +26,6 @@
 	top:70%;
 	display:none;
 }
-||||||| merged common ancestors
-=======
 .exits{
 	position:fixed;
 	top:30%;
@@ -45,14 +42,12 @@
 	position:fixed;
 	top:70%;
 }
->>>>>>> master
 .exitTrue {
 	background-color:yellow;
 	cursor:default;
 }
 .exitFalse {
 	background-color:#999966;
-<<<<<<< HEAD
 	cursor:default;
 }
 #menu {
@@ -101,8 +96,6 @@
 	margin-left:auto;
 	margin-right:auto;
 	margin-bottom:2px;
-||||||| merged common ancestors
-=======
 	cursor:default;
 }
 #menu {
@@ -150,5 +143,4 @@
 	margin-left:auto;
 	margin-right:auto;
 	margin-bottom:2px;
->>>>>>> master
 }
