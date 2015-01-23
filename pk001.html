@@ -61,18 +61,17 @@
 </Template>
 
 <Template name='eventDisplay'>
-	<div>
+	<div class='eventDisplay'>
 		{{#each eventDisplay}}
-			<p class='eventDisplay'>{{eventDisplay}}</p>
+			{{this}}<br />
 		{{/each}}
 	</div>
 </Template>
 
 <Template name='dialogueResponse'>
-<div>
+<div class ='dialogueResponse'>
 	{{#each dialogueResponse}}
-		{{response}}
+		<p class='rclick'>{{text}}<br /></p>
 	{{/each}}
-	<p class='dialogueResponse'>test</p>
 </div>
 </Template>

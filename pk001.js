@@ -103,18 +103,40 @@ if (Meteor.isClient) {
       $('#menu').fadeToggle();
     },
     'click .menuItemSpeak':function(){
-    	var status = Dialogue.find({_id: Session.get('clickId')}).fetch()[0].status;
-    	for (var i = 0; i < status.length;i++){
-    		engine.echoPlayerEventLog(Dialogue.find({_id: Session.get('clickId')}).fetch()[0].dialogue[status[i]].text)
-    	}
+    	var status = Dialogue.find({_id: Session.get('clickId')}).fetch()[0].status[0];
+    	console.log(status);
+    	engine.echoPlayerEventLog(Dialogue.find({_id: Session.get('clickId')}).fetch()[0][status].text);
     	$('#menu').fadeToggle();
-    	//Dialogue.find({_id: Session.get('clickId')})
-    	//engine.echoPlayerEventLog(Mobs.find({_id: this._id)}))
+    	if (Dialogue.find({_id: Session.get('clickId')}).fetch()[0][status].response.length >= 1) {
+    		$('.dialogueResponse').show()
+    	}
+    	//Makes the overflow scroll to the bottom.
+    	$(".eventDisplay").scrollTop($(".eventDisplay")[0].scrollHeight);
     }
 	}),
-	Template.dialogueReponse.helpers({
+	Template.dialogueResponse.helpers({
 		dialogueResponse:function(){
-			return Dialogue.find({_id: 'p001'});
+			var status = Dialogue.find({_id: Session.get('clickId')}).fetch()[0].status[0];
+			var response = Dialogue.find({_id: Session.get('clickId')}).fetch()[0][status].response;
+			var responseText = [];
+			for (i=0;i<response.length;i++) {
+				responseText.push(Dialogue.find({_id: Session.get('clickId')}).fetch()[0][response[i]])
+			}
+			return responseText;
+
+		}
+	}),
+	Template.dialogueResponse.events({
+		'click .rclick ':function() {
+			var currentMob = Session.get('clickId');
+			console.log(currentMob);
+			Session.set('rclick', this._id);
+			var responseClicked = Session.get('rclick');
+			console.log(Session.get('rclick'));
+			Dialogue.update({_id: currentMob}, {$set: {status: [Dialogue.find({_id: currentMob}).fetch()[0][responseClicked].next]}});
+			$('.dialogueResponse').hide();
+			engine.echoPlayerEventLog(Dialogue.find({_id: currentMob}).fetch()[0][responseClicked].text);
+
 		}
 	})
 
