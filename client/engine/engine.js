@@ -31,15 +31,13 @@ engine.mobCurrentRoom = function(mobId) {
 //If no arguement is passed to playerId, it will default to "p001"
 engine.teleportPlayer = function(roomTo, playerId) {
   if (!playerId) {playerId = "p001"};
-  var roomAt = Player.findOne({_id: playerId},{'roomAt': 1}).roomAt;
-  Rooms.update({_id: roomAt},{$pull:{'mobs':playerId}});
+  Rooms.update({_id: engine.playerCurrentRoom()},{$pull:{'mobs':playerId}});
   Rooms.update({_id: roomTo},{$push:{'mobs':playerId}});
   Player.update({_id: playerId},{$set:{'roomAt': roomTo}});
 };
 
 engine.teleportMob = function(roomTo, mobId) {
-  var mobCurrentRoom = Mobs.findOne({_id: mobId},{'roomAt': 1}).roomAt;
-  Rooms.update({_id: mobCurrentRoom},{$pull:{'mobs':mobId}});
+  Rooms.update({_id: engine.mobCurrentRoom(mobId)},{$pull:{'mobs':mobId}});
   Rooms.update({_id: roomTo},{$push:{'mobs':mobId}});
   Mobs.update({_id:mobId},{$set:{'roomAt':roomTo}});
 };
@@ -48,20 +46,18 @@ engine.teleportMob = function(roomTo, mobId) {
 //mobs movement will be echoe'd to the player's eventLog
 engine.moveMob = function(mobId, direction) {
   var direction = direction.toLowerCase();
-  var playerCurrentRoom = Player.findOne({_id: 'p001'},{'roomAt': 1}).roomAt;
-  var mobCurrentRoom = Mobs.findOne({_id: mobId},{'roomAt': 1}).roomAt;
-  var mobNextRoom = Rooms.findOne({_id:mobCurrentRoom},{'exits': 1}).exits[direction];
+  var mobNextRoom = Rooms.findOne({_id:engine.mobCurrentRoom(mobId)},{'exits': 1}).exits[direction];
 
   
   //check if player is in currentRoom, if he is, logs echo of mob leaving to player
   if (mobNextRoom.length === 4) {  
-    if (playerCurrentRoom === mobCurrentRoom) {
+    if (engine.playerCurrentRoom() === engine.mobCurrentRoom(mobId)) {
       var mobShortDesc = Mobs.findOne({_id:mobId},{'shortDesc': 1}).shortDesc;
       var msg = mobShortDesc + " " + "leaves to the " + direction + ".";
       engine.echoPlayerEventLog(msg);
     };
     //check if player is in mobs Next ROom, if so echoes an enter message.
-    if (playerCurrentRoom === mobNextRoom) {
+    if (engine.playerCurrentRoom() === mobNextRoom) {
       var oppositeDirection = {
         north: 'south',
         south: 'north',
