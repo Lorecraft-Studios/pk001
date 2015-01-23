@@ -94,6 +94,51 @@ engine.movePlayer = function(direction) {
   }
 };
 
+engine.autowalk = function(dirs,delay,variance) {
+  
+  //first validate string, if not throw error
+  try {
+    if (dirs.match(/[^newsud\d+]/gi)) throw "Not a valid direction string";
+  }
+  catch(err) {
+    return console.log(err);
+  }
+
+  //unpack the directions and turn into array
+  var newdirs = dirs.replace(/(\d+)([a-z])/gi,function(match, p1, p2){
+    return Array(parseInt(p1)+1).join(p2)
+  }).toLowerCase().split("");
+
+  //turn single direction letters into full words
+  newdirs = newdirs.map(function(v,i){
+    if (v === 'e') {return 'east'};
+    if (v === 'w') {return 'west'};
+    if (v === 'n') {return 'north'};
+    if (v === 's') {return 'south'};
+    if (v === 'u') {return 'up'};
+    if (v === 'd') {return 'down'};
+    return v;
+  });
+
+  //set delay variance to 0 if no parameter is passed.
+  if (variance === undefined) {variance = 0};
+
+  for (var i = 0; i < newdirs.length; i++) {
+    //wrap in closure
+    moveOnce = function (array,i) {
+       return Meteor.setTimeout(function(){
+          console.log('moving...')
+          //wrap in closure
+          engineMove = function(array,i) {
+            return engine.movePlayer(array[i])}(array,i);
+        },(i+1)*(delay+(Math.floor(Math.random()*(variance*2+1)-(variance/2))))  )
+    }(newdirs,i);
+
+
+  }
+
+};
+
 
 
 
