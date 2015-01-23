@@ -39,6 +39,7 @@ engine.teleportPlayer = function(roomTo, playerId) {
   Rooms.update({_id: engine.playerCurrentRoom()},{$pull:{'mobs':playerId}});
   Rooms.update({_id: roomTo},{$push:{'mobs':playerId}});
   Player.update({_id: playerId},{$set:{'roomAt': roomTo}});
+  $('.dialogueResponse').hide()
 };
 
 engine.teleportMob = function(roomTo, mobId) {
