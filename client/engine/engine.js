@@ -2,7 +2,7 @@
 
 engine = {};
 
-//echoes a message to the player log. Defaults to player p001
+//Helper: echoes a message to the player log. Defaults to player p001
 //if no parameter is passed to player.
 engine.echoPlayerEventLog = function(msg, player) {
 	if (!player) {player = "p001"};
@@ -10,21 +10,26 @@ engine.echoPlayerEventLog = function(msg, player) {
 };
 
 
-//clears the players eventLog. Default parameter for player is p001
+//Helper: clears the players eventLog. Default parameter for player is p001
 //if nothing passed through function.
 engine.clearPlayerEventLog = function(player) {
 	if (!player) {player = "p001"};
 	Player.update( {_id: player },{ $set: {eventLog: []} });
 };
 
-//Returns the players current room Id
+//Helper: Returns the players current room Id
 engine.playerCurrentRoom = function() {
   return Player.findOne({_id: 'p001'},{'roomAt': 1}).roomAt;
 };
 
-//Returns a mobs current room Id
+//Helper: Returns a mobs current room Id
 engine.mobCurrentRoom = function(mobId) {
   return Mobs.findOne({_id: mobId},{'roomAt': 1}).roomAt;
+};
+
+//Helper: Checks if an exit relative to the room exists. Takes in RoomId and Cardinal Direction
+engine.hasExit = function(roomId,direction) {
+  return (Rooms.findOne({_id:roomId},{exit: 1}).exits[direction].length === 4)
 };
 
 //Teleports player to location.  Pass the room _id to the roomTo parameter.
@@ -50,7 +55,7 @@ engine.moveMob = function(mobId, direction) {
 
   
   //check if player is in currentRoom, if he is, logs echo of mob leaving to player
-  if (mobNextRoom.length === 4) {  
+  if (engine.hasExit(engine.mobCurrentRoom(mobId),direction)) {  
     if (engine.playerCurrentRoom() === engine.mobCurrentRoom(mobId)) {
       var mobShortDesc = Mobs.findOne({_id:mobId},{'shortDesc': 1}).shortDesc;
       var msg = mobShortDesc + " " + "leaves to the " + direction + ".";

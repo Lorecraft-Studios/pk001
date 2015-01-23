@@ -33,40 +33,55 @@ if (Meteor.isClient) {
 		}
 	}),
 	Template.roomExits.events({
+
+			var echoAlas = engine.echoPlayerEventLog("Alas, you cannot go that way.")
+
 		'click .northexit':function() {
-			if (Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].exits.north) {
+			if (engine.hasExit(engine.playerCurrentRoom(),'north')) {
 				engine.clearPlayerEventLog();
 				engine.movePlayer('north');
+			} else {
+				echoAlas();
 			}
 		},
 		'click .eastexit':function() {
-			if (Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].exits.east) {
+			if (engine.hasExit(engine.playerCurrentRoom(),'east')) {
 				engine.clearPlayerEventLog();
 				engine.movePlayer('east');			
+			} else {
+				echoAlas();
 			}
 		},
 		'click .southexit':function() {
-			if (Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].exits.south) {
+			if (engine.hasExit(engine.playerCurrentRoom(),'south')) {
 				engine.clearPlayerEventLog();
 				engine.movePlayer('south');
+			} else {
+				echoAlas();
 			}
 		},
 		'click .westexit':function() {
-			if (Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].exits.west) {
+			if (engine.hasExit(engine.playerCurrentRoom(),'west')) {
 				engine.clearPlayerEventLog();
 				engine.movePlayer('west');
+			} else {
+				echoAlas();
 			}
 		},
 		'click .upexit':function() {
-			if (Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].exits.up) {
+			if (engine.hasExit(engine.playerCurrentRoom(),'up')) {
 				engine.clearPlayerEventLog();
 				engine.movePlayer('up');
+			} else {
+				echoAlas();
 			}
 		},
 		'click .downexit':function() {
-			if (Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].exits.down) {
+			if (engine.hasExit(engine.playerCurrentRoom(),'down')) {
 				engine.clearPlayerEventLog();
 				engine.movePlayer('down');
+			} else {
+				echoAlas();
 			}
 		},
 	})
