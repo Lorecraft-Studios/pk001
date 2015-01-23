@@ -28,6 +28,13 @@ engine.teleportPlayer = function(roomTo, playerId) {
   Player.update({_id: playerId},{$set:{'roomAt': roomTo}});
 };
 
+engine.teleportMob = function(roomTo, mobId) {
+  var mobCurrentRoom = Mobs.findOne({_id: mobId},{'roomAt': 1}).roomAt;
+  Rooms.update({_id: mobCurrentRoom},{$pull:{'mobs':mobId}});
+  Rooms.update({_id: roomTo},{$push:{'mobs':mobId}});
+  Mobs.update({_id:mobId},{$set:{'roomAt':roomTo}});
+};
+
 //Moves a mob in any cardinal direction, if player is in the room that mob is leaving or entering,
 //mobs movement will be echoe'd to the player's eventLog
 engine.moveMob = function(mobId, direction) {
