@@ -32,56 +32,45 @@ if (Meteor.isClient) {
 			}
 		}
 	}),
+
+	//Various helpers for Template.roomExits.events
+
+
 	Template.roomExits.events({
-
-			var echoAlas = engine.echoPlayerEventLog("Alas, you cannot go that way.")
-
 		'click .northexit':function() {
 			if (engine.hasExit(engine.playerCurrentRoom(),'north')) {
 				engine.clearPlayerEventLog();
 				engine.movePlayer('north');
-			} else {
-				echoAlas();
 			}
 		},
 		'click .eastexit':function() {
 			if (engine.hasExit(engine.playerCurrentRoom(),'east')) {
 				engine.clearPlayerEventLog();
 				engine.movePlayer('east');			
-			} else {
-				echoAlas();
 			}
 		},
 		'click .southexit':function() {
 			if (engine.hasExit(engine.playerCurrentRoom(),'south')) {
 				engine.clearPlayerEventLog();
 				engine.movePlayer('south');
-			} else {
-				echoAlas();
 			}
 		},
 		'click .westexit':function() {
 			if (engine.hasExit(engine.playerCurrentRoom(),'west')) {
 				engine.clearPlayerEventLog();
 				engine.movePlayer('west');
-			} else {
-				echoAlas();
 			}
 		},
 		'click .upexit':function() {
 			if (engine.hasExit(engine.playerCurrentRoom(),'up')) {
 				engine.clearPlayerEventLog();
 				engine.movePlayer('up');
-			} else {
-				echoAlas();
 			}
 		},
 		'click .downexit':function() {
 			if (engine.hasExit(engine.playerCurrentRoom(),'down')) {
 				engine.clearPlayerEventLog();
 				engine.movePlayer('down');
-			} else {
-				echoAlas();
 			}
 		},
 	})
