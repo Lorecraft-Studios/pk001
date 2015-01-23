@@ -17,9 +17,14 @@ engine.clearPlayerEventLog = function(player) {
 	Player.update( {_id: player },{ $set: {eventLog: []} });
 };
 
-
+//Returns the players current room Id
 engine.playerCurrentRoom = function() {
   return Player.findOne({_id: 'p001'},{'roomAt': 1}).roomAt;
+};
+
+//Returns a mobs current room Id
+engine.mobCurrentRoom = function(mobId) {
+  return Mobs.findOne({_id: mobId},{'roomAt': 1}).roomAt;
 };
 
 //Teleports player to location.  Pass the room _id to the roomTo parameter.
