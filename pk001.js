@@ -35,31 +35,37 @@ if (Meteor.isClient) {
 	Template.roomExits.events({
 		'click .northexit':function() {
 			if (Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].exits.north) {
+				engine.clearPlayerEventLog();
 				engine.teleportPlayer((Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].exits.north))
 			}
 		},
 		'click .eastexit':function() {
 			if (Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].exits.east) {
+				engine.clearPlayerEventLog();
 				engine.teleportPlayer((Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].exits.east))
 			}
 		},
 		'click .southexit':function() {
 			if (Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].exits.south) {
+				engine.clearPlayerEventLog();
 				engine.teleportPlayer((Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].exits.south))
 			}
 		},
 		'click .westexit':function() {
 			if (Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].exits.west) {
+				engine.clearPlayerEventLog();
 				engine.teleportPlayer((Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].exits.west))
 			}
 		},
 		'click .upexit':function() {
 			if (Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].exits.up) {
+				engine.clearPlayerEventLog();
 				engine.teleportPlayer((Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].exits.up))
 			}
 		},
 		'click .downexit':function() {
 			if (Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].exits.down) {
+				engine.clearPlayerEventLog();
 				engine.teleportPlayer((Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].exits.down))
 			}
 		},

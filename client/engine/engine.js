@@ -63,12 +63,7 @@ engine.moveMob = function(mobId, direction) {
     var msg = mobShortDesc + " " + "comes in from the " + oppositeDirection[direction] + ".";
     engine.echoPlayerEventLog(msg);
   };
-
-
-  //function unbuilt yet
   engine.teleportMob(mobNextRoom,mobId);
-
-
 };
 
 
