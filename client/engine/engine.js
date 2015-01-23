@@ -43,27 +43,32 @@ engine.moveMob = function(mobId, direction) {
   var mobCurrentRoom = Mobs.findOne({_id: mobId},{'roomAt': 1}).roomAt;
   var mobNextRoom = Rooms.findOne({_id:mobCurrentRoom},{'exits': 1}).exits[direction];;
 
+  
   //check if player is in currentRoom, if he is, logs echo of mob leaving to player
-  if (playerCurrentRoom === mobCurrentRoom) {
-    var mobShortDesc = Mobs.findOne({_id:mobId},{'shortDesc': 1}).shortDesc;
-    var msg = mobShortDesc + " " + "leaves to the " + direction + ".";
-    engine.echoPlayerEventLog(msg);
-  };
-  //check if player is in mobs Next ROom, if so echoes an enter message.
-  if (playerCurrentRoom === mobNextRoom) {
-    var oppositeDirection = {
-      north: 'south',
-      south: 'north',
-      east: 'west',
-      west: 'east',
-      up: 'below',
-      down: 'above'
+  if (mobNextRoom.length === 4) {  
+    if (playerCurrentRoom === mobCurrentRoom) {
+      var mobShortDesc = Mobs.findOne({_id:mobId},{'shortDesc': 1}).shortDesc;
+      var msg = mobShortDesc + " " + "leaves to the " + direction + ".";
+      engine.echoPlayerEventLog(msg);
     };
-    var mobShortDesc = Mobs.findOne({_id:mobId},{'shortDesc': 1}).shortDesc;
-    var msg = mobShortDesc + " " + "comes in from the " + oppositeDirection[direction] + ".";
-    engine.echoPlayerEventLog(msg);
-  };
-  engine.teleportMob(mobNextRoom,mobId);
+    //check if player is in mobs Next ROom, if so echoes an enter message.
+    if (playerCurrentRoom === mobNextRoom) {
+      var oppositeDirection = {
+        north: 'south',
+        south: 'north',
+        east: 'west',
+        west: 'east',
+        up: 'below',
+        down: 'above'
+      };
+      var mobShortDesc = Mobs.findOne({_id:mobId},{'shortDesc': 1}).shortDesc;
+      var msg = mobShortDesc + " " + "comes in from the " + oppositeDirection[direction] + ".";
+      engine.echoPlayerEventLog(msg);
+    };
+    engine.teleportMob(mobNextRoom,mobId);
+  } else {
+    console.log("Invalid Direction");
+  }
 };
 
 
