@@ -18,6 +18,10 @@ engine.clearPlayerEventLog = function(player) {
 };
 
 
+engine.playerCurrentRoom = function() {
+  return Player.findOne({_id: 'p001'},{'roomAt': 1}).roomAt;
+};
+
 //Teleports player to location.  Pass the room _id to the roomTo parameter.
 //If no arguement is passed to playerId, it will default to "p001"
 engine.teleportPlayer = function(roomTo, playerId) {

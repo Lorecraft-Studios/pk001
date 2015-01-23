@@ -42,7 +42,8 @@ if (Meteor.isClient) {
 		'click .eastexit':function() {
 			if (Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].exits.east) {
 				engine.clearPlayerEventLog();
-				engine.movePlayer('east');			}
+				engine.movePlayer('east');			
+			}
 		},
 		'click .southexit':function() {
 			if (Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].exits.south) {
