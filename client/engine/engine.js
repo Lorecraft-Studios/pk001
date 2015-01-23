@@ -94,6 +94,8 @@ engine.movePlayer = function(direction) {
   }
 };
 
+//Takes a packed or unpacked string eg. '2e4nse8s' and moves the player with a delay for each step
+//variance in delay is optional.
 engine.autowalk = function(dirs,delay,variance) {
   
   //first validate string, if not throw error
@@ -133,10 +135,7 @@ engine.autowalk = function(dirs,delay,variance) {
             return engine.movePlayer(array[i])}(array,i);
         },(i+1)*(delay+(Math.floor(Math.random()*(variance*2+1)-(variance/2))))  )
     }(newdirs,i);
-
-
   }
-
 };
 
 

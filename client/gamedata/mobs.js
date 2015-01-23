@@ -30,7 +30,7 @@ Mobs.insert({
 });
 
 Mobs.insert({
-  _id: 'm002',
+  _id: 'm003',
 	shortDesc: 'Remus',
 	longDesc: {
     part1: '',
@@ -44,7 +44,7 @@ Mobs.insert({
 });
 
 Mobs.insert({
-  _id: 'm003',
+  _id: 'm004',
   shortDesc: 'Aerus',
     longDesc: {
     part1: '',
