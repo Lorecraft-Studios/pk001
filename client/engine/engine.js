@@ -41,7 +41,7 @@ engine.moveMob = function(mobId, direction) {
   var direction = direction.toLowerCase();
   var playerCurrentRoom = Player.findOne({_id: 'p001'},{'roomAt': 1}).roomAt;
   var mobCurrentRoom = Mobs.findOne({_id: mobId},{'roomAt': 1}).roomAt;
-  var mobNextRoom = Rooms.findOne({_id:mobCurrentRoom},{'exits': 1}).exits[direction];;
+  var mobNextRoom = Rooms.findOne({_id:mobCurrentRoom},{'exits': 1}).exits[direction];
 
   
   //check if player is in currentRoom, if he is, logs echo of mob leaving to player
@@ -68,6 +68,19 @@ engine.moveMob = function(mobId, direction) {
     engine.teleportMob(mobNextRoom,mobId);
   } else {
     console.log("Invalid Direction");
+  }
+};
+
+//moving the player any cardinal direction.
+engine.movePlayer = function(direction) {
+  var direction = direction.toLowerCase();
+  var playerCurrentRoom = Player.findOne({_id: 'p001'},{'roomAt': 1}).roomAt;
+  var playerNextRoom = Rooms.findOne({_id:playerCurrentRoom},{'exits': 1}).exits[direction];
+
+  if (playerNextRoom.length === 4) {
+    engine.teleportPlayer(playerNextRoom,'p001');
+  } else {
+    engine.echoPlayerEventLog("Alas, you cannot go that way.");
   }
 };
 
