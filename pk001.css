@@ -26,6 +26,12 @@
 	top:70%;
 	display:none;
 }
+.rclick {
+	cursor:default;
+}
+.rclick:hover{
+	background-color:yellow;
+}
 .exits{
 	position:fixed;
 	top:30%;
@@ -43,11 +49,12 @@
 	top:70%;
 }
 .exitTrue {
-	background-color:yellow;
 	cursor:default;
+	color:#009933;
+	font-weight:bold;
 }
 .exitFalse {
-	background-color:#999966;
+	font-style:italic;
 	cursor:default;
 }
 #menu {

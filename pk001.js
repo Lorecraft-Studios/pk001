@@ -110,11 +110,13 @@ if (Meteor.isClient) {
     },
     'click .menuItemSpeak':function(){
     	var status = Dialogue.find({_id: Session.get('clickId')}).fetch()[0].status[0];
-    	console.log(status);
     	engine.echoPlayerEventLog(Dialogue.find({_id: Session.get('clickId')}).fetch()[0][status].text);
     	$('#menu').fadeToggle();
     	if (Dialogue.find({_id: Session.get('clickId')}).fetch()[0][status].response.length >= 1) {
     		$('.dialogueResponse').show()
+    	}
+    	if (Dialogue.find({_id: Session.get('clickId')}).fetch()[0][status].next >= 1) {
+    		Dialogue.update({_id: Session.get('clickId')}, {$set: {status: Dialogue.find({_id: Session.get('clickId')}).fetch()[0][status].next}});
     	}
     	//Makes the overflow scroll to the bottom.
     	$(".eventDisplay").scrollTop($(".eventDisplay")[0].scrollHeight);
@@ -135,14 +137,11 @@ if (Meteor.isClient) {
 	Template.dialogueResponse.events({
 		'click .rclick ':function() {
 			var currentMob = Session.get('clickId');
-			console.log(currentMob);
 			Session.set('rclick', this._id);
 			var responseClicked = Session.get('rclick');
-			console.log(Session.get('rclick'));
 			Dialogue.update({_id: currentMob}, {$set: {status: [Dialogue.find({_id: currentMob}).fetch()[0][responseClicked].next]}});
 			$('.dialogueResponse').hide();
 			engine.echoPlayerEventLog(Dialogue.find({_id: currentMob}).fetch()[0][responseClicked].text);
-
 		}
 	})
 
