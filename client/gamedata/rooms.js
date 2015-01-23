@@ -147,7 +147,7 @@ Rooms.insert({
 		east: 'r009',
 		west: 'r007',
 		south: '',
-		north: '',
+		north: 'r003',
 		up: '',
 		down:''
 	},
