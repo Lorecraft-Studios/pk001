@@ -6,14 +6,14 @@
 	{{> welcome}}
 	{{> roomDisplay}}
 	{{> eventDisplay}}
+	{{> dialogueResponse}}
 
 </body>
 
 <Template name='welcome'>
 <p class='welcome'>Welcome to Project Knight: Prelude</p>
-<p>
+
 <input type='button' id='enter' value='enter'/>
-</p>
 </Template>
 
 <Template name='roomDisplay'>
@@ -22,6 +22,7 @@
 	{{> roomExits}}
 	{{> roomMobs}}
 	{{> roomItems}}
+	{{> contextMenu}}
 </Template>
 
 <Template name='roomTitle'>
@@ -39,7 +40,7 @@
 
 <Template name='roomMobs'>
 	{{#each roomMobs}}
-		<p>{{longDesc.part1}}<span class='mobclick'>{{longDesc.clickPart1}}</span>{{longDesc.part2}}<span class='mobclick'>{{longDesc.clickPart2}}</span>{{longDesc.part3}}<span class='mobclick'>{{longDesc.clickPart3}}</span></p>
+		<p class='mobs'>{{longDesc.part1}}<span class='mobclick'>{{longDesc.clickPart1}}</span>{{longDesc.part2}}<span class='mobclick'>{{longDesc.clickPart2}}</span>{{longDesc.part3}}<span class='mobclick'>{{longDesc.clickPart3}}</span></p>
 	{{/each}}
 </Template>
 
@@ -47,5 +48,30 @@
 	<p>{{roomItems}}</p>
 </Template>
 
+<Template name='contextMenu'>
+<div id='menu'>
+  <span class='menuItemSpeak'>Speak With</span>
+  <br />
+  <span class='menuItem'>Attack</span>
+  <br />
+  <span class='menuItem'>Inspect</span> 
+  <div class ='lineBreak'></div>
+  <span class='menuItemCancel'>Cancel</span>
+</div>
+</Template>
+
 <Template name='eventDisplay'>
+	<div class='eventDisplay'>
+		{{#each eventDisplay}}
+			{{this}}<br />
+		{{/each}}
+	</div>
+</Template>
+
+<Template name='dialogueResponse'>
+<div class ='dialogueResponse'>
+	{{#each dialogueResponse}}
+		<p class='rclick'>{{text}}<br /></p>
+	{{/each}}
+</div>
 </Template>
