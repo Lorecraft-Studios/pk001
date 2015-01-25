@@ -57,5 +57,21 @@ Mobs.insert({
   roomAt:''
 });
 
+Mobs.insert({
+  _id: 'm005',
+  shortDesc: 'Training Dummy',
+    longDesc: {
+    part1: 'A ',
+    part2: '',
+    part3: ' hangs here staring at you blankly.',
+    clickPart1: '',
+    clickPart2: 'straw-filled humanoid ',
+    clickPart3: '',
+    },
+  roomAt:'',
+  hp: 100,
+  deathTrigger: 's002'
+});
+
 
 

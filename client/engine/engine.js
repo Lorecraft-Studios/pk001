@@ -139,7 +139,16 @@ engine.autowalk = function(dirs,delay,variance) {
   }
 };
 
-
+engine.mobDeath = function () {
+  var currentRoom = Player.find({_id: 'p001'}).fetch()[0].roomAt;
+  var currentMob = Session.get('clickId');
+  var currentMobHp = Mobs.find({_id: currentMob}).fetch()[0].hp;
+  Rooms.update({_id: currentRoom}, {$pull: {mobs: currentMob}});
+  engine.echoPlayerEventLog(Mobs.find({_id: currentMob}).fetch()[0].shortDesc + ' falls to the ground, defeated.')
+  if (Mobs.find({_id: currentMob}).fetch()[0].deathTrigger) {
+    questEngine[Mobs.find({_id: currentMob}).fetch()[0].deathTrigger].s1();
+  }
+}
 
 
 

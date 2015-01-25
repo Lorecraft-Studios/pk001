@@ -10,6 +10,7 @@
 .exits{
 	position:fixed;
 	top:30%;
+	display:none;
 }
 .mobs {
 	position:fixed;
