@@ -11,9 +11,10 @@
 </body>
 
 <Template name='welcome'>
-<p class='welcome'>Welcome to Project Knight: Prelude</p>
-
-<input type='button' id='enter' value='enter'/>
+	<div class='welcome'>
+		<p class='welcome'>Welcome to Project Knight: Prelude</p>
+	</div>
+	<input type='button' id='enter' value='enter'/>
 </Template>
 
 <Template name='roomDisplay'>
@@ -30,12 +31,16 @@
 </Template>
 
 <Template name='roomDesc'>
-	<p>{{roomDesc}}</p>
+	<div class='roomDesc'>
+		<p>{{roomDesc}}</p>
+	</div>
 </Template>
 
 <Template name='roomExits'>
-	{{roomExits}}
-	<p class='exits'>[<span class='northexit'> North </span><span class='eastexit'> East </span><span class='southexit'> South </span><span class='westexit'> West </span><span class='upexit'> Up </span><span class='downexit'> Down </span>]</p>
+	<div class='exits'>
+		{{roomExits}}
+		<p>[<span class='northexit'> North </span><span class='eastexit'> East </span><span class='southexit'> South </span><span class='westexit'> West </span><span class='upexit'> Up </span><span class='downexit'> Down </span>]</p>
+	</div>
 </Template>
 
 <Template name='roomMobs'>
