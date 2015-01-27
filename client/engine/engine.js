@@ -6,9 +6,11 @@ engine = {};
 //if no parameter is passed to player.
 engine.echoPlayerEventLog = function(msg, player) {
 	if (!player) {player = "p001"};
-	Player.update( { _id: player },{ $push: {eventLog: msg} } );
+	Player.update( { _id: player },{ $push: {eventLog: msg}});
+  Tracker.afterFlush(function() {   
+    $('.eventDisplay').scrollTop($('.eventDisplay')[0].scrollHeight);
+  });
 };
-
 
 //Helper: clears the players eventLog. Default parameter for player is p001
 //if nothing passed through function.

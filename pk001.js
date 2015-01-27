@@ -130,8 +130,6 @@ if (Meteor.isClient) {
     	if (Dialogue.find({_id: currentMob}).fetch()[0][diaStatus].next1.length >= 1) {
     		Dialogue.update({_id: currentMob}, {$set: {diaStatus: Dialogue.find({_id: currentMob}).fetch()[0][diaStatus].next1}});
     	}
-    	//Makes the overflow scroll to the bottom.
-    	$(".eventDisplay").scrollTop($(".eventDisplay")[0].scrollHeight);
     },
     'click .menuItemAttack':function () {
     	$('#menu').fadeToggle();
