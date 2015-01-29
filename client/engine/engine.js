@@ -6,9 +6,11 @@ engine = {};
 //if no parameter is passed to player.
 engine.echoPlayerEventLog = function(msg, player) {
 	if (!player) {player = "p001"};
-	Player.update( { _id: player },{ $push: {eventLog: msg} } );
+	Player.update( { _id: player },{ $push: {eventLog: msg}});
+  Tracker.afterFlush(function() {   
+    $('.eventDisplay').scrollTop($('.eventDisplay')[0].scrollHeight);
+  });
 };
-
 
 //Helper: clears the players eventLog. Default parameter for player is p001
 //if nothing passed through function.
@@ -139,7 +141,16 @@ engine.autowalk = function(dirs,delay,variance) {
   }
 };
 
-
+engine.mobDeath = function () {
+  var currentRoom = Player.find({_id: 'p001'}).fetch()[0].roomAt;
+  var currentMob = Session.get('clickId');
+  var currentMobHp = Mobs.find({_id: currentMob}).fetch()[0].hp;
+  Rooms.update({_id: currentRoom}, {$pull: {mobs: currentMob}});
+  engine.echoPlayerEventLog(Mobs.find({_id: currentMob}).fetch()[0].shortDesc + ' falls to the ground, defeated.')
+  if (Mobs.find({_id: currentMob}).fetch()[0].deathTrigger) {
+    questEngine[Mobs.find({_id: currentMob}).fetch()[0].deathTrigger].s1();
+  }
+}
 
 
 

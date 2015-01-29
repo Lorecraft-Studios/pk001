@@ -4,26 +4,28 @@
 	color:blue;
 	cursor:default;
 }
+.welcome {
+	position:absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+	width: 300px;
+	height:100px;
+}
 .mobclick:hover{
 	background-color:yellow;
 }
 .exits{
-	position:fixed;
-	top:30%;
-}
-.mobs {
-	position:fixed;
-	top:40%;
+	display:none;
 }
 .eventDisplay{
-	position:fixed;
-	top:50%;
-	height:100px;
+
+	height:150px;
 	overflow:scroll;
 }
 .dialogueResponse{
-	position:fixed;
-	top:70%;
 	display:none;
 }
 .rclick {
@@ -32,21 +34,8 @@
 .rclick:hover{
 	background-color:yellow;
 }
-.exits{
-	position:fixed;
-	top:30%;
-}
-.mobs {
-	position:fixed;
-	top:40%;
-}
-.eventDisplay{
-	position:fixed;
-	top:50%;
-}
-.dialogueResponse{
-	position:fixed;
-	top:70%;
+.roomDesc {
+	height:30px;
 }
 .exitTrue {
 	cursor:default;
@@ -57,45 +46,6 @@
 	font-style:italic;
 	cursor:default;
 }
-#menu {
- background-color:#FFFFCC;
- border: 2px solid #6A6A6A;
- border-radius:5px;
- box-shadow:5px 5px 10px #474747;
- padding-top:5px;
- padding-bottom:5px;
- position:absolute;
- display:none;
- cursor:default;
- z-index: 100;
-}
-.menuItem {
-	padding-left:5px;
-	padding-right:5px;
-	font-family:Arial, Helvetica, sans-serif;
-	cursor:default;
-}
-.menuItemSpeak {
-	padding-left:5px;
-	padding-right:5px;
-	font-family:Arial, Helvetica, sans-serif;
-	cursor:default;
-}
-.menuItemSpeak:hover {
-	background-color:#99CCFF;
-}
-.menuItemCancel {
-	padding-left:5px;
-	padding-right:5px;
-	font-family:Arial, Helvetica, sans-serif;
-	cursor:default;
-}
-.menuItemCancel:hover {
-	background-color:#99CCFF;
-}
-.menuItem:hover {
-	background-color:#99CCFF;
-}
 .lineBreak {
 	width: 95%;
 	height:1px;
@@ -122,32 +72,12 @@
 	font-family:Arial, Helvetica, sans-serif;
 	cursor:default;
 }
-.menuItemSpeak {
+.menuItemSpeak, .menuItemCancel {
 	padding-left:5px;
 	padding-right:5px;
 	font-family:Arial, Helvetica, sans-serif;
 	cursor:default;
 }
-.menuItemSpeak:hover {
+.menuItemSpeak:hover, .menuItemCancel:hover, .menuItem:hover {
 	background-color:#99CCFF;
-}
-.menuItemCancel {
-	padding-left:5px;
-	padding-right:5px;
-	font-family:Arial, Helvetica, sans-serif;
-	cursor:default;
-}
-.menuItemCancel:hover {
-	background-color:#99CCFF;
-}
-.menuItem:hover {
-	background-color:#99CCFF;
-}
-.lineBreak {
-	width: 95%;
-	height:1px;
-	background-color:#626262;
-	margin-left:auto;
-	margin-right:auto;
-	margin-bottom:2px;
 }
