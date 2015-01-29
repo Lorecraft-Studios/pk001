@@ -122,7 +122,7 @@ if (Meteor.isClient) {
     	if (Dialogue.find({_id: currentMob}).fetch()[0][diaStatus].hasScript) {
 				questEngine[Dialogue.find({_id: currentMob}).fetch()[0][diaStatus].hasScript].s1();
 			}
-		//If dialogue requires playing input, show the dialogue response div
+		//If dialogue requires player input, show the dialogue response div
     	if (Dialogue.find({_id: currentMob}).fetch()[0][diaStatus].response.length >= 1) {
     		$('.dialogueResponse').show();
     	}
@@ -174,14 +174,20 @@ if (Meteor.isClient) {
 			}
 			//If the convo continues with a response, echo to event log
 			if (Dialogue.find({_id: currentMob}).fetch()[0][responseClicked].next1.length >=1 ) {
-				var nextConvo = Dialogue.find({_id: currentMob}).fetch()[0][responseClicked].next1[0]
+				var nextConvo = Dialogue.find({_id: currentMob}).fetch()[0][responseClicked].next1[0];
 				engine.echoPlayerEventLog(Dialogue.find({_id: currentMob}).fetch()[0][nextConvo].convo);
+				//If there is another response, show response
+				if (Dialogue.find({_id: currentMob}).fetch()[0][nextConvo].response.length >= 1) {
+					$('.dialogueResponse').show();
+					console.log('test1234');
+				}				
 			}
-			//If the response continues conversation, echo mob response to event log without changing status
-			//if (Dialogue.find({_id: currentMob}).fetch()[0][diasStatus].response.length >= 1) {
-			//	$('.dialogueResponse').show();
-			//	Dialogue.find({_id: currentMob}).fetch()[0][diaStatus].convo;
-		//	}
+				//If there is another response, continue.
+				//if (Dialogue.find({_id: currentMob}).fetch()[0][nextConvo].response.length >= 1) {
+			//		$('.dialogueResponse').hide();
+					
+
+			//	}
 		}
 	})
 

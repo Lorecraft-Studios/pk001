@@ -44,14 +44,44 @@ Dialogue.insert({
         _id: 7,
         convo: 'The old sergeant warmly replies, \“You\’ll be done after a sparring session with each of the other juniors in your group.”',
         next1: [],
-        response: []
+        response: [9]
     },
     8: {
-        _id: 7,
-        convo: 'Continue...',
-        next1: [],
+        _id: 8,
+        convo: '(Continue...)',
+        next1: [7],
         response: [],
         hasScript: 's003'
+    },
+    9: {
+        _id: 9,
+        convo: '(Continue...)',
+        next1: [10],
+        response: []
+    },
+    10: {
+        _id: 10,
+        convo: 'The Old Sergeant says, \“Alright time to spar them and you folks can go home! Remember, graceful, but with force!\”',
+        next1: [],
+        response: [11,12]
+    },
+    11: {
+        _id: 11,
+        convo: 'You reply, \“No problem sarge!\”',
+        next1: [],
+        response: []
+    },
+    12: {
+        _id: 12,
+        convo: 'You reply, \“But.. but.. i\’m not ready to fight yet!\”',
+        next1: [13],
+        response: []
+    },
+    13: {
+        _id: 13,
+        convo: 'The Old Seargent exclaims, \“A warrior must always be at the ready! Now unsheathe your wooden practice sword!\”',
+        next1: [],
+        response: []
     },
     diaStatus: [1]
 });
