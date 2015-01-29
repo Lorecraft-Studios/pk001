@@ -182,12 +182,6 @@ if (Meteor.isClient) {
 					console.log('test1234');
 				}				
 			}
-				//If there is another response, continue.
-				//if (Dialogue.find({_id: currentMob}).fetch()[0][nextConvo].response.length >= 1) {
-			//		$('.dialogueResponse').hide();
-					
-
-			//	}
 		}
 	})
 
