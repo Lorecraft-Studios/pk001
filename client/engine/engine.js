@@ -95,6 +95,7 @@ engine.movePlayer = function(direction) {
   } else {
     engine.echoPlayerEventLog("Alas, you cannot go that way.");
   }
+  engine.roomEnterQuest()
 };
 
 //Takes a packed or unpacked string eg. '2e4nse8s' and moves the player with a delay for each step
@@ -141,7 +142,15 @@ engine.autowalk = function(dirs,delay,variance) {
   }
 };
 
+//checks to see if an event is triggered upon room enter
+engine.roomEnterQuest = function () {
+  var currentRoom = Player.findOne({_id: 'p001'}).roomAt;
+  var roomEnterTrigger = Rooms.findOne({_id: currentRoom}).roomEnterTrigger;
+  if (roomEnterTrigger) {
+    questEngine[roomEnterTrigger].s1();
+  }
 
+}
 
 
 

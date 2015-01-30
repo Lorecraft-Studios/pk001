@@ -75,5 +75,33 @@ Mobs.insert({
   attackTrigger: 's004'
 });
 
+Mobs.insert({
+  _id: 'm006',
+  shortDesc: 'your mother',
+  longDesc: {
+    part1: 'A ',
+    part2: '',
+    part3: ' stands here, looking at you lovingly.',
+    clickPart1: '',
+    clickPart2: 'mother',
+    clickPart3: '',
+    },
+  roomAt:'r014'
+});
+
+Mobs.insert({
+  _id: 'm007',
+  shortDesc: 'your father',
+  longDesc: {
+    part1: 'A ',
+    part2: '',
+    part3: ' lounges around, looking for something to do.',
+    clickPart1: '',
+    clickPart2: 'father',
+    clickPart3: '',
+    },
+  roomAt:'r014'
+});
+
 
 

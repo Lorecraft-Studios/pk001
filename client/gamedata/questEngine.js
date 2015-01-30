@@ -123,6 +123,14 @@ questEngine.s010 = {
 	}
 }
 
+//entering your home for the first time, mom will start a conversation.
+questEngine.s020 = {
+	s1: function() {
+		engine.echoPlayerEventLog('Your mom welcomes you home with a hug.');
+		engine.echoPlayerEventLog('She has a concerned look on her face.');
+	}
+}
+
 
 
 
