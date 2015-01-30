@@ -166,7 +166,7 @@ if (Meteor.isClient) {
 			}
 			//Update the status of the convo
 			if (Dialogue.find({_id: currentMob}).fetch()[0][responseClicked].next1.length >=1) {
-				Dialogue.update({_id: currentMob}, {$set: {diaStatus: [Dialogue.find({_id: currentMob}).fetch()[0][responseClicked].next1]}});
+				Dialogue.update({_id: currentMob}, {$set: {diaStatus: Dialogue.find({_id: currentMob}).fetch()[0][responseClicked].next1}});
 			}
 			//If the convo continues with a response, echo to event log
 			if (Dialogue.find({_id: currentMob}).fetch()[0][responseClicked].next1.length >=1 ) {
@@ -175,7 +175,6 @@ if (Meteor.isClient) {
 				//If there is another response, show response
 				if (Dialogue.find({_id: currentMob}).fetch()[0][nextConvo].response.length >= 1) {
 					$('.dialogueResponse').show();
-					console.log('test1234');
 				}				
 			}
 		}

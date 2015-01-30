@@ -26,7 +26,8 @@ Mobs.insert({
     clickPart2: 'Romulus',
     clickPart3: '',
   },
-  roomAt:'r002'
+  roomAt:'r002',
+  attackTrigger: 's005'
 });
 
 Mobs.insert({
@@ -40,7 +41,8 @@ Mobs.insert({
     clickPart2: '',
     clickPart3: '',
    },
-  roomAt:'r002'
+  roomAt:'r002',
+  attackTrigger: 's006'
 });
 
 Mobs.insert({
@@ -54,7 +56,8 @@ Mobs.insert({
     clickPart2: '',
     clickPart3: '',
     },
-  roomAt:'r002'
+  roomAt:'r002',
+  attackTrigger: 's007'
 });
 
 Mobs.insert({
