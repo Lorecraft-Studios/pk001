@@ -40,6 +40,7 @@ questEngine.s005 = {
 			}
 		}
 		questEngine.s005.attacked = 'yes';
+		questEngine.s008.s1();
 	}
 };
 
@@ -55,17 +56,48 @@ questEngine.s006 = {
 			}
 		}
 		questEngine.s006.attacked = 'yes';
+		questEngine.s008.s1();
 	}
 };
 
 questEngine.s007 = {
+	attacked: 'no',
 	s1: function() {
 		var currentMob = Session.get('clickId');
 		var currentRoom = Player.findOne({_id: 'p001'}).roomAt;
-		if (Dialogue.findOne({_id: 'm001'}).diaStatus[0] === 10 || Dialogue.findOne({_id: 'm001'}).diaStatus[0] === 13 ) {
-			engine.echoPlayerEventLog('You begin to approach Aerus.');
-			engine.echoPlayerEventLog('Aerus beings to cry...');
-			engine.moveMob('m004', 'east');
+		if (questEngine.s007.attacked === 'no') {
+			if (Dialogue.findOne({_id: 'm001'}).diaStatus[0] === 10 || Dialogue.findOne({_id: 'm001'}).diaStatus[0] === 13 ) {
+				engine.echoPlayerEventLog('You begin to approach Aerus.');
+				engine.echoPlayerEventLog('Aerus beings to cry...');
+				Rooms.update({_id: 'r001'}, {$set: {exits: {east: 'r002'}}});
+				engine.moveMob('m004', 'east');
+				Rooms.update({_id: 'r001'}, {$set: {exits: {east: ''}}});
+			}
+		}
+		questEngine.s007.attacked = 'yes';
+		questEngine.s008.s1();
+	}
+};
+
+questEngine.s008 = {
+	s1: function() {
+		if (questEngine.s005.attacked === 'yes' && questEngine.s006.attacked === 'yes' && questEngine.s007.attacked === 'yes') {
+			Dialogue.update({_id: 'm001'}, {$set: {diaStatus: [15]}});
 		}
 	}
 };
+
+questEngine.s009 = {
+	s1: function() {
+		Rooms.update({_id: 'r001'}, {$set: {exits: {east: 'r002'}}});
+		engine.echoPlayerEventLog('Remus whispers, \"We\'ll be waiting for you outside.\"')
+		engine.moveMob('m002', 'east');
+		engine.moveMob('m003', 'east');
+		
+	}
+}
+
+
+
+
+

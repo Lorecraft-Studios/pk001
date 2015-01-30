@@ -80,8 +80,15 @@ Dialogue.insert({
     13: {
         _id: 13,
         convo: 'The Old Seargent exclaims, \“A warrior must always be at the ready! Now unsheathe your wooden practice sword!\”',
-        next1: [],
+        next1: [14],
         response: []
+    },
+    15: {
+        _id: 15,
+        convo: 'The Old Seargent says, \“Great job.  You\'re the most promising recruit I\'ve seen.  Go home and tell your family that you\'ll be a squad leader.\”',
+        next1: [],
+        response: [],
+        hasScript: 's009'
     },
     diaStatus: [1]
 });

@@ -32,7 +32,7 @@ Rooms.insert({
 	title: 'A Cobblestoned Courtyard',
 	desc: 'A worn stone courtyard sits right outside of the militia outpost.  A faint militia banner wavers in the distant.  You see small groups of militia leisurely swinging their swords. Rush-strewn training dummies line the courtyard.',
 	exits: {
-		east: 'r002',
+		east: '',
 		west: '',
 		south: '',
 		north: '',
