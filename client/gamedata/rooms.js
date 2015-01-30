@@ -32,7 +32,7 @@ Rooms.insert({
 	title: 'A Cobblestoned Courtyard',
 	desc: 'A worn stone courtyard sits right outside of the militia outpost.  A faint militia banner wavers in the distant.  You see small groups of militia leisurely swinging their swords. Rush-strewn training dummies line the courtyard.',
 	exits: {
-		east: 'r002',
+		east: '',
 		west: '',
 		south: '',
 		north: '',
@@ -48,14 +48,14 @@ Rooms.insert({
 	title: 'A Militia Outpost',
 	desc: 'The stone building serves as a gathering point for the local militia in this area. Serving the small villages throughout this province, this is where most of the recruiting takes place for the imperial army.',
 	exits: {
-		east: 'r003',
+		east: '',
 		west: 'r001',
 		south: '',
 		north: '',
 		up: '',
 		down: ''
 	},
-	mobs: [],
+	mobs: ['m002','m003','m004'],
 	items: []
 });
 //***********************************************************//

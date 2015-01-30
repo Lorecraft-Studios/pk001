@@ -80,9 +80,53 @@ Dialogue.insert({
     13: {
         _id: 13,
         convo: 'The Old Seargent exclaims, \“A warrior must always be at the ready! Now unsheathe your wooden practice sword!\”',
-        next1: [],
+        next1: [14],
         response: []
+    },
+    15: {
+        _id: 15,
+        convo: 'The Old Seargent says, \“Great job.  You\'re the most promising recruit I\'ve seen.  Go home and tell your family that you\'ll be a squad leader.\”',
+        next1: [],
+        response: [],
+        hasScript: 's009'
     },
     diaStatus: [1]
 });
+
+Dialogue.insert({
+    _id: 'm002',
+    1: {
+        _id: 1,
+        convo: '\“You\'ll NEVER be our leader!  Crawl under us or we\'ll beat you up!\”, taunts Romulus.',
+        next1: [],
+        response: [2,3]
+    },
+    2: {
+        _id: 2,
+        convo: 'Crawl Under',
+        next1: [4],
+        response: [],
+        hasScript: 's010'
+    },
+    3: {
+        _id: 3,
+        convo: 'Fight',
+        next1: [4],
+        response: [],
+        hasScript: 's010'
+    },
+    4: {
+        _id: 4,
+        convo: '\"Go home and cry to your mommy and daddy\", teases Romulus.',
+        next1: [],
+        response: []
+    },
+
+    diaStatus: [0]
+})
+
+
+
+
+
 

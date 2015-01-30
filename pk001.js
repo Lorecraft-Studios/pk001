@@ -133,13 +133,9 @@ if (Meteor.isClient) {
     },
     'click .menuItemAttack':function () {
     	$('#menu').fadeToggle();
-    	var currentRoom = Player.find({_id: 'p001'}).fetch()[0].roomAt;
     	var currentMob = Session.get('clickId');
-    	var currentMobHp = Mobs.find({_id: currentMob}).fetch()[0].hp;
-    	Mobs.update({_id: currentMob}, {$set: {hp: currentMobHp-100}});
-    	if (Mobs.find({_id: currentMob}).fetch()[0].hp <= 0) {
-    		engine.mobDeath();
-    	}
+    	var mobAttackTrigger = Mobs.findOne({_id: currentMob}).attackTrigger;
+    	questEngine[mobAttackTrigger].s1();
     }
 	}),
 	Template.dialogueResponse.helpers({
@@ -159,7 +155,7 @@ if (Meteor.isClient) {
 			var currentMob = Session.get('clickId');
 			Session.set('rclick', this._id);
 			var responseClicked = Session.get('rclick');
-			var diaStatus = Dialogue.find({_id: currentMob}).fetch()[0].diaStatus[0];
+			var diaStatus = Dialogue.findOne({_id: currentMob}).diaStatus[0];
 			//Echos response clicked to event log.
 			engine.echoPlayerEventLog(Dialogue.find({_id: currentMob}).fetch()[0][responseClicked].convo);
 			//Hides the dialogue response div
@@ -170,7 +166,7 @@ if (Meteor.isClient) {
 			}
 			//Update the status of the convo
 			if (Dialogue.find({_id: currentMob}).fetch()[0][responseClicked].next1.length >=1) {
-				Dialogue.update({_id: currentMob}, {$set: {diaStatus: [Dialogue.find({_id: currentMob}).fetch()[0][responseClicked].next1]}});
+				Dialogue.update({_id: currentMob}, {$set: {diaStatus: Dialogue.find({_id: currentMob}).fetch()[0][responseClicked].next1}});
 			}
 			//If the convo continues with a response, echo to event log
 			if (Dialogue.find({_id: currentMob}).fetch()[0][responseClicked].next1.length >=1 ) {
@@ -179,7 +175,6 @@ if (Meteor.isClient) {
 				//If there is another response, show response
 				if (Dialogue.find({_id: currentMob}).fetch()[0][nextConvo].response.length >= 1) {
 					$('.dialogueResponse').show();
-					console.log('test1234');
 				}				
 			}
 		}
