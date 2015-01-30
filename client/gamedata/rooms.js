@@ -48,7 +48,7 @@ Rooms.insert({
 	title: 'A Militia Outpost',
 	desc: 'The stone building serves as a gathering point for the local militia in this area. Serving the small villages throughout this province, this is where most of the recruiting takes place for the imperial army.',
 	exits: {
-		east: 'r003',
+		east: '',
 		west: 'r001',
 		south: '',
 		north: '',

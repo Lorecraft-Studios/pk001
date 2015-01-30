@@ -111,7 +111,15 @@ questEngine.s009 = {
 		engine.echoPlayerEventLog('Remus whispers, \"We\'ll be waiting for you outside.\"')
 		engine.moveMob('m002', 'east');
 		engine.moveMob('m003', 'east');
-		
+		//Allows player to SPEAK with Romulus and Remus
+		Dialogue.update({_id: 'm002'}, {$set: {diaStatus: [1]}});
+	}
+};
+
+//Opens to exit east to go home after getting beaten by Romulus and Remus
+questEngine.s010 = {
+	s1: function() {
+		Rooms.update({_id: 'r002'}, {$set: {exits: {east: 'r003'}}});
 	}
 }
 

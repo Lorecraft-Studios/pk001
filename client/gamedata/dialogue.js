@@ -93,3 +93,40 @@ Dialogue.insert({
     diaStatus: [1]
 });
 
+Dialogue.insert({
+    _id: 'm002',
+    1: {
+        _id: 1,
+        convo: '\“You\'ll NEVER be our leader!  Crawl under us or we\'ll beat you up!\”, taunts Romulus.',
+        next1: [],
+        response: [2,3]
+    },
+    2: {
+        _id: 2,
+        convo: 'Crawl Under',
+        next1: [4],
+        response: [],
+        hasScript: 's010'
+    },
+    3: {
+        _id: 3,
+        convo: 'Fight',
+        next1: [4],
+        response: [],
+        hasScript: 's010'
+    },
+    4: {
+        _id: 4,
+        convo: '\"Go home and cry to your mommy and daddy\", teases Romulus.',
+        next1: [],
+        response: []
+    },
+
+    diaStatus: [0]
+})
+
+
+
+
+
+
