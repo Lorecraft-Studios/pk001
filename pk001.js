@@ -133,13 +133,9 @@ if (Meteor.isClient) {
     },
     'click .menuItemAttack':function () {
     	$('#menu').fadeToggle();
-    	var currentRoom = Player.findOne({_id: 'p001'}).roomAt;
     	var currentMob = Session.get('clickId');
-    	var currentMobHp = Mobs.findOne({_id: currentMob}).hp;
-    	Mobs.update({_id: currentMob}, {$set: {hp: currentMobHp-100}});
-    	if (Mobs.findOne({_id: currentMob}).hp <= 0) {
-    		engine.mobDeath();
-    	}
+    	var mobAttackTrigger = Mobs.findOne({_id: currentMob}).attackTrigger;
+    	questEngine[mobAttackTrigger].s1();
     }
 	}),
 	Template.dialogueResponse.helpers({
@@ -159,7 +155,7 @@ if (Meteor.isClient) {
 			var currentMob = Session.get('clickId');
 			Session.set('rclick', this._id);
 			var responseClicked = Session.get('rclick');
-			var diaStatus = Dialogue.find({_id: currentMob}).fetch()[0].diaStatus[0];
+			var diaStatus = Dialogue.findOne({_id: currentMob}).diaStatus[0];
 			//Echos response clicked to event log.
 			engine.echoPlayerEventLog(Dialogue.find({_id: currentMob}).fetch()[0][responseClicked].convo);
 			//Hides the dialogue response div

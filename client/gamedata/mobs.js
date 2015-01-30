@@ -69,8 +69,7 @@ Mobs.insert({
     clickPart3: '',
     },
   roomAt:'',
-  hp: 100,
-  deathTrigger: 's002'
+  attackTrigger: 's004'
 });
 
 
