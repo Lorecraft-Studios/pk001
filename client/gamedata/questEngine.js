@@ -17,8 +17,8 @@ questEngine.s002 = {
 
 questEngine.s003 = {
 	s1: function() {
-		engine.echoPlayerEventLog('Romulus enters from the east with a mischievous grin on his face.');
-		engine.echoPlayerEventLog('Remus enters the room, ready to cause trouble.');
-		engine.echoPlayerEventLog('Aerus enters the room panting and out of breath.')
+		engine.moveMob('m002', 'west');
+		engine.moveMob('m003', 'west');
+		engine.moveMob('m004', 'west');
 	}
 };

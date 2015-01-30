@@ -20,13 +20,13 @@ Mobs.insert({
   shortDesc: 'Romulus',
 	longDesc: {
     part1: 'A ',
-    part2: '',
+    part2: 'brazen kid known as ',
     part3: ' stands here looking for trouble.',
     clickPart1: '',
-    clickPart2: 'brazen kid known as Romulus',
+    clickPart2: 'Romulus',
     clickPart3: '',
   },
-  roomAt:''
+  roomAt:'r002'
 });
 
 Mobs.insert({
@@ -34,13 +34,13 @@ Mobs.insert({
 	shortDesc: 'Remus',
 	longDesc: {
     part1: '',
-    part2: '',
+    part2: 'the mischievious kid',
     part3: ' runs around causing trouble.',
     clickPart1: 'Remus ',
-    clickPart2: 'the mischievious kid',
+    clickPart2: '',
     clickPart3: '',
    },
-  roomAt:''
+  roomAt:'r002'
 });
 
 Mobs.insert({
@@ -48,13 +48,13 @@ Mobs.insert({
   shortDesc: 'Aerus',
     longDesc: {
     part1: '',
-    part2: '',
+    part2: 'the shy little girl',
     part3: ' looks around uneasily.',
     clickPart1: 'Aerus ',
-    clickPart2: 'the shy little girl',
+    clickPart2: '',
     clickPart3: '',
     },
-  roomAt:''
+  roomAt:'r002'
 });
 
 Mobs.insert({
