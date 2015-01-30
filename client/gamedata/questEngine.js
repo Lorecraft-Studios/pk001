@@ -29,24 +29,32 @@ questEngine.s004 = {
 };
 
 questEngine.s005 = {
+	attacked: 'no',
 	s1: function() {
 		var currentMob = Session.get('clickId');
 		var currentRoom = Player.findOne({_id: 'p001'}).roomAt;
-		if (Dialogue.findOne({_id: 'm001'}).diaStatus[0] === 10 || Dialogue.findOne({_id: 'm001'}).diaStatus[0] === 13 ) {
-			engine.echoPlayerEventLog('You quickly overpower Romolus with your new training.');
-			engine.echoPlayerEventLog('Romolus spits, \"You got lucky, I slipped on the dirt.\"');			
+		if (questEngine.s005.attacked === 'no') {
+			if (Dialogue.findOne({_id: 'm001'}).diaStatus[0] === 10 || Dialogue.findOne({_id: 'm001'}).diaStatus[0] === 13 ) {
+				engine.echoPlayerEventLog('You quickly overpower Romolus with your new training.');
+				engine.echoPlayerEventLog('Romolus spits, \"You got lucky, I slipped on the dirt.\"');			
+			}
 		}
+		questEngine.s005.attacked = 'yes';
 	}
 };
 
 questEngine.s006 = {
+	attacked: 'no',
 	s1: function() {
 		var currentMob = Session.get('clickId');
 		var currentRoom = Player.findOne({_id: 'p001'}).roomAt;
-		if (Dialogue.findOne({_id: 'm001'}).diaStatus[0] === 10 || Dialogue.findOne({_id: 'm001'}).diaStatus[0] === 13 ) {
-			engine.echoPlayerEventLog('You gracefully use Remus\' force against him.  He falls face first into the ground.' );
-			engine.echoPlayerEventLog('Romolus spits, \"Cheater, what poor technique.\"');
+		if (questEngine.s006.attacked === 'no') {
+			if (Dialogue.findOne({_id: 'm001'}).diaStatus[0] === 10 || Dialogue.findOne({_id: 'm001'}).diaStatus[0] === 13 ) {
+				engine.echoPlayerEventLog('You gracefully use Remus\' force against him.  He falls face first into the ground.' );
+				engine.echoPlayerEventLog('Romolus spits, \"Cheater, what poor technique.\"');
+			}
 		}
+		questEngine.s006.attacked = 'yes';
 	}
 };
 
