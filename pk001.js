@@ -133,11 +133,11 @@ if (Meteor.isClient) {
     },
     'click .menuItemAttack':function () {
     	$('#menu').fadeToggle();
-    	var currentRoom = Player.find({_id: 'p001'}).fetch()[0].roomAt;
+    	var currentRoom = Player.findOne({_id: 'p001'}).roomAt;
     	var currentMob = Session.get('clickId');
-    	var currentMobHp = Mobs.find({_id: currentMob}).fetch()[0].hp;
+    	var currentMobHp = Mobs.findOne({_id: currentMob}).hp;
     	Mobs.update({_id: currentMob}, {$set: {hp: currentMobHp-100}});
-    	if (Mobs.find({_id: currentMob}).fetch()[0].hp <= 0) {
+    	if (Mobs.findOne({_id: currentMob}).hp <= 0) {
     		engine.mobDeath();
     	}
     }
