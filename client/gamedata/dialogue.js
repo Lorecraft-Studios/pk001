@@ -123,6 +123,50 @@ Dialogue.insert({
     },
 
     diaStatus: [0]
+});
+
+Dialogue.insert({
+    _id: 'm006',
+    1: {
+        _id: 1,
+        convo: '\“What happened to you??? Let me see those wounds!”, says your concerned mother.',
+        next1: [],
+        response: [2,3]
+    },
+    2: {
+        _id: 2,
+        convo: '\“It\’s nothing, I just fell in training that\’s all\”, you reply.',
+        next1: [4],
+        response: []
+    },
+    3: {
+        _id: 3,
+        convo: '\“Uhmm… Romulus and Remus.. they…\”, you mutter.',
+        next1: [4],
+        response: []
+    },
+    4: {
+        _id: 4,
+        convo: '\“Here let me see, come closer.  I\’ll dress them for you\” says your mother. ',
+        next1: [],
+        response: [],
+        hasScript: 's021'
+    },
+    5: {
+        _id: 5,
+        convo: '\“Okay thanks mom\”, you reply.',
+        next1: [],
+        response: [],
+        hasScript: 's022'
+    },
+    6: {
+        _id: 6,
+        convo: '\“Finally, dinnertime!\”, you excitedly reply.',
+        next1: [],
+        response: [],
+        hasScript: 's022'
+    },
+    diaStatus: [1]
 })
 
 

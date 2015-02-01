@@ -81,9 +81,9 @@ questEngine.s007 = {
 			if (Dialogue.findOne({_id: 'm001'}).diaStatus[0] === 10 || Dialogue.findOne({_id: 'm001'}).diaStatus[0] === 13 ) {
 				engine.echoPlayerEventLog('You begin to approach Aerus.');
 				engine.echoPlayerEventLog('Aerus beings to cry...');
-				Rooms.update({_id: 'r001'}, {$set: {exits: {east: 'r002'}}});
+				Rooms.update({_id: 'r001'}, {$set: {'exits.east': 'r002'}});
 				engine.moveMob('m004', 'east');
-				Rooms.update({_id: 'r001'}, {$set: {exits: {east: ''}}});
+				Rooms.update({_id: 'r001'}, {$set: {'exits.east': ''}});
 			}
 		}
 		questEngine.s007.attacked = 'yes';
@@ -107,7 +107,7 @@ questEngine.s008 = {
 questEngine.s009 = {
 	s1: function() {
 		//Update room to show east exit
-		Rooms.update({_id: 'r001'}, {$set: {exits: {east: 'r002'}}});
+		Rooms.update({_id: 'r001'}, {$set: {'exits.east': 'r002'}});
 		engine.echoPlayerEventLog('Remus whispers, \"We\'ll be waiting for you outside.\"')
 		engine.moveMob('m002', 'east');
 		engine.moveMob('m003', 'east');
@@ -119,11 +119,30 @@ questEngine.s009 = {
 //Opens to exit east to go home after getting beaten by Romulus and Remus
 questEngine.s010 = {
 	s1: function() {
-		Rooms.update({_id: 'r002'}, {$set: {exits: {east: 'r003'}}});
+		Rooms.update({_id: 'r002'}, {$set: {'exits.east': 'r003'}});
 	}
 }
 
+//entering your home for the first time, mom will start a conversation.
+questEngine.s020 = {
+	s1: function() {
+		engine.echoPlayerEventLog('Your mom welcomes you home with a hug.');
+		engine.echoPlayerEventLog('She has a concerned look on her face.');
+	}
+}
 
+questEngine.s021 = {
+	s1:function() {
+		Meteor.setTimeout(function() {
+			engine.echoPlayerEventLog('Your mother tightly bandages the wounds and you feel as good as new.');
+		}, 2000);
+		Meteor.setTimeout(function() {
+			engine.echoPlayerEventLog('\“Okay all set! It\’s time for dinner now.  Can you help me get some vegetables in the garden?\” asks mother.');
+			Dialogue.update({_id: 'm006'}, {$set: {diaStatus: [6]}});
+			$('.dialogueResponse').show();
+		}, 4000);
+	}
+}
 
 
 

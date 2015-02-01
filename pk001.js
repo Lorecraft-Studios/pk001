@@ -175,6 +175,10 @@ if (Meteor.isClient) {
 				//If there is another response, show response
 				if (Dialogue.find({_id: currentMob}).fetch()[0][nextConvo].response.length >= 1) {
 					$('.dialogueResponse').show();
+				}
+				//If there is a scirpt in continue conversation.
+				if (Dialogue.find({_id: currentMob}).fetch()[0][nextConvo].hasScript) {
+					questEngine[Dialogue.find({_id: currentMob}).fetch()[0][nextConvo].hasScript].s1();
 				}				
 			}
 		}

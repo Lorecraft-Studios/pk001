@@ -247,8 +247,9 @@ Rooms.insert({
 		up: '',
 		down:''
 	},
-	mobs: [],
-	items: []
+	mobs: ['m006','m007'],
+	items: [],
+	roomEnterTrigger: 's020'
 });
 //***********************************************************//
 Rooms.insert({
