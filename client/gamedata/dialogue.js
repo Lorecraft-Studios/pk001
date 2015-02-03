@@ -149,27 +149,80 @@ Dialogue.insert({
         _id: 4,
         convo: '\“Here let me see, come closer.  I\’ll dress them for you\” says your mother. ',
         next1: [],
-        response: [],
+        response: [5,6],
         hasScript: 's021'
     },
     5: {
         _id: 5,
         convo: '\“Okay thanks mom\”, you reply.',
-        next1: [],
+        next1: [0],
         response: [],
         hasScript: 's022'
     },
     6: {
         _id: 6,
         convo: '\“Finally, dinnertime!\”, you excitedly reply.',
-        next1: [],
+        next1: [0],
         response: [],
         hasScript: 's022'
+    },
+    7: {
+        _id: 7,
+        convo: '\“Wonderful, they\’re all ripe and ready to eat!\” says mother.',
+        next1: [],
+        response: [],
+        hasScript: 's024'
     },
     diaStatus: [1]
 })
 
-
+Dialogue.insert({
+    _id: 'm007',
+    1: {
+        _id: 1,
+        convo: '\“Mmm tasty, as usual.  We\’ll have a great dinner tonight.  So I heard the good news boy.  I\’m proud of you. It\’s tough being a leader you know.\” says father. ',
+        next1: [],
+        response: [],
+        hasScript: 's025'
+    },
+    2: {
+        _id: 2,
+        convo: '\“So tell me more about the fight with the kids\”, says father calmly.',
+        next1: [],
+        response: [3,4,5]
+    },
+    3: {
+        _id: 3,
+        convo: '\“I don\'t know…\”, you reply.',
+        next1: [6],
+        response: []
+    },
+    4: {
+        _id: 4,
+        convo: '\“They started it!\”, you reply.',
+        next1: [6],
+        response: []
+    },
+    5: {
+        _id: 5,
+        convo: '\“They had metal weapons…\”, you reply.',
+        next1: [6],
+        response: []
+    },
+    6: {
+        _id: 6,
+        convo: '\“Well what you did was good.  You let it go.  A real warrior has a heart that can accommodate all under the sky,\” says father.',
+        next1: [],
+        response: [7]
+    },
+    7: {
+        _id: 7,
+        convo: '\“Father, you\’re not even a warrior, how would you know?\”, you reply.',
+        next1: [],
+        response: []
+    },
+    diaStatus: [0]
+})
 
 
 

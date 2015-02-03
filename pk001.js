@@ -141,9 +141,15 @@ if (Meteor.isClient) {
     'click .menuItemInspect':function () {
     	$('#menu').fadeToggle();
     	var currentItem = Session.get('itemId');
-    	engine.echoPlayerEventLog('You pick up ' + Items.findOne({_id: currentItem}).shortDesc + '.');
     	var currentRoom = Player.findOne({_id: 'p001'}).roomAt;
-    	Rooms.update({_id: currentRoom}, {$pull: {items: {_id: currentItem}}})
+    	//pick up the item
+    	engine.echoPlayerEventLog('You pick up ' + Items.findOne({_id: currentItem}).shortDesc + '.');
+    	//pulls/removes items from the room
+    	Rooms.update({_id: currentRoom}, {$pull: {items: {_id: currentItem}}});
+    	//if there is a script attached to item, fire it
+    	if (Items.findOne({_id: currentItem}).questTrigger) {
+				questEngine[Items.findOne({_id: currentItem}).questTrigger].s1();
+			}
     }
 	}),
 	Template.dialogueResponse.helpers({

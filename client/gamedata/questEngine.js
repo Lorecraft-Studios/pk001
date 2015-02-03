@@ -124,22 +124,67 @@ questEngine.s010 = {
 
 //entering your home for the first time, mom will start a conversation.
 questEngine.s020 = {
+	enteredOnce: "no",
 	s1: function() {
-		engine.echoPlayerEventLog('Your mom welcomes you home with a hug.');
-		engine.echoPlayerEventLog('She has a concerned look on her face.');
+		if (questEngine.s020.enteredOnce === 'no') {
+			engine.echoPlayerEventLog('Your mom welcomes you home with a hug.');
+			engine.echoPlayerEventLog('She has a concerned look on her face.');
+		}
+		questEngine.s020.enteredOnce = 'yes';
 	}
 }
 
 questEngine.s021 = {
 	s1:function() {
+		$('.dialogueResponse').hide();
 		Meteor.setTimeout(function() {
 			engine.echoPlayerEventLog('Your mother tightly bandages the wounds and you feel as good as new.');
 		}, 2000);
 		Meteor.setTimeout(function() {
 			engine.echoPlayerEventLog('\“Okay all set! It\’s time for dinner now.  Can you help me get some vegetables in the garden?\” asks mother.');
-			Dialogue.update({_id: 'm006'}, {$set: {diaStatus: [6]}});
 			$('.dialogueResponse').show();
 		}, 4000);
+	}
+}
+
+questEngine.s022 = {
+	//Spawns the vegetables into the garden
+	s1:function() {
+		Rooms.update({_id: 'r015'}, {$push: {'items': Items.findOne({_id: 'i001'})}});
+	}
+}
+
+questEngine.s023 = {
+	//moves mother dialogue forward after picking up vegetables
+	s1:function () {
+		Dialogue.update({_id: 'm006'}, {$set: {diaStatus: [7]}});
+	}
+}
+
+questEngine.s024 = {
+	s1:function () {
+		engine.echoPlayerEventLog('Mother moseys on over to the kitchen and starts the fire.');
+		Meteor.setTimeout(function() {
+			engine.echoPlayerEventLog('A waft of spiced stew reaches your nose.');
+		}, 2000);
+		Meteor.setTimeout(function() {
+			engine.echoPlayerEventLog('\“Here give this spoonful of stew to your father to taste\”, says mother.');
+			Dialogue.update({_id: 'm006'}, {$set: {diaStatus: [0]}});
+		}, 4000);
+		Meteor.setTimeout(function() {
+			engine.echoPlayerEventLog('Father lifts the spoon to his mouth to taste the stew.');
+			//enables to speak with father
+			Dialogue.update({_id: 'm007'}, {$set: {diaStatus: [1]}});
+		}, 5000);
+	}
+}
+
+questEngine.s025 = {
+	s1:function() {
+		Meteor.setTimeout(function() {
+			engine.echoPlayerEventLog('\“So tell me more about the fight with the kids\”, says father calmly.');
+			Dialogue.update({_id: 'm007'}, {$set: {diaStatus: [2]}});
+		}, 2000);
 	}
 }
 
