@@ -45,8 +45,8 @@ engine.teleportPlayer = function(roomTo, playerId) {
 };
 
 engine.teleportMob = function(roomTo, mobId) {
-  Rooms.update({_id: engine.mobCurrentRoom(mobId)},{$pull:{'mobs':mobId}});
-  Rooms.update({_id: roomTo},{$push:{'mobs':mobId}});
+  Rooms.update({_id: engine.mobCurrentRoom(mobId)},{$pull:{'mobs': {_id: mobId}}});
+  Rooms.update({_id: roomTo},{$push:{'mobs':Mobs.findOne({_id: mobId})}});
   Mobs.update({_id:mobId},{$set:{'roomAt':roomTo}});
 };
 
