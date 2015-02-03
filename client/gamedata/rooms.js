@@ -265,7 +265,7 @@ Rooms.insert({
 		down:''
 	},
 	mobs: [],
-	items: []
+	items: [Items.findOne({_id: 'i001'})]
 });
 //***********************************************************//
 Rooms.insert({

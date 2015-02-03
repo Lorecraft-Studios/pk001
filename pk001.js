@@ -94,11 +94,17 @@ if (Meteor.isClient) {
       Session.set('clickId', this._id)
     }
 	}),
+	Template.roomItems.events({
+    'click span.itemclick':function(event) {
+      $('#menu').css('left', event.pageX+5);
+      $('#menu').css('top', event.pageY+5);
+      $('#menu').fadeToggle();
+      Session.set('itemId', this._id);
+    }
+	}),
 	Template.roomItems.helpers({
 		roomItems:function() {
-			if  (Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].items.length >= 1) {
-				return Mobs.find({_id: Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].items[0]});
-			}
+			return Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].items;
 		}
 	}),
 	Template.contextMenu.events({
@@ -131,6 +137,13 @@ if (Meteor.isClient) {
     	var currentMob = Session.get('clickId');
     	var mobAttackTrigger = Mobs.findOne({_id: currentMob}).attackTrigger;
     	questEngine[mobAttackTrigger].s1();
+    },
+    'click .menuItemInspect':function () {
+    	$('#menu').fadeToggle();
+    	var currentItem = Session.get('itemId');
+    	engine.echoPlayerEventLog('You pick up ' + Items.findOne({_id: currentItem}).shortDesc + '.');
+    	var currentRoom = Player.findOne({_id: 'p001'}).roomAt;
+    	Rooms.update({_id: currentRoom}, {$pull: {items: {_id: currentItem}}})
     }
 	}),
 	Template.dialogueResponse.helpers({

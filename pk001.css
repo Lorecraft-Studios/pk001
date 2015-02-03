@@ -72,12 +72,12 @@
 	font-family:Arial, Helvetica, sans-serif;
 	cursor:default;
 }
-.menuItemSpeak, .menuItemCancel {
+.menuItemSpeak, .menuItemCancel, .menuItemInspect {
 	padding-left:5px;
 	padding-right:5px;
 	font-family:Arial, Helvetica, sans-serif;
 	cursor:default;
 }
-.menuItemSpeak:hover, .menuItemCancel:hover, .menuItem:hover {
+.menuItemSpeak:hover, .menuItemCancel:hover, .menuItem:hover, .menuItemInspect:hover {
 	background-color:#99CCFF;
 }
