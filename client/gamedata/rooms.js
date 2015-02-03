@@ -39,7 +39,7 @@ Rooms.insert({
 		up: '',
 		down: ''
 	},
-	mobs: ['m001'],
+	mobs: [Mobs.findOne({_id: 'm001'})],
 	items: []
 });
 //***********************************************************//
@@ -55,7 +55,7 @@ Rooms.insert({
 		up: '',
 		down: ''
 	},
-	mobs: ['m002','m003','m004'],
+	mobs: [Mobs.findOne({_id: 'm002'}),Mobs.findOne({_id: 'm003'}),Mobs.findOne({_id: 'm004'})],
 	items: []
 });
 //***********************************************************//
@@ -247,7 +247,7 @@ Rooms.insert({
 		up: '',
 		down:''
 	},
-	mobs: ['m006','m007'],
+	mobs: [Mobs.findOne({_id: 'm006'}),Mobs.findOne({_id: 'm007'})],
 	items: [],
 	roomEnterTrigger: 's020'
 });

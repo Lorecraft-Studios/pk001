@@ -77,12 +77,12 @@ if (Meteor.isClient) {
 	})
 	Template.roomMobs.helpers({
 		roomMobs:function() {
-			var mobsArray = Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].mobs;
-			var mobsObject = [];
-			for (i=0; i < mobsArray.length; i++){
-				mobsObject.push(Mobs.find({_id: mobsArray[i]}).fetch()[0])
-			}
-			return mobsObject;
+			return Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].mobs;
+		//	var mobsObject = [];
+	//		for (i=0; i < mobsArray.length; i++){
+	//			mobsObject.push(Mobs.find({_id: mobsArray[i]}).fetch()[0])
+	//		}
+	//		return mobsObject;
 		}
 	}),
 	Template.eventDisplay.helpers({
