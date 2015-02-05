@@ -5,6 +5,7 @@ if (Meteor.isClient) {
 			$('#enter').remove();
 			$('.welcome').remove();
 			$('.exits').show();
+			$('.leftUi').show();
 		}
 	}),
 	Template.roomTitle.helpers({

@@ -1,4 +1,33 @@
 /* CSS declarations go here */
+body, html {
+	background-color: rgb(250,223,194);
+	font-family: Garamond;
+	height:100%;
+	position:relative;
+
+}
+.leftUi {
+	width:40%;
+	height:100%;
+	float:left;
+	margin-right: 30px;
+	margin-left: 10px;
+	border-right: solid 1px #CCCCCC;
+	padding-right:5px;
+	display:none;
+}
+.roomDisplay{
+	height:72%;
+}
+.exitImage {
+	text-align: center;
+}
+.rightUi {
+	width:40%;
+	height:100%;
+	float:left;
+	margin-top:50px;
+}
 .mobclick {
 	font-weight:bold;
 	color:blue;
@@ -21,12 +50,14 @@
 	display:none;
 }
 .eventDisplay{
-
-	height:150px;
+	height:72%;
 	overflow:scroll;
 }
 .dialogueResponse{
 	display:none;
+	border:solid 1px #CCCCCC;
+	padding:10px;
+	border-radius:10px;
 }
 .rclick {
 	cursor:default;
@@ -34,8 +65,19 @@
 .rclick:hover{
 	background-color:yellow;
 }
+.roomTitle {
+	font-weight: bold;
+	text-align: center;
+}
 .roomDesc {
-	height:30px;
+	height:50px;
+}
+.images {
+	height:50px;
+	width:50px;
+}
+.buttons {
+	vertical-align: bottom;
 }
 .exitTrue {
 	cursor:default;

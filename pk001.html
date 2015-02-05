@@ -4,10 +4,8 @@
 
 <body>
 	{{> welcome}}
-	{{> roomDisplay}}
-	{{> eventDisplay}}
-	{{> dialogueResponse}}
-
+	{{> leftUi}}
+	{{> rightUi}}
 </body>
 
 <Template name='welcome'>
@@ -17,17 +15,40 @@
 	<input type='button' id='enter' value='enter'/>
 </Template>
 
+<Template name='leftUi'>
+	<div class='leftUi'>
+		{{> roomDisplay}}
+	</div>
+</Template>
+
+<Template name='rightUi'>
+	<div class='rightUi'>
+		{{> eventDisplay}}
+		{{> dialogueResponse}}
+	</div>
+</Template>
+
 <Template name='roomDisplay'>
-	{{> roomTitle}}
-	{{> roomDesc}}
-	{{> roomExits}}
-	{{> roomMobs}}
-	{{> roomItems}}
-	{{> contextMenu}}
+	<div class='roomDisplay'>
+		{{> roomTitle}}
+		{{> roomDesc}}
+		<div class = 'exitImage'>
+			<img class='images' src="/images/directions.png"/>
+		</div>
+		{{> roomExits}}
+		{{> roomMobs}}
+		{{> roomItems}}
+		{{> contextMenu}}
+	</div>
+	<div>
+		{{> buttons}}
+	</div>
 </Template>
 
 <Template name='roomTitle'>
-	<p>{{roomTitle}}</p>
+	<div class = 'roomTitle'>
+		<p>{{roomTitle}}</p>
+	</div>
 </Template>
 
 <Template name='roomDesc'>
@@ -65,6 +86,15 @@
   <div class ='lineBreak'></div>
   <span class='menuItemCancel'>Cancel</span>
 </div>
+</Template>
+
+<Template name='buttons'>
+	<div class='buttons'>
+		<img class='images' src="/images/chatbubble.png"/>
+		<img class='images' src="/images/hand.png"/>
+		<img class='images' src="/images/swordshielddark.png"/>
+		<img class='images' src="/images/settings.png"/>
+	</div>
 </Template>
 
 <Template name='eventDisplay'>
