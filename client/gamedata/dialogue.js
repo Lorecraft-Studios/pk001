@@ -218,6 +218,52 @@ Dialogue.insert({
     7: {
         _id: 7,
         convo: '\“Father, you\’re not even a warrior, how would you know?\”, you reply.',
+        next1: [8],
+        response: []
+    },
+    8: {
+        _id: 8,
+        convo: '\“Ah it’s high time for me to tell you about about your family lineage\”, says dad.',
+        next1: [],
+        response: [9,10,11],
+        hasScript: 's026'
+    },
+    9: {
+        _id: 9,
+        convo: '\“Really, we have a general in our family?\”, you reply.',
+        next1: [12],
+        response: []
+    },
+    10: {
+        _id: 10,
+        convo: '\“Tell me dad, tell me!\”, you reply.',
+        next1: [],
+        response: [],
+        hasScript: 's027'
+    },
+    11: {
+        _id: 11,
+        convo: '\“Are you making this story up?\”, you ask.',
+        next1: [13],
+        response: []
+    },
+    12: {
+        _id: 12,
+        convo: '\“Yes, he help usher in the golden age of our empire through his kind deeds,\” father replies.',
+        next1: [],
+        response: [14],
+        hasScript: 's027'
+    },
+    13: {
+        _id: 13,
+        convo: '\“No, we\’ve kept this secret from you for many years.  But I think it\’s time you should know now\”, replies father.',
+        next1: [],
+        response: [],
+        hasScript: 's027'
+    },
+    14: {
+        _id: 14,
+        convo: '\“He treated even his greatest enemies with respect.\”, says dad.  \“Often caring for them after battles and helping their families out.',
         next1: [],
         response: []
     },
