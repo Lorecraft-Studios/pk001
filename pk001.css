@@ -93,6 +93,11 @@ body, html {
     opacity: 0.4;
     filter: alpha(opacity=40); 
 }
+.selectedIcon {
+	opacity: 1.0;
+    filter: alpha(opacity=100); 
+
+}
 .images:hover {
     opacity: 1.0;
     filter: alpha(opacity=100); 
