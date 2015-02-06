@@ -32,9 +32,6 @@
 	<div class='roomDisplay'>
 		{{> roomTitle}}
 		{{> roomDesc}}
-		<div class = 'exitImage'>
-			<img class='images' src="/images/directions.png"/>
-		</div>
 		{{> roomExits}}
 		{{> roomMobs}}
 		{{> roomItems}}
@@ -60,7 +57,21 @@
 <Template name='roomExits'>
 	<div class='exits'>
 		{{roomExits}}
-		<p>[<span class='northexit'> North </span><span class='eastexit'> East </span><span class='southexit'> South </span><span class='westexit'> West </span><span class='upexit'> Up </span><span class='downexit'> Down </span>]</p>
+		<div class id='northexit'>
+			<span class='northexit'>N</span>
+		</div>	
+		<div id = 'eastwestimage'>
+			<div class id='westexit'>
+				<span class='westexit'>W</span>
+			</div>	
+			<img class='directionImage' src="/images/directions.png"/>
+			<div class id='eastexit'>
+				<span class='eastexit'>E</span>
+			</div>	
+		</div>
+		<div class id='southexit'>
+			<span class='southexit'>S</span>
+		</div>
 	</div>
 </Template>
 
@@ -100,7 +111,7 @@
 <Template name='eventDisplay'>
 	<div class='eventDisplay'>
 		{{#each eventDisplay}}
-			{{this}}<br />
+			{{this}}<br /><br />
 		{{/each}}
 	</div>
 </Template>
