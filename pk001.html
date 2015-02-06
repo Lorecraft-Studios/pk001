@@ -4,10 +4,8 @@
 
 <body>
 	{{> welcome}}
-	{{> roomDisplay}}
-	{{> eventDisplay}}
-	{{> dialogueResponse}}
-
+	{{> leftUi}}
+	{{> rightUi}}
 </body>
 
 <Template name='welcome'>
@@ -17,17 +15,37 @@
 	<input type='button' id='enter' value='enter'/>
 </Template>
 
+<Template name='leftUi'>
+	<div class='leftUi'>
+		{{> roomDisplay}}
+	</div>
+</Template>
+
+<Template name='rightUi'>
+	<div class='rightUi'>
+		{{> eventDisplay}}
+		{{> dialogueResponse}}
+	</div>
+</Template>
+
 <Template name='roomDisplay'>
-	{{> roomTitle}}
-	{{> roomDesc}}
-	{{> roomExits}}
-	{{> roomMobs}}
-	{{> roomItems}}
-	{{> contextMenu}}
+	<div class='roomDisplay'>
+		{{> roomTitle}}
+		{{> roomDesc}}
+		{{> roomExits}}
+		{{> roomMobs}}
+		{{> roomItems}}
+		{{> contextMenu}}
+	</div>
+	<div>
+		{{> buttons}}
+	</div>
 </Template>
 
 <Template name='roomTitle'>
-	<p>{{roomTitle}}</p>
+	<div class = 'roomTitle'>
+		<p>{{roomTitle}}</p>
+	</div>
 </Template>
 
 <Template name='roomDesc'>
@@ -39,7 +57,21 @@
 <Template name='roomExits'>
 	<div class='exits'>
 		{{roomExits}}
-		<p>[<span class='northexit'> North </span><span class='eastexit'> East </span><span class='southexit'> South </span><span class='westexit'> West </span><span class='upexit'> Up </span><span class='downexit'> Down </span>]</p>
+		<div class id='northexit'>
+			<span class='northexit'>N</span>
+		</div>	
+		<div id = 'eastwestimage'>
+			<div class id='westexit'>
+				<span class='westexit'>W</span>
+			</div>	
+			<img class='directionImage' src="/images/directions.png"/>
+			<div class id='eastexit'>
+				<span class='eastexit'>E</span>
+			</div>	
+		</div>
+		<div class id='southexit'>
+			<span class='southexit'>S</span>
+		</div>
 	</div>
 </Template>
 
@@ -71,10 +103,19 @@
 </div>
 </Template>
 
+<Template name='buttons'>
+	<div class='buttons'>
+		<img class='images chatbubble' src="/images/chatbubble.png"/>
+		<img class='images hand' src="/images/hand.png"/>
+		<img class='images swordshielddark' src="/images/swordshielddark.png"/>
+		<img class='images settings' src="/images/settings.png"/>
+	</div>
+</Template>
+
 <Template name='eventDisplay'>
 	<div class='eventDisplay'>
 		{{#each eventDisplay}}
-			{{this}}<br />
+			{{this}}<br /><br />
 		{{/each}}
 	</div>
 </Template>

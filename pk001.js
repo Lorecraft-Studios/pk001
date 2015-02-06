@@ -5,6 +5,7 @@ if (Meteor.isClient) {
 			$('#enter').remove();
 			$('.welcome').remove();
 			$('.exits').show();
+			$('.leftUi').show();
 		}
 	}),
 	Template.roomTitle.helpers({
@@ -87,11 +88,34 @@ if (Meteor.isClient) {
 
 	}),
 	Template.roomMobs.events({
-    'click span.mobclick':function(event) {
-      $('#menu').css('left', event.pageX+5);
-      $('#menu').css('top', event.pageY+5);
-      $('#menu').fadeToggle();
-      Session.set('clickId', this._id)
+    'click span.mobclick':function() {
+    	Session.set('clickId', this._id)
+    	if (Icons.chatbubble.selected === 'yes') {
+   		 	var currentMob = Session.get('clickId');
+    		var diaStatus = Dialogue.find({_id: currentMob}).fetch()[0].diaStatus[0];
+    		// If mob has dialogue, echo in event log
+    		if (Dialogue.find({_id: currentMob}).fetch()[0][diaStatus].convo) {
+    		engine.echoPlayerEventLog(Dialogue.find({_id: currentMob}).fetch()[0][diaStatus].convo);
+    		}
+    		//If there is a script to run, run from quest engine
+    		if (Dialogue.find({_id: currentMob}).fetch()[0][diaStatus].hasScript) {
+					questEngine[Dialogue.find({_id: currentMob}).fetch()[0][diaStatus].hasScript].s1();
+				}
+			//If dialogue requires player input, show the dialogue response div
+    		if (Dialogue.find({_id: currentMob}).fetch()[0][diaStatus].response.length >= 1) {
+    			$('.dialogueResponse').show();
+    		}
+    		//If dialogue doesn't require input and needs to move, move status to next convo
+    		if (Dialogue.find({_id: currentMob}).fetch()[0][diaStatus].next1.length >= 1) {
+    			Dialogue.update({_id: currentMob}, {$set: {diaStatus: Dialogue.find({_id: currentMob}).fetch()[0][diaStatus].next1}});
+    		}
+    	}
+    	if (Icons.swordshielddark.selected === 'yes') {
+    		var currentMob = Session.get('clickId');
+    		var mobAttackTrigger = Mobs.findOne({_id: currentMob}).attackTrigger;
+    		questEngine[mobAttackTrigger].s1();
+    	}
+      
     }
 	}),
 	Template.roomItems.events({
@@ -191,6 +215,20 @@ if (Meteor.isClient) {
 					questEngine[Dialogue.find({_id: currentMob}).fetch()[0][nextConvo].hasScript].s1();
 				}				
 			}
+		}
+	}),
+	Template.buttons.events({
+		'click .chatbubble': function () {
+			$('.chatbubble').addClass('selectedIcon');
+			$('.swordshielddark').removeClass('selectedIcon');
+			Icons.chatbubble.selected = 'yes'
+			Icons.swordshielddark.selected = 'no'
+		},
+		'click .swordshielddark':function() {
+			$('.swordshielddark').addClass('selectedIcon');
+			$('.chatbubble').removeClass('selectedIcon');
+			Icons.swordshielddark.selected = 'yes'
+			Icons.chatbubble.selected = 'no'
 		}
 	})
 
