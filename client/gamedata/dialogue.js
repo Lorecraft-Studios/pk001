@@ -149,27 +149,126 @@ Dialogue.insert({
         _id: 4,
         convo: '\“Here let me see, come closer.  I\’ll dress them for you\” says your mother. ',
         next1: [],
-        response: [],
+        response: [5,6],
         hasScript: 's021'
     },
     5: {
         _id: 5,
         convo: '\“Okay thanks mom\”, you reply.',
-        next1: [],
+        next1: [0],
         response: [],
         hasScript: 's022'
     },
     6: {
         _id: 6,
         convo: '\“Finally, dinnertime!\”, you excitedly reply.',
-        next1: [],
+        next1: [0],
         response: [],
         hasScript: 's022'
+    },
+    7: {
+        _id: 7,
+        convo: '\“Wonderful, they\’re all ripe and ready to eat!\” says mother.',
+        next1: [],
+        response: [],
+        hasScript: 's024'
     },
     diaStatus: [1]
 })
 
-
+Dialogue.insert({
+    _id: 'm007',
+    1: {
+        _id: 1,
+        convo: '\“Mmm tasty, as usual.  We\’ll have a great dinner tonight.  So I heard the good news boy.  I\’m proud of you. It\’s tough being a leader you know.\” says father. ',
+        next1: [],
+        response: [],
+        hasScript: 's025'
+    },
+    2: {
+        _id: 2,
+        convo: '\“So tell me more about the fight with the kids\”, says father calmly.',
+        next1: [],
+        response: [3,4,5]
+    },
+    3: {
+        _id: 3,
+        convo: '\“I don\'t know…\”, you reply.',
+        next1: [6],
+        response: []
+    },
+    4: {
+        _id: 4,
+        convo: '\“They started it!\”, you reply.',
+        next1: [6],
+        response: []
+    },
+    5: {
+        _id: 5,
+        convo: '\“They had metal weapons…\”, you reply.',
+        next1: [6],
+        response: []
+    },
+    6: {
+        _id: 6,
+        convo: '\“Well what you did was good.  You let it go.  A real warrior has a heart that can accommodate all under the sky,\” says father.',
+        next1: [],
+        response: [7]
+    },
+    7: {
+        _id: 7,
+        convo: '\“Father, you\’re not even a warrior, how would you know?\”, you reply.',
+        next1: [8],
+        response: []
+    },
+    8: {
+        _id: 8,
+        convo: '\“Ah it’s high time for me to tell you about about your family lineage\”, says dad.',
+        next1: [],
+        response: [9,10,11],
+        hasScript: 's026'
+    },
+    9: {
+        _id: 9,
+        convo: '\“Really, we have a general in our family?\”, you reply.',
+        next1: [12],
+        response: []
+    },
+    10: {
+        _id: 10,
+        convo: '\“Tell me dad, tell me!\”, you reply.',
+        next1: [],
+        response: [],
+        hasScript: 's027'
+    },
+    11: {
+        _id: 11,
+        convo: '\“Are you making this story up?\”, you ask.',
+        next1: [13],
+        response: []
+    },
+    12: {
+        _id: 12,
+        convo: '\“Yes, he help usher in the golden age of our empire through his kind deeds,\” father replies.',
+        next1: [],
+        response: [14],
+        hasScript: 's027'
+    },
+    13: {
+        _id: 13,
+        convo: '\“No, we\’ve kept this secret from you for many years.  But I think it\’s time you should know now\”, replies father.',
+        next1: [],
+        response: [],
+        hasScript: 's027'
+    },
+    14: {
+        _id: 14,
+        convo: '\“He treated even his greatest enemies with respect.\”, says dad.  \“Often caring for them after battles and helping their families out.',
+        next1: [],
+        response: []
+    },
+    diaStatus: [0]
+})
 
 
 

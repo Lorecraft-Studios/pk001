@@ -1,4 +1,47 @@
 /* CSS declarations go here */
+body, html {
+	background-color: rgb(250,223,194);
+	font-family: Garamond;
+	height:100%;
+	position:relative;
+
+}
+.leftUi {
+	width:40%;
+	height:100%;
+	float:left;
+	margin-right: 30px;
+	margin-left: 10px;
+	border-right: solid 1px #CCCCCC;
+	padding-right:5px;
+	display:none;
+}
+.roomDisplay{
+	height:72%;
+}
+#eastwestimage {
+	text-align: center;
+}
+#northexit, #southexit {
+	text-align:center;
+}
+#westexit, #eastexit {
+	margin-top:auto;
+    margin-bottom:auto;
+	display:inline;
+}
+.directionImage {
+	height:30px;
+	width:200px;
+	text-align: center;
+	vertical-align: middle;
+}
+.rightUi {
+	width:40%;
+	height:100%;
+	float:left;
+	margin-top:50px;
+}
 .mobclick {
 	font-weight:bold;
 	color:blue;
@@ -14,70 +57,63 @@
 	width: 300px;
 	height:100px;
 }
-.mobclick:hover{
+.mobclick:hover, .itemclick:hover{
 	background-color:yellow;
 }
 .exits{
 	display:none;
 }
 .eventDisplay{
-
-	height:150px;
+	height:72%;
 	overflow:scroll;
+	overflow-x:hidden;
 }
 .dialogueResponse{
 	display:none;
+	border:solid 1px #CCCCCC;
+	padding:10px;
+	border-radius:10px;
+	color:#949494;
 }
-.rclick {
+.rclick, .itemclick {
 	cursor:default;
 }
 .rclick:hover{
-	background-color:yellow;
+	color:black;
+}
+.roomTitle {
+	font-weight: bold;
+	text-align: center;
 }
 .roomDesc {
-	height:30px;
+	height:70px;
+}
+.images {
+	height:50px;
+	width:50px;
+    opacity: 0.4;
+    filter: alpha(opacity=40); 
+}
+.selectedIcon {
+	opacity: 1.0;
+    filter: alpha(opacity=100); 
+}
+.images:hover {
+    opacity: 1.0;
+    filter: alpha(opacity=100); 
+}
+.buttons {
+	vertical-align: bottom;
 }
 .exitTrue {
 	cursor:default;
-	color:#009933;
 	font-weight:bold;
 }
 .exitFalse {
 	font-style:italic;
 	cursor:default;
+	color:#949494;
 }
-.lineBreak {
-	width: 95%;
-	height:1px;
-	background-color:#626262;
-	margin-left:auto;
-	margin-right:auto;
-	margin-bottom:2px;
-	cursor:default;
-}
-#menu {
- background-color:#FFFFCC;
- border: 2px solid #6A6A6A;
- border-radius:5px;
- box-shadow:5px 5px 10px #474747;
- padding-top:5px;
- padding-bottom:5px;
- position:absolute;
- display:none;
- cursor:default;
-}
-.menuItem {
-	padding-left:5px;
-	padding-right:5px;
-	font-family:Arial, Helvetica, sans-serif;
-	cursor:default;
-}
-.menuItemSpeak, .menuItemCancel {
-	padding-left:5px;
-	padding-right:5px;
-	font-family:Arial, Helvetica, sans-serif;
-	cursor:default;
-}
-.menuItemSpeak:hover, .menuItemCancel:hover, .menuItem:hover {
-	background-color:#99CCFF;
+.buttons {
+	text-align: center;
 }

@@ -232,7 +232,7 @@ Rooms.insert({
 		down:''
 	},
 	mobs: [],
-	items: []
+	items: [Items.findOne({_id: 'i002'})]
 });
 //***********************************************************//
 Rooms.insert({
