@@ -96,7 +96,6 @@ body, html {
 .selectedIcon {
 	opacity: 1.0;
     filter: alpha(opacity=100); 
-
 }
 .images:hover {
     opacity: 1.0;
@@ -113,6 +112,9 @@ body, html {
 .exitFalse {
 	font-style:italic;
 	cursor:default;
+}
+.buttons {
+	text-align: center;
 }
 .lineBreak {
 	width: 95%;
