@@ -57,7 +57,7 @@ body, html {
 	width: 300px;
 	height:100px;
 }
-.mobclick:hover{
+.mobclick:hover, .itemclick:hover{
 	background-color:yellow;
 }
 .exits{
@@ -75,7 +75,7 @@ body, html {
 	border-radius:10px;
 	color:#949494;
 }
-.rclick {
+.rclick, .itemclick {
 	cursor:default;
 }
 .rclick:hover{
@@ -107,48 +107,13 @@ body, html {
 }
 .exitTrue {
 	cursor:default;
-	color:#009933;
 	font-weight:bold;
 }
 .exitFalse {
 	font-style:italic;
 	cursor:default;
+	color:#949494;
 }
 .buttons {
 	text-align: center;
-}
-.lineBreak {
-	width: 95%;
-	height:1px;
-	background-color:#626262;
-	margin-left:auto;
-	margin-right:auto;
-	margin-bottom:2px;
-	cursor:default;
-}
-#menu {
- background-color:#FFFFCC;
- border: 2px solid #6A6A6A;
- border-radius:5px;
- box-shadow:5px 5px 10px #474747;
- padding-top:5px;
- padding-bottom:5px;
- position:absolute;
- display:none;
- cursor:default;
-}
-.menuItem {
-	padding-left:5px;
-	padding-right:5px;
-	font-family:Arial, Helvetica, sans-serif;
-	cursor:default;
-}
-.menuItemSpeak, .menuItemCancel, .menuItemInspect {
-	padding-left:5px;
-	padding-right:5px;
-	font-family:Arial, Helvetica, sans-serif;
-	cursor:default;
-}
-.menuItemSpeak:hover, .menuItemCancel:hover, .menuItem:hover, .menuItemInspect:hover {
-	background-color:#99CCFF;
 }

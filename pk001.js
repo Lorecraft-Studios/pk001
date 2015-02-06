@@ -115,62 +115,25 @@ if (Meteor.isClient) {
     		var mobAttackTrigger = Mobs.findOne({_id: currentMob}).attackTrigger;
     		questEngine[mobAttackTrigger].s1();
     	}
-      
     }
 	}),
 	Template.roomItems.events({
     'click span.itemclick':function(event) {
-      $('#menu').css('left', event.pageX+5);
-      $('#menu').css('top', event.pageY+5);
-      $('#menu').fadeToggle();
       Session.set('itemId', this._id);
+    	if (Icons.hand.selected === 'yes') {
+    		var currentItem = Session.get('itemId');
+    		var currentRoom = Player.findOne({_id: 'p001'}).roomAt;
+    		//if there is a script attached to item, fire it
+    		if (Items.findOne({_id: currentItem}).questTrigger) {
+				questEngine[Items.findOne({_id: currentItem}).questTrigger].s1();
+			}
+    	}
     }
 	}),
 	Template.roomItems.helpers({
 		roomItems:function() {
 			return Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].items;
 		}
-	}),
-	Template.contextMenu.events({
-    'click .menuItemCancel':function() {
-      $('#menu').fadeToggle();
-    },
-    'click .menuItemSpeak':function(){
-    	$('#menu').fadeToggle();
-    	var currentMob = Session.get('clickId');
-    	var diaStatus = Dialogue.find({_id: currentMob}).fetch()[0].diaStatus[0];
-    	// If mob has dialogue, echo in event log
-    	if (Dialogue.find({_id: currentMob}).fetch()[0][diaStatus].convo) {
-    		engine.echoPlayerEventLog(Dialogue.find({_id: currentMob}).fetch()[0][diaStatus].convo);
-    	}
-    	//If there is a script to run, run from quest engine
-    	if (Dialogue.find({_id: currentMob}).fetch()[0][diaStatus].hasScript) {
-				questEngine[Dialogue.find({_id: currentMob}).fetch()[0][diaStatus].hasScript].s1();
-			}
-		//If dialogue requires player input, show the dialogue response div
-    	if (Dialogue.find({_id: currentMob}).fetch()[0][diaStatus].response.length >= 1) {
-    		$('.dialogueResponse').show();
-    	}
-    	//If dialogue doesn't require input and needs to move, move status to next convo
-    	if (Dialogue.find({_id: currentMob}).fetch()[0][diaStatus].next1.length >= 1) {
-    		Dialogue.update({_id: currentMob}, {$set: {diaStatus: Dialogue.find({_id: currentMob}).fetch()[0][diaStatus].next1}});
-    	}
-    },
-    'click .menuItemAttack':function () {
-    	$('#menu').fadeToggle();
-    	var currentMob = Session.get('clickId');
-    	var mobAttackTrigger = Mobs.findOne({_id: currentMob}).attackTrigger;
-    	questEngine[mobAttackTrigger].s1();
-    },
-    'click .menuItemInspect':function () {
-    	$('#menu').fadeToggle();
-    	var currentItem = Session.get('itemId');
-    	var currentRoom = Player.findOne({_id: 'p001'}).roomAt;
-    	//if there is a script attached to item, fire it
-    	if (Items.findOne({_id: currentItem}).questTrigger) {
-				questEngine[Items.findOne({_id: currentItem}).questTrigger].s1();
-			}
-    }
 	}),
 	Template.dialogueResponse.helpers({
 		dialogueResponse:function(){
@@ -220,15 +183,24 @@ if (Meteor.isClient) {
 	Template.buttons.events({
 		'click .chatbubble': function () {
 			$('.chatbubble').addClass('selectedIcon');
-			$('.swordshielddark').removeClass('selectedIcon');
-			Icons.chatbubble.selected = 'yes'
-			Icons.swordshielddark.selected = 'no'
+			$('.swordshielddark, .hand').removeClass('selectedIcon');
+			Icons.chatbubble.selected = 'yes';
+			Icons.swordshielddark.selected = 'no';
+			Icons.hand.selected = 'no';
 		},
 		'click .swordshielddark':function() {
 			$('.swordshielddark').addClass('selectedIcon');
-			$('.chatbubble').removeClass('selectedIcon');
-			Icons.swordshielddark.selected = 'yes'
-			Icons.chatbubble.selected = 'no'
+			$('.chatbubble, .hand').removeClass('selectedIcon');
+			Icons.swordshielddark.selected = 'yes';
+			Icons.chatbubble.selected = 'no';
+			Icons.hand.selected = 'no';
+		},
+		'click .hand':function() {
+			$('.hand').addClass('selectedIcon');
+			$('.chatbubble, .swordshielddark').removeClass('selectedIcon');
+			Icons.hand.selected = 'yes';
+			Icons.swordshielddark.selected = 'no';
+			Icons.chatbubble.selected = 'no';
 		}
 	})
 

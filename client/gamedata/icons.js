@@ -7,3 +7,7 @@ Icons.chatbubble = {
 Icons.swordshielddark = {
 	selected: 'no',
 }
+
+Icons.hand = {
+	selected: 'yes',
+}
