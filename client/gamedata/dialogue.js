@@ -68,7 +68,7 @@ Dialogue.insert({
     11: {
         _id: 11,
         convo: 'You reply, \“No problem sarge!\”',
-        next1: [],
+        next1: [14],
         response: []
     },
     12: {
