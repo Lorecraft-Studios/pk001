@@ -9,3 +9,4 @@
 dev.clearRoomMobArray = function(roomId) {
   Rooms.update( {_id: roomId },{ $set: {mobs: []} });
 }
+

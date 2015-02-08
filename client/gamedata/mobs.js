@@ -104,7 +104,7 @@ Mobs.insert({
 });
 
 Mobs.insert({
-  _id: 'm00',
+  _id: 'm008',
   shortDesc: 'The Village Elder',
   longDesc: {
     part1: 'The ',

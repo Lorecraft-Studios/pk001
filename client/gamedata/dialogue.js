@@ -1,6 +1,7 @@
 Dialogue = new Mongo.Collection();
 
 Dialogue.insert({
+    //sarge
     _id: 'm001',
     1: {
         _id: 1,
@@ -270,6 +271,99 @@ Dialogue.insert({
     diaStatus: [0]
 })
 
-
+//Village Elder
+Dialogue.insert({
+    _id: 'm008',
+    1: {
+        _id: 1,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+    2: {
+        _id: 2,
+        convo: '',
+        next1: [],
+        response: []
+    },
+    3: {
+        _id: 3,
+        convo: '',
+        next1: [],
+        response: []
+    },
+    4: {
+        _id: 4,
+        convo: '',
+        next1: [],
+        response: []
+    },
+    5: {
+        _id: 5,
+        convo: '',
+        next1: [],
+        response: []
+    },
+    6: {
+        _id: 6,
+        convo: '',
+        next1: [],
+        response: []
+    },
+    7: {
+        _id: 7,
+        convo: '',
+        next1: [],
+        response: []
+    },
+    8: {
+        _id: 8,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+    9: {
+        _id: 9,
+        convo: '',
+        next1: [],
+        response: []
+    },
+    10: {
+        _id: 10,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+    11: {
+        _id: 11,
+        convo: '',
+        next1: [],
+        response: []
+    },
+    12: {
+        _id: 12,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+    13: {
+        _id: 13,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+    14: {
+        _id: 14,
+        convo: '',
+        next1: [],
+        response: []
+    },
+    diaStatus: [1]
+})
 
 
