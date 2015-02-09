@@ -278,25 +278,6 @@ questEngine.s029 = {
 	}
 }
 
-<<<<<<< HEAD
-
-questEngine.s100 = {
-	s1: function(){
-		Meteor.setTimeout(function() {engine.echoPlayerEventLog('\“Ahh so it is…  It is you..\”, says the Village Elder with a calm smile.')}, 2000);
-		Meteor.setTimeout(function() {Dialogue.update({_id: 'm008'}, {$set: {diaStatus: [2]}})}, 4000);
-	}
-}
-
-questEngine.s101 = {
-	s1: function(){
-		//set father and mothers dialogue to the part after player speaks to village elder for first time
-		Dialogue.update({_id: 'm006'}, {$set: {diaStatus: [100]}}); //mother
-		Dialogue.update({_id: 'm007'}, {$set: {diaStatus: [100]}}); //father
-
-	}
-}
-||||||| merged common ancestors
-=======
 questEngine.s030 = {
 	s1:function() {
 		Meteor.setTimeout(function() {engine.echoPlayerEventLog('Romulus glances at his mother.');
@@ -314,9 +295,22 @@ questEngine.s031 = {
 	}
 }
 
+questEngine.s100 = {
+	s1: function(){
+		Meteor.setTimeout(function() {engine.echoPlayerEventLog('\“Ahh so it is…  It is you..\”, says the Village Elder with a calm smile.')}, 2000);
+		Meteor.setTimeout(function() {Dialogue.update({_id: 'm100'}, {$set: {diaStatus: [2]}})}, 4000);
+	}
+}
+
+questEngine.s101 = {
+	s1: function(){
+		//set father and mothers dialogue to the part after player speaks to village elder for first time
+		Dialogue.update({_id: 'm006'}, {$set: {diaStatus: [100]}}); //mother
+		Dialogue.update({_id: 'm007'}, {$set: {diaStatus: [100]}}); //father
+
+	}
+}
 
 
 
 
-
->>>>>>> master
