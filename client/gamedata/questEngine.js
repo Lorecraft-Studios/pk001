@@ -298,7 +298,11 @@ questEngine.s031 = {
 questEngine.s100 = {
 	s1: function(){
 		Meteor.setTimeout(function() {engine.echoPlayerEventLog('\“Ahh so it is…  It is you..\”, says the Village Elder with a calm smile.')}, 2000);
-		Meteor.setTimeout(function() {Dialogue.update({_id: 'm100'}, {$set: {diaStatus: [2]}})}, 4000);
+		Meteor.setTimeout(function() {
+				Dialogue.update({_id: 'm100'}, {$set: {diaStatus: [2]}});
+				$('.dialogueResponse').show();
+			}, 4000);
+
 	}
 }
 
@@ -312,5 +316,11 @@ questEngine.s101 = {
 }
 
 
-
+questEngine.s102 = {
+	s1: function(){
+		Meteor.setTimeout(function() {engine.echoPlayerEventLog('\“If it’s your fate, then so be it.  There’s nothing we can do to interfere with the weaving of the cycles of time.  The Village Elder knows best\”, says Mother, \“Here take this, for your journey.\”')}, 2000);
+		Meteor.setTimeout(function() {engine.echoPlayerEventLog('Mother gives you a few portions of homecooked meals for the journey.')}, 4000);
+		Dialogue.update({_id: 'm006'}, {$set: {diaStatus: [103]}});
+	}
+}
 

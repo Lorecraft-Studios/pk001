@@ -192,6 +192,90 @@ Dialogue.insert({
         response: [],
         hasScript: 's024'
     },
+    100: {
+        _id: 100,
+        convo: '\"You\'re home early\", says Mother.',
+        next1: [],
+        response: [101],
+        hasScript: ''
+    },
+    101: {
+        _id: 101,
+        convo: '\“The Village Elder told me to tell you guys that I\’m leaving..\”, you reply.',
+        next1: [102],
+        response: [],
+        hasScript: ''
+    },
+    102: {
+        _id: 102,
+        convo: '\“Oh boy.. that\’s what we feared…\” says Mother.',
+        next1: [],
+        response: [],
+        hasScript: 's102'
+    },
+    103: {
+        _id: 103,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+    104: {
+        _id: 104,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+    100: {
+        _id: 105,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+    105: {
+        _id: 105,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+    106: {
+        _id: 106,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+    107: {
+        _id: 107,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+    108: {
+        _id: 108,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+     109: {
+        _id: 109,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+     110: {
+        _id: 110,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
     diaStatus: [1]
 })
 
@@ -285,6 +369,90 @@ Dialogue.insert({
         convo: '\“He treated even his greatest enemies with respect.\”, says dad.  \“Often caring for them after battles and helping their families out.',
         next1: [],
         response: []
+    },
+     100: {
+        _id: 100,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+    101: {
+        _id: 101,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+    102: {
+        _id: 102,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+    103: {
+        _id: 103,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+    104: {
+        _id: 104,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+    100: {
+        _id: 105,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+    105: {
+        _id: 105,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+    106: {
+        _id: 106,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+    107: {
+        _id: 107,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+    108: {
+        _id: 108,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+     109: {
+        _id: 109,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+     110: {
+        _id: 110,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
     },
     diaStatus: [0]
 });
@@ -432,6 +600,90 @@ Dialogue.insert({
         convo: '',
         next1: [],
         response: []
+    },
+     100: {
+        _id: 100,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+    101: {
+        _id: 101,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+    102: {
+        _id: 102,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+    103: {
+        _id: 103,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+    104: {
+        _id: 104,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+    100: {
+        _id: 105,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+    105: {
+        _id: 105,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+    106: {
+        _id: 106,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+    107: {
+        _id: 107,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+    108: {
+        _id: 108,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+     109: {
+        _id: 109,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+     110: {
+        _id: 110,
+        convo: '',
+        next1: [],
+        response: [],
+        hasScript: ''
     },
     diaStatus: [1]
 });
