@@ -85,7 +85,8 @@
 <Template name='roomItems'>
 	<div class='items'>
 		{{#each roomItems}}
-			<span class='itemclick'>{{longDesc}}</span><br />
+			{{longDesc.part1}}<span class='itemclick'>{{longDesc.clickPart1}}</span>{{longDesc.part2}}<span class='itemclick'>{{longDesc.clickPart2}}</span>{{longDesc.part3}}<span class='itemclick'>{{longDesc.clickPart3}}</span>
+			
 		{{/each}}
 	</div>
 </Template>

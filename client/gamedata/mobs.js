@@ -103,5 +103,20 @@ Mobs.insert({
   roomAt:'r014'
 });
 
+Mobs.insert({
+  _id: 'm008',
+  shortDesc: 'Remus and Romulus\' mother',
+  longDesc: {
+    part1: '',
+    part2: ' stands here.',
+    part3: '',
+    clickPart1: 'Remus and Romulus\' mother',
+    clickPart2: '',
+    clickPart3: '',
+    },
+  roomAt:'r018'
+});
+
+
 
 
