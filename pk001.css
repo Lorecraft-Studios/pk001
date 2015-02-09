@@ -1,7 +1,7 @@
 /* CSS declarations go here */
 body, html {
 	background-color: rgb(250,223,194);
-	font-family: Garamond;
+	font-family: 'EB Garamond', serif;
 	height:100%;
 	width:100%;
 	position:relative;
