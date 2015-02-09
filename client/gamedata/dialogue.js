@@ -121,7 +121,25 @@ Dialogue.insert({
         next1: [],
         response: []
     },
-
+    10: {
+        _id: 10,
+        convo: '',
+        next1: [],
+        response: [11]
+    },
+    11: {
+        _id: 11,
+        convo: '\'What happened?\"',
+        next1: [12],
+        response: []
+    },
+    12: {
+        _id: 12,
+        convo: '\“It was the apples in the grove. I think something\’s wrong with them…\”, groans Romulus.',
+        next1: [],
+        response: [],
+        hasScript: 's030'
+    },
     diaStatus: [0]
 });
 
@@ -268,7 +286,58 @@ Dialogue.insert({
         response: []
     },
     diaStatus: [0]
-})
+});
+
+Dialogue.insert({
+    _id: 'm008',
+    1: {
+        _id: 1,
+        convo: '\“Oh please, you\’ve got to help my son!\’, says Romulus\’ mother. ',
+        next1: [],
+        response: [2,3]
+    },
+    2: {
+        _id: 2,
+        convo: '\“What can I do ma\’am?\”, you reply.',
+        next1: [4],
+        response: [],
+        hasScript: ''
+    },
+    3: {
+        _id: 3,
+        convo: '\“No way he bullied me the other day!\”, you reply.',
+        next1: [5],
+        response: [],
+        hasScript: ''
+    },
+    4: {
+        _id: 4,
+        convo: '\“Thank goodness.  I sent Remus to get some herbs for Romulus in the valley but he hasn\’t been back in a while.  Can you see what happened to him and bring the herbs back?\”, asks Romulus\’ mother frantically.',
+        next1: [],
+        response: [6]
+    },
+    5: {
+        _id: 5,
+        convo: 'Romulus\’ mother sighs,  \“Oh please, can you please help us.  There\’s nothing I can do right now.  Remus hasn\’t come back after I sent him to the valley to get some herbs for Romulus.  Please help me find Remus and the herbs.  I would be forever indebted to you.\”',
+        next1: [],
+        response: [6]
+    },
+    6: {
+        _id: 6,
+        convo: '\“I\’ll definately see what I can do!\”, you reply.',
+        next1: [7],
+        response: []
+    },
+    7: {
+        _id: 7,
+        convo: '\“Thank the heavens! Please be careful yourself!\”, says Romulus\’ mother while holding onto him.',
+        next1: [],
+        response: [],
+        hasScript: 's031'
+    },
+    diaStatus: [0]
+});
+
 
 
 
