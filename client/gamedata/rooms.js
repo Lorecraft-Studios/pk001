@@ -200,7 +200,8 @@ Rooms.insert({
 		down:''
 	},
 	mobs: [],
-	items: []
+	items: [],
+	roomEnterTrigger: 's029'
 });
 //***********************************************************//
 Rooms.insert({
@@ -312,7 +313,7 @@ Rooms.insert({
 		up: '',
 		down:''
 	},
-	mobs: [],
+	mobs: [Mobs.findOne({_id: 'm008'})],
 	items: []
 });
 //***********************************************************//

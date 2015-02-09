@@ -250,14 +250,35 @@ questEngine.s028 = {
 			Meteor.setTimeout(function() {engine.echoPlayerEventLog('You wonder if your parents are awake yet.');
 				//reopens south exit when player wakes up
 				Rooms.update({_id: 'r013'}, {$set: {'exits.south': 'r014'}});
+				//changes Romulus description and location
+				Mobs.update({_id: 'm002'}, {$set: {longDesc: {part1: '', part2: ' is here hunching over, not feeling too well.', part3: '', clickPart1: 'Romulus', clickPart2: '', clickPart3: '',}}});
+				engine.teleportMob('r011', 'm002');
 			}, 34000);
 		}
 		questEngine.s028.bedClicked = 'yes';
 		questEngine.s020.playerSleep = 'yes';
+		questEngine.s029.playerSleep = 'yes';
 	}
-
 }
 
+questEngine.s029 = {
+	enteredOnce: "no",
+	playerSleep: "no",
+	s1: function() {
+		if (questEngine.s029.enteredOnce === 'no' && questEngine.s029.playerSleep === 'yes') {
+			engine.moveMob('m008', 'west');
+			engine.teleportMob('r011', 'm002') //remove after testing
+			engine.echoPlayerEventLog('“Oh no, Romulus what sickness has befallen you?”');
+			engine.echoPlayerEventLog('Romulus groans painfully.')
+			questEngine.s029.enteredOnce = 'yes';
+			Session.set('clickId', 'm002')
+			Dialogue.update({_id: 'm002'}, {$set: {diaStatus: [10]}});
+			$('.dialogueResponse').show(); 
+		}
+	}
+}
+
+<<<<<<< HEAD
 
 questEngine.s100 = {
 	s1: function(){
@@ -274,3 +295,28 @@ questEngine.s101 = {
 
 	}
 }
+||||||| merged common ancestors
+=======
+questEngine.s030 = {
+	s1:function() {
+		Meteor.setTimeout(function() {engine.echoPlayerEventLog('Romulus glances at his mother.');
+			Session.set('clickId', 'm008');
+			Dialogue.update({_id: 'm008'}, {$set: {diaStatus: [1]}});
+			$('.dialogueResponse').show(); 
+		}, 2000);
+	}
+}
+
+questEngine.s031 = {
+	s1:function() {
+		engine.moveMob('m002', 'east');
+		engine.moveMob('m008', 'east');
+	}
+}
+
+
+
+
+
+
+>>>>>>> master

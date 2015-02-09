@@ -38,8 +38,8 @@ engine.hasExit = function(roomId,direction) {
 //If no arguement is passed to playerId, it will default to "p001"
 engine.teleportPlayer = function(roomTo, playerId) {
   if (!playerId) {playerId = "p001"};
-  Rooms.update({_id: engine.playerCurrentRoom()},{$pull:{'mobs':playerId}});
-  Rooms.update({_id: roomTo},{$push:{'mobs':playerId}});
+  //Rooms.update({_id: engine.playerCurrentRoom()},{$pull:{'mobs':playerId}});
+  //Rooms.update({_id: roomTo},{$push:{'mobs':playerId}});
   Player.update({_id: playerId},{$set:{'roomAt': roomTo}});
   $('.dialogueResponse').hide()
 };

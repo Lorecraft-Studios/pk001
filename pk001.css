@@ -3,11 +3,12 @@ body, html {
 	background-color: rgb(250,223,194);
 	font-family: Garamond;
 	height:100%;
+	width:100%;
 	position:relative;
 
 }
 .leftUi {
-	width:40%;
+	width:45%;
 	height:100%;
 	float:left;
 	margin-right: 30px;
@@ -37,12 +38,12 @@ body, html {
 	vertical-align: middle;
 }
 .rightUi {
-	width:40%;
+	width:45%;
 	height:100%;
 	float:left;
 	margin-top:50px;
 }
-.mobclick {
+.mobclick, .itemclick {
 	font-weight:bold;
 	color:blue;
 	cursor:default;
