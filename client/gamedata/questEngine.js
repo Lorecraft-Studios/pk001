@@ -295,6 +295,17 @@ questEngine.s031 = {
 	}
 }
 
+questEngine.s032 = {
+	s1:function() {
+		engine.echoPlayerEventLog('Aerus\’ Mother heaves a heavy sigh, \“Where is she, she hasn\’t come home yet.  Oh my Aerus.  Would you happen to know what happened to her?\”')
+		Session.set('clickId', 'm009');
+		Dialogue.update({_id: 'm009'}, {$set: {diaStatus: [1]}});
+		$('.dialogueResponse').show(); 
+	}
+}
+
+
+
 
 
 

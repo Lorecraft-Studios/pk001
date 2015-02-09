@@ -117,6 +117,21 @@ Mobs.insert({
   roomAt:'r018'
 });
 
+Mobs.insert({
+  _id: 'm009',
+  shortDesc: 'Aerus\' Mother',
+  longDesc: {
+    part1: '',
+    part2: ' stands here.',
+    part3: '',
+    clickPart1: 'Aerus\' Mother',
+    clickPart2: '',
+    clickPart3: '',
+    },
+  roomAt:'r022'
+});
+
+
 
 
 

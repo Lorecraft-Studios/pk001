@@ -300,15 +300,13 @@ Dialogue.insert({
         _id: 2,
         convo: '\“What can I do ma\’am?\”, you reply.',
         next1: [4],
-        response: [],
-        hasScript: ''
+        response: []
     },
     3: {
         _id: 3,
         convo: '\“No way he bullied me the other day!\”, you reply.',
         next1: [5],
-        response: [],
-        hasScript: ''
+        response: []
     },
     4: {
         _id: 4,
@@ -334,6 +332,35 @@ Dialogue.insert({
         next1: [],
         response: [],
         hasScript: 's031'
+    },
+    diaStatus: [0]
+});
+
+Dialogue.insert({
+    _id: 'm009',
+    1: {
+        _id: 1,
+        convo: 'Aerus\’ Mother heaves a heavy sigh, \“Where is she, she hasn\’t come home yet.  Oh my Aerus.  Would you happen to know what happened to her?\”',
+        next1: [],
+        response: [2]
+    },
+    2: {
+        _id: 2,
+        convo: '\“Well she was with Romulus and Remus after training yesterday. That’s the last time I saw her\”, you reply.',
+        next1: [3],
+        response: []
+    },
+    3: {
+        _id: 3,
+        convo: '\“Oh my I hope she isn\’t in any kind of trouble.  She always disliked going to training.. She never liked swordplay or any of that sort.  Always careful and attentive to her herbs.  Would you be so kind as to help me find my daughter?\”, asks Aerus\’ Mother.',
+        next1: [],
+        response: [4]
+    },
+    4: {
+        _id: 4,
+        convo: '\“Sure thing!”, you reply.',
+        next1: [],
+        response: []
     },
     diaStatus: [0]
 });
