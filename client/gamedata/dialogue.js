@@ -276,16 +276,16 @@ Dialogue.insert({
     _id: 'm008',
     1: {
         _id: 1,
-        convo: '',
+        convo: '\"Come closer... Let me see your face,\" says the Village Elder.',
         next1: [],
         response: [],
-        hasScript: ''
+        hasScript: 's100'
     },
     2: {
         _id: 2,
-        convo: '',
+        convo: '\“Oh how many Aeons, the circle of eternity cycles through.. the dance of eternity you shall embark on… beneath that childhood innocence of yours is the heart of a true warrior\”, says the Village Elder',
         next1: [],
-        response: []
+        response: [4,5]
     },
     3: {
         _id: 3,
@@ -295,21 +295,22 @@ Dialogue.insert({
     },
     4: {
         _id: 4,
-        convo: '',
-        next1: [],
+        convo: '\“Huh..?\”, you reply.',
+        next1: [6],
         response: []
     },
     5: {
         _id: 5,
-        convo: '',
-        next1: [],
+        convo: '\“But I didn’t do anything…\”, you reply.',
+        next1: [6],
         response: []
     },
     6: {
         _id: 6,
-        convo: '',
+        convo: '\“Go home at once to tell your mother and father that you will be leaving. Then return here once again to speak with me.  Your fate is not in this village\”, commands the Village Elder.',
         next1: [],
-        response: []
+        response: [],
+        hasScript: 's101'
     },
     7: {
         _id: 7,
