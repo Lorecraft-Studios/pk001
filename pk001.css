@@ -6,6 +6,7 @@ body, html {
 	width:100%;
 	position:relative;
 
+
 }
 .leftUi {
 	width:45%;
@@ -44,8 +45,9 @@ body, html {
 	margin-top:50px;
 }
 .mobclick, .itemclick {
-	font-weight:bold;
-	color:blue;
+	font-weight: 700;
+	font-style:italic;
+	/*color:blue; */
 	cursor:default;
 }
 .welcome {
@@ -59,7 +61,10 @@ body, html {
 	height:100px;
 }
 .mobclick:hover, .itemclick:hover{
-	background-color:yellow;
+	/*background-color:yellow; */
+	font-style: normal;
+	font-weight:bold;
+	opacity: 0.3;
 }
 .exits{
 	display:none;
@@ -68,6 +73,7 @@ body, html {
 	height:72%;
 	overflow:scroll;
 	overflow-x:hidden;
+
 }
 .dialogueResponse{
 	display:none;

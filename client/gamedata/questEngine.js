@@ -309,8 +309,10 @@ questEngine.s100 = {
 questEngine.s101 = {
 	s1: function(){
 		//set father and mothers dialogue to the part after player speaks to village elder for first time
-		Dialogue.update({_id: 'm006'}, {$set: {diaStatus: [100]}}); //mother
-		Dialogue.update({_id: 'm007'}, {$set: {diaStatus: [100]}}); //father
+		Dialogue.update({_id: 'm006'}, {$set: {diaStatus: [101]}}); //mother
+		console.log('Setting mother\'s diaStatus to 101');
+		Dialogue.update({_id: 'm007'}, {$set: {diaStatus: [101]}});//father
+		console.log('Setting father\'s diaStatus to 101') ;
 
 	}
 }
@@ -320,7 +322,71 @@ questEngine.s102 = {
 	s1: function(){
 		Meteor.setTimeout(function() {engine.echoPlayerEventLog('\“If it’s your fate, then so be it.  There’s nothing we can do to interfere with the weaving of the cycles of time.  The Village Elder knows best\”, says Mother, \“Here take this, for your journey.\”')}, 2000);
 		Meteor.setTimeout(function() {engine.echoPlayerEventLog('Mother gives you a few portions of homecooked meals for the journey.')}, 4000);
-		Dialogue.update({_id: 'm006'}, {$set: {diaStatus: [103]}});
+		Dialogue.update({_id: 'm006'}, {$set: {diaStatus: [104]}});
 	}
 }
 
+questEngine.s103 = {
+	s1: function(){
+		Meteor.setTimeout(function() {engine.echoPlayerEventLog('\“Never forget what the heart of a true warrior is, and you will be protected during your travels\”, says father.')}, 2000);
+		Meteor.setTimeout(function() {engine.echoPlayerEventLog('\“We are a humble family.  I have no wealth to hand to you.  I can only hand you down the armor that has been passed down in our family for generations.\”')}, 4000);
+		Meteor.setTimeout(function() {engine.echoPlayerEventLog('\“It’s a bit big for you right now, but you’ll grow into it soon enough\”, says father.')}, 6000);
+		Meteor.setTimeout(function() {engine.echoPlayerEventLog('Father hands you the suit of ancestral leather armor.')}, 8500);
+		Dialogue.update({_id: 'm007'}, {$set: {diaStatus: [104]}});
+		Dialogue.update({_id: 'm100'}, {$set: {diaStatus: [7]}});
+
+	}
+}
+
+questEngine.s104 = {
+	s1: function(){
+		Meteor.setTimeout(function() {engine.echoPlayerEventLog('The Village Elder carefully unwraps intricately woven silk cloth from a sword.')}, 2000);
+		
+		Meteor.setTimeout(function() {
+				Dialogue.update({_id: 'm100'}, {$set: {diaStatus: [8]}});
+				$('.dialogueResponse').show();
+			}, 6000);
+	}
+}
+
+questEngine.s105 = {
+	s1: function(){
+		Meteor.setTimeout(function() {engine.echoPlayerEventLog('The Village Elder hands you the Blade of Whispering Time.')}, 2000);
+		Meteor.setTimeout(function() {engine.echoPlayerEventLog('The blade feels cool to the touch, but quickly warms up and feels as if you’ve had it for a very long time.')}, 4000);
+		Meteor.setTimeout(function() {engine.echoPlayerEventLog('')}, 6000);
+		Meteor.setTimeout(function() {
+				Dialogue.update({_id: 'm100'}, {$set: {diaStatus: [12]}});
+				$('.dialogueResponse').show();
+			}, 6000);
+
+	}
+}
+
+questEngine.s106 = {
+	s1: function(){
+				Meteor.setTimeout(function() {
+					Dialogue.update({_id: 'm100'}, {$set: {diaStatus: [16]}});
+					$('.dialogueResponse').show();
+					}, 2000);
+				}
+}
+
+questEngine.s107 = {
+	s1: function(){
+		Meteor.setTimeout(function() {engine.echoPlayerEventLog('Romulus, Remus and Aerus simultaneously look to the ground, disappointed.')}, 2000);
+		Meteor.setTimeout(function() {engine.echoPlayerEventLog('Romulus, Remus and Aerus stop following you.')}, 3000);
+		Meteor.setTimeout(function() {engine.echoPlayerEventLog('Remus says, \“Here, you can have my buckler for the journey.\”')}, 5000);
+		Meteor.setTimeout(function() {engine.echoPlayerEventLog('Remus hands you his leather hide buckler.')}, 7000);
+		Meteor.setTimeout(function() {engine.echoPlayerEventLog('Romulus says, \“You can have my waterskin.  Papa gave this to me.  It’s yours now\”.')}, 9000);
+		Meteor.setTimeout(function() {engine.echoPlayerEventLog('Romulus hands you a leather waterskin.')}, 11000);
+		Meteor.setTimeout(function() {engine.echoPlayerEventLog('Aerus says, \“Here you can have some bandages in case you get hurt.\”')}, 14000);
+		Meteor.setTimeout(function() {engine.echoPlayerEventLog('Aerus hands you some bandages.')}, 16000);
+		Meteor.setTimeout(function() {engine.echoPlayerEventLog('Aerus says,\"We\'re going to miss you...\"')}, 17000);
+		Meteor.setTimeout(function() {engine.echoPlayerEventLog('The Village Elder says, \“Swiftly now! Off you go! To the East towards Kaimuki!\”')}, 20000);
+				Meteor.setTimeout(function() {
+					Dialogue.update({_id: 'm100'}, {$set: {diaStatus: [19]}});
+					$('.dialogueResponse').show();
+					}, 20000);
+				}
+
+}

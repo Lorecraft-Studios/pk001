@@ -194,31 +194,31 @@ Dialogue.insert({
     },
     100: {
         _id: 100,
-        convo: '\"You\'re home early\", says Mother.',
-        next1: [],
-        response: [101],
-        hasScript: ''
-    },
-    101: {
-        _id: 101,
-        convo: '\“The Village Elder told me to tell you guys that I\’m leaving..\”, you reply.',
-        next1: [102],
-        response: [],
-        hasScript: ''
-    },
-    102: {
-        _id: 102,
-        convo: '\“Oh boy.. that\’s what we feared…\” says Mother.',
-        next1: [],
-        response: [],
-        hasScript: 's102'
-    },
-    103: {
-        _id: 103,
         convo: '',
         next1: [],
         response: [],
         hasScript: ''
+    },
+    101: {
+        _id: 101,
+        convo: '\"Youre\' home early\", says mother.',
+        next1: [],
+        response: [102],
+        hasScript: ''
+    },
+    102: {
+        _id: 102,
+        convo: '\“The Village Elder told me to tell you guys that I\’m leaving..\”, you reply.',
+        next1: [103],
+        response: [],
+        hasScript: ''
+    },
+    103: {
+        _id: 103,
+        convo: '\“Oh boy.. that\’s what we feared…\” says Mother.',
+        next1: [],
+        response: [],
+        hasScript: 's102'
     },
     104: {
         _id: 104,
@@ -379,24 +379,24 @@ Dialogue.insert({
     },
     101: {
         _id: 101,
-        convo: '',
+        convo: '\“Yes son?\”, says father.',
         next1: [],
-        response: [],
+        response: [102],
         hasScript: ''
     },
     102: {
         _id: 102,
-        convo: '',
-        next1: [],
+        convo: '\“The Village Elder says I need to leave the village…\”, you reply.',
+        next1: [103],
         response: [],
         hasScript: ''
     },
     103: {
         _id: 103,
-        convo: '',
+        convo: '\“I’m so proud of you son.  You’ll be following the footsteps of your ancestors.\”, says father.',
         next1: [],
         response: [],
-        hasScript: ''
+        hasScript: 's103'
     },
     104: {
         _id: 104,
@@ -549,137 +549,142 @@ Dialogue.insert({
         response: [],
         hasScript: 's101'
     },
+
+    //After player has final convo with parents
     7: {
         _id: 7,
-        convo: '',
-        next1: [],
-        response: []
-    },
-    8: {
-        _id: 8,
-        convo: '',
+        convo: '\“Ahh good.. good.. you will soon be rightfully donning your family armor\”, says the Village Elder.',
         next1: [],
         response: [],
+        hasScript: 's104'
+    },
+
+    8: {
+        _id: 8,
+        convo: '\“Having the heart of a warrior, you are now ready to inherit the Blade of Whispering Time\", says the Village Elder.',
+        next1: [],
+        response: [9,10],
         hasScript: ''
     },
     9: {
         _id: 9,
-        convo: '',
-        next1: [],
+        convo: '\“Wow… it’s beautiful\”, you reply.   ',
+        next1: [11],
         response: []
     },
     10: {
         _id: 10,
-        convo: '',
-        next1: [],
+        convo: '\“I can’t! That belongs to the Elder lineage!\”, you reply',
+        next1: [11],
         response: [],
         hasScript: ''
     },
-    11: {
+    11: {   
         _id: 11,
-        convo: '',
+        convo: '\“It was only ours to hold onto until the heart of a true warrior is able to wield it..  how many generations we have waited.  Everything is as it should be.  This is your blade now\”, says the Village Elder.',
         next1: [],
-        response: []
+        response: [],
+        hasScript: 's105'
     },
     12: {
         _id: 12,
-        convo: '',
+        convo: '\“The time has come for you to journey eastwards, out of the confines of this village\”, says the Village Elder, \“As a sword is tempered by the anvil and hammer, so shall your spirit be tempered by the long journey ahead to the town of Kaimuki where you will receive further training.\”',
         next1: [],
-        response: [],
+        response: [13,14],
         hasScript: ''
     },
     13: {
         _id: 13,
-        convo: '',
-        next1: [],
+        convo: '\“Further training…?\”, you ask.',
+        next1: [15],
         response: [],
         hasScript: ''
     },
     14: {
         _id: 14,
-        convo: '',
-        next1: [],
+        convo: '\“But i’ve never gone beyond the village!\”, you reply.',
+        next1: [15],
         response: []
     },
-     100: {
-        _id: 100,
+     15: {
+        _id: 15,
+        convo: '\“It has already been written in the threads of time.  An empire long united must divide, long divided, it must unite again.  Your fate will be out there to help turn the wheels of nature\”, says the Village Elder.',
+        next1: [],
+        response: [],
+        hasScript: 's106'
+    },
+    16: {
+        _id: 16,
+        convo: '\“Quickly, you must waste no time! Romulus Remus and Aerus will stay here for further training.  Fate will have them meet you once again in the future!\” says the Village Elder.',
+        next1: [],
+        response: [17],
+        hasScript: ''
+    },
+    17: {
+        _id: 17,
+        convo: '\“I’m going by to Kaimuki by myself?  But I don’t even know where it is..\”, you reply',
+        next1: [18],
+        response: [],
+        hasScript: ''
+    },
+    18: {
+        _id: 18,
+        convo: '\“This, you must face.. Alone. \“, replies the Village Elder',
+        next1: [],
+        response: [],
+        hasScript: 's107'
+    },
+    19: {
+        _id: 19,
+        convo: '\"Quickly! You must travel Eastwards to the town of Kaimuki to further your training!\", says the Village Elder.',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+    20: {
+        _id: 20,
         convo: '',
         next1: [],
         response: [],
         hasScript: ''
     },
-    101: {
-        _id: 101,
+    21: {
+        _id: 21,
         convo: '',
         next1: [],
         response: [],
         hasScript: ''
     },
-    102: {
-        _id: 102,
+    22: {
+        _id: 22,
         convo: '',
         next1: [],
         response: [],
         hasScript: ''
     },
-    103: {
-        _id: 103,
+    23: {
+        _id: 23,
         convo: '',
         next1: [],
         response: [],
         hasScript: ''
     },
-    104: {
-        _id: 104,
+    24: {
+        _id: 24,
         convo: '',
         next1: [],
         response: [],
         hasScript: ''
     },
-    100: {
-        _id: 105,
+     25: {
+        _id: 25,
         convo: '',
         next1: [],
         response: [],
         hasScript: ''
     },
-    105: {
-        _id: 105,
-        convo: '',
-        next1: [],
-        response: [],
-        hasScript: ''
-    },
-    106: {
-        _id: 106,
-        convo: '',
-        next1: [],
-        response: [],
-        hasScript: ''
-    },
-    107: {
-        _id: 107,
-        convo: '',
-        next1: [],
-        response: [],
-        hasScript: ''
-    },
-    108: {
-        _id: 108,
-        convo: '',
-        next1: [],
-        response: [],
-        hasScript: ''
-    },
-     109: {
-        _id: 109,
-        convo: '',
-        next1: [],
-        response: [],
-        hasScript: ''
-    },
-     110: {
-        _id: 110,
+     26: {
+        _id: 26,
         convo: '',
         next1: [],
         response: [],
