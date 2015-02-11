@@ -295,7 +295,6 @@ questEngine.s031 = {
 	}
 }
 
-<<<<<<< HEAD
 questEngine.s032 = {
 	s1:function() {
 		engine.echoPlayerEventLog('Aerus\’ Mother heaves a heavy sigh, \“Where is she, she hasn\’t come home yet.  Oh my Aerus.  Would you happen to know what happened to her?\”')
@@ -341,8 +340,7 @@ questEngine.s034 = {
 	}
 }
 
-||||||| merged common ancestors
-=======
+
 questEngine.s100 = {
 	s1: function(){
 		Meteor.setTimeout(function() {engine.echoPlayerEventLog('\“Ahh so it is…  It is you..\”, says the Village Elder with a calm smile.')}, 2000);
@@ -373,7 +371,7 @@ questEngine.s102 = {
 		Dialogue.update({_id: 'm006'}, {$set: {diaStatus: [104]}});
 	}
 }
->>>>>>> master
+
 
 questEngine.s103 = {
 	s1: function(){
