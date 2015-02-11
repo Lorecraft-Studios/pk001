@@ -103,6 +103,9 @@ Mobs.insert({
   roomAt:'r014'
 });
 
+
+
+
 Mobs.insert({
   _id: 'm008',
   shortDesc: 'Remus and Romulus\' mother',
@@ -131,7 +134,19 @@ Mobs.insert({
   roomAt:'r022'
 });
 
-
+Mobs.insert({
+  _id: 'm100',
+  shortDesc: 'The Village Elder',
+  longDesc: {
+    part1: 'The ',
+    part2: '',
+    part3: 'silently waits here in a deep trance.',
+    clickPart1: 'Village Elder ',
+    clickPart2: '',
+    clickPart3: '',
+    },
+  roomAt:'r008'
+});
 
 
 
