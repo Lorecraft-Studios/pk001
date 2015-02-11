@@ -81,12 +81,16 @@ if (Meteor.isClient) {
 			return Rooms.find({_id: Player.find({_id: 'p001'}).fetch()[0].roomAt}).fetch()[0].mobs;
 		}
 	}),
-	Template.eventDisplay.helpers({
-		eventDisplay: function(){
+	Template.eventDisplays.helpers({
+		eventDisplays: function(){
 			return Player.find({_id: 'p001'}).fetch()[0].eventLog
 		}
-
 	}),
+	Template.eventDisplay.helpers({
+		styleIs: function(style) {
+			return this.style === style;
+		}
+	})
 	Template.roomMobs.events({
     'click span.mobclick':function() {
     	Session.set('clickId', this._id)
