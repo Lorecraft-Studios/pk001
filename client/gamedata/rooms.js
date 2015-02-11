@@ -443,7 +443,8 @@ Rooms.insert({
 		down:''
 	},
 	mobs: [],
-	items: []
+	items: [],
+	roomEnterTrigger: 's033'
 });
 //***********************************************************//
 Rooms.insert({

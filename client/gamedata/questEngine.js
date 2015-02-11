@@ -304,7 +304,41 @@ questEngine.s032 = {
 	}
 }
 
+questEngine.s033 = {
+	cryingAerus:'yes',
+	s1:function() {
+		if (questEngine.s033.cryingAerus === 'yes') {
+			engine.teleportMob('r026', 'm004');
+			Dialogue.update({_id: 'm004	'}, {$set: {diaStatus: [1]}});
+			var aerusCry = Meteor.setInterval(function(){
+				engine.echoPlayerEventLog('Aerus sobs quietly to herself.');
+				if (Dialogue.findOne({_id: 'm004'}).diaStatus[0] >= 6) {
+					Meteor.clearInterval(aerusCry);
+				}
+			}, 3000)
+		}
+	}
+}
 
+questEngine.s034 = {
+	s1:function() {
+		Dialogue.update({_id: 'm004	'}, {$set: {diaStatus: [0]}});
+		engine.echoPlayerEventLog('Aerus stops sobbing.');
+		engine.echoPlayerEventLog('\“Thanks! I\’m going to learn to make hurt people all better!\”, says Aerus excitedly.');
+		engine.echoPlayerEventLog('Aerus faces the tree, closes her eyes and makes a solemn and silent wish, \“Big big tree, my wish is to make sure all the hurt people I come across feel better.  Please grant me my wish.\”');
+		Meteor.setTimeout(function() {engine.echoPlayerEventLog('Glowing insects start flittering about, surrounding Aerus.')}, 3000);
+		Meteor.setTimeout(function() {engine.echoPlayerEventLog('The leaves of the tree start rustling and rustling.')}, 6000);
+		Meteor.setTimeout(function() {engine.echoPlayerEventLog('The wind calms down and flowers begin to bloom unnaturally fast on the forest floor.');
+			engine.echoPlayerEventLog('Aerus says, \“I\’m going to go home and tell mommy that I want to help all the hurt people in the world!\”');
+		}, 9000);
+		Meteor.setTimeout(function() {engine.echoPlayerEventLog('Aerus drops her wooden sword.')}, 12000);
+		Meteor.setTimeout(function() {engine.echoPlayerEventLog('\“Thanks for helping me out! I\’m going home now!\”, says Aerus');
+			engine.moveMob('m004', 'east');
+			engine.teleportMob('r022', 'm004');
+			questEngine.s033.cryingAerus = 'no';
+		}, 15000);
+	}
+}
 
 
 

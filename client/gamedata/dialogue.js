@@ -144,6 +144,49 @@ Dialogue.insert({
 });
 
 Dialogue.insert({
+    _id: 'm004',
+    1: {
+        _id: 1,
+        convo: 'Aerus sniffles, \“I\’ll never be a good warrior.. what am I going to do?  I just can\’t stand people getting hurt.\”',
+        next1:  [],
+        response: [2,3]
+    },
+    2: {
+        _id: 2,
+        convo: 'You comfort Aerus.',
+        next1: [4],
+        response: []
+    },
+    3: {
+        _id: 3,
+        convo: '\“Well you can always choose to be something else yanno\”, you reply.',
+        next1: [4],
+        response: []
+    },
+    4: {
+        _id: 4,
+        convo: '\“But what am I going to do? What am I going to be?  I just can\’t stand the sight of people being hurt.  War and fighting is terrible!\”, exclaims Aerus.',
+        next1: [],
+        response: [5]
+    },
+    5: {
+        _id: 5,
+        convo: '\“How about helping all the hurt people get better?\”, you suggest.',
+        next1: [6],
+        response: []
+    },
+    6: {
+        _id: 6,
+        convo: '\“Hey that\’s a good idea!\”, says Aerus.\"',
+        next1: [],
+        response: [],
+        hasScript: 's034'
+    },
+    diaStatus: [1]
+});
+
+
+Dialogue.insert({
     _id: 'm006',
     1: {
         _id: 1,
