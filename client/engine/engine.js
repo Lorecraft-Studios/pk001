@@ -4,11 +4,14 @@ engine = {};
 
 //Helper: echoes a message to the player log. Defaults to player p001
 //if no parameter is passed to player.
-engine.echoPlayerEventLog = function(msg, player) {
+engine.echoPlayerEventLog = function(msg, style, player) {
 	if (!player) {player = "p001"};
-	Player.update( { _id: player },{ $push: {eventLog: msg}});
+	Player.update( { _id: player },{ $push: {eventLog: {msg: msg, style:style}}});
   Tracker.afterFlush(function() {   
     $('.eventDisplay').scrollTop($('.eventDisplay')[0].scrollHeight);
+    if (style === 'fade') {
+      $('.style1:last').hide().fadeIn('slow');
+    }
   });
 };
 

@@ -1,6 +1,5 @@
 <head>
   <title>pk001</title>
-  <link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
@@ -24,7 +23,7 @@
 
 <Template name='rightUi'>
 	<div class='rightUi'>
-		{{> eventDisplay}}
+		{{> eventDisplays}}
 		{{> dialogueResponse}}
 	</div>
 </Template>
@@ -101,12 +100,24 @@
 	</div>
 </Template>
 
-<Template name='eventDisplay'>
+<Template name = 'eventDisplays'>
 	<div class='eventDisplay'>
-		{{#each eventDisplay}}
-			{{this}}<br /><br />
+		{{#each eventDisplays}}
+			{{> eventDisplay}}
 		{{/each}}
 	</div>
+</Template>
+
+<Template name='eventDisplay'>
+			{{#if styleIs 'bold'}}
+				<strong>{{msg}}</strong><br /><br />
+			{{/if}}
+			{{#if styleIs 'fade'}}
+				<span class='style1'>{{msg}}</span><br /><br />
+			{{/if}}
+			{{#if styleIs}}
+				{{msg}}<br /><br />
+			{{/if}}
 </Template>
 
 <Template name='dialogueResponse'>
