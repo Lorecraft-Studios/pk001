@@ -9,6 +9,8 @@ engine.echoPlayerEventLog = function(msg, style, player) {
 	Player.update( { _id: player },{ $push: {eventLog: {msg: msg, style:style}}});
   Tracker.afterFlush(function() {   
     $('.eventDisplay').scrollTop($('.eventDisplay')[0].scrollHeight);
+    $('.style1').hide();
+    $('.style1').fadeIn('slow');
   });
 };
 
