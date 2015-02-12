@@ -193,14 +193,60 @@ Dialogue.insert({
         _id: 8,
         convo: '\“Yeah I was trying to pick the herbs and the boar attacked me, thank goodness you came in time\”, Remus replies.',
         next1: [],
-        response: []
+        response: [9,10]
     },
     9: {
         _id: 9,
-        convo: '\“Were you here for the herbs for Romulus?\”, you ask.',
+        convo: '(Give Remus some food)',
+        next1: [11],
+        response: []
+    },
+    10: {
+        _id: 10,
+        convo: '(Help bandage Remus’ wounds)',
+        next1: [12],
+        response: []
+    },
+    11: {
+        _id: 11,
+        convo: 'You search through your pack and give some food to Remus.',
+        next1: [],
+        response: [100]
+    },
+    12: {
+        _id: 12,
+        convo: 'You help bandage Remus\’ wounds.',
+        next1: [],
+        response: [101]
+    },
+    100: {
+        _id: 100,
+        convo: '(Help bandage Remus’ wounds)',
+        next1: [102],
+        response: [],
+        hasScript: 's038'
+    },
+    102: {
+        _id: 100,
+        convo: 'You help bandage Remus\’ wounds.',
         next1: [],
         response: []
     },
+
+    101: {
+        _id: 101,
+        convo: '(Give Remus some food)',
+        next1: [103],
+        response: [],
+        hasScript: 's038'
+    },
+    103: {
+        _id: 100,
+        convo: 'You search through your pack and give some food to Remus.',
+        next1: [],
+        response: []
+    },
+
     diaStatus: [0]
 });
 

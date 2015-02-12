@@ -170,7 +170,7 @@ questEngine.s023 = {
 		var currentItem = Session.get('itemId');
     	var currentRoom = Player.findOne({_id: 'p001'}).roomAt;
 		Dialogue.update({_id: 'm006'}, {$set: {diaStatus: [7]}});
-		//Picks up the bed
+		//Picks up the vegetables
 		engine.echoPlayerEventLog('You pick up ' + Items.findOne({_id: currentItem}).shortDesc + '.');
 		//pulls/removes items from the room
     	Rooms.update({_id: currentRoom}, {$pull: {items: {_id: currentItem}}});
@@ -369,6 +369,32 @@ questEngine.s037 = {
 			Dialogue.update({_id: 'm003'}, {$set: {diaStatus: [2]}});
 			$('.dialogueResponse').show();
 		},2000)
+	}
+}
+
+questEngine.s038 = {
+	s1:function() {
+		Meteor.setTimeout(function(){
+			engine.echoPlayerEventLog('\“I\’ll take you home Remus, we\’ll go back together\”, you say.');
+			engine.echoPlayerEventLog('\“Thank you so much.  Hey don\’t forget about the herbs.  We need to bring the herbs back.\", reminds Remus."');
+			//spawn herbs
+			Rooms.update({_id: 'r030'}, {$push: {'items': Items.findOne({_id: 'i003'})}});
+			Dialogue.update({_id: 'm003'}, {$set: {diaStatus: [0]}});
+		},2200)
+	}
+}
+
+questEngine.s039 = {
+	//picks up herbs
+	s1:function () {
+		var currentItem = Session.get('itemId');
+    	var currentRoom = Player.findOne({_id: 'p001'}).roomAt;
+		//Picks up the herbs
+		engine.echoPlayerEventLog('You pick up ' + Items.findOne({_id: currentItem}).shortDesc + '.');
+		//pulls/removes items from the room
+    	Rooms.update({_id: currentRoom}, {$pull: {items: {_id: currentItem}}});
+    	engine.echoPlayerEventLog('Remus beings to follow you.');
+    	Meteor.setTimeout(function () {engine.echoPlayerEventLog('\“Alright lets get back home before it gets dark\”, says Remus.');},3000);
 	}
 }
 

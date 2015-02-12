@@ -28,3 +28,17 @@ Items.insert({
   },
 	questTrigger: 's028'
 })
+
+Items.insert({
+	_id: 'i003',
+	shortDesc: 'a handful of exotic herbs',
+	longDesc: {
+    part1: 'A ',
+    part2: '',
+    part3: ' bloom here under a canopy of trees.',
+    clickPart1: '',
+    clickPart2: 'handful of exotic herbs',
+    clickPart3: '',
+  },
+	questTrigger: 's039'
+})
