@@ -290,6 +290,7 @@ questEngine.s030 = {
 
 questEngine.s031 = {
 	s1:function() {
+		//moves mother and romulus out of room to their home
 		engine.moveMob('m002', 'east');
 		engine.moveMob('m008', 'east');
 	}
@@ -297,6 +298,7 @@ questEngine.s031 = {
 
 questEngine.s032 = {
 	s1:function() {
+		//start Aerus mother quest
 		engine.echoPlayerEventLog('Aerus\’ Mother heaves a heavy sigh, \“Where is she, she hasn\’t come home yet.  Oh my Aerus.  Would you happen to know what happened to her?\”')
 		Session.set('clickId', 'm009');
 		Dialogue.update({_id: 'm009'}, {$set: {diaStatus: [1]}});
@@ -305,6 +307,7 @@ questEngine.s032 = {
 }
 
 questEngine.s033 = {
+	//Aerus crying quest
 	cryingAerus:'yes',
 	s1:function() {
 		if (questEngine.s033.cryingAerus === 'yes') {
@@ -340,6 +343,34 @@ questEngine.s034 = {
 	}
 }
 
+questEngine.s035 = {
+	s1:function() {
+		Mobs.update({_id: 'm003'}, {$set: {longDesc: {part1: '', part2: ' is here pinned down by a wild boar.', part3: '', clickPart1: 'Remus', clickPart2: '', clickPart3: ''}}});
+		engine.teleportMob('r030', 'm003');
+		engine.echoPlayerEventLog('\“Help!! Help!!\”, exclaims Remus.')
+	}
+}
+
+questEngine.s036 = {
+	s1:function() {
+		engine.echoPlayerEventLog('You quickly dislodge the boars tusk with your practice wooden sword and it goes fleeing into the woods.');
+		//Remove the boar
+		Rooms.update({_id: 'r030'}, {$pull: {mobs: {_id: 'm010'}}});
+		//Allows Remus dialogue
+		Dialogue.update({_id: 'm003'}, {$set: {diaStatus: [1]}});
+		//update remus description
+		Mobs.update({_id: 'm003'}, {$set: {longDesc: {part1: '', part2: ' is here, tired from the encounter with the boar', part3: '', clickPart1: 'Remus', clickPart2: '', clickPart3: ''}}});
+	}
+}
+
+questEngine.s037 = {
+	s1:function() {
+		Meteor.setTimeout(function() {engine.echoPlayerEventLog('\“I\’m sorry for what me and my brother did to you yesterday...\”');
+			Dialogue.update({_id: 'm003'}, {$set: {diaStatus: [2]}});
+			$('.dialogueResponse').show();
+		},2000)
+	}
+}
 
 questEngine.s100 = {
 	s1: function(){

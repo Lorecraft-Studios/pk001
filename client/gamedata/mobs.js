@@ -135,6 +135,22 @@ Mobs.insert({
 });
 
 Mobs.insert({
+  _id: 'm010',
+  shortDesc: 'raging boar',
+  longDesc: {
+    part1: 'A ',
+    part2: '',
+    part3: ' is here overpowering Remus.',
+    clickPart1: '',
+    clickPart2: 'raging boar',
+    clickPart3: '',
+    },
+  roomAt:'r030',
+  attackTrigger: 's036'
+});
+
+
+Mobs.insert({
   _id: 'm100',
   shortDesc: 'The Village Elder',
   longDesc: {

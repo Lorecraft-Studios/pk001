@@ -145,6 +145,66 @@ Dialogue.insert({
 });
 
 Dialogue.insert({
+    _id: 'm003',
+    1: {
+        _id: 1,
+        convo: '\“Thanks for saving me!\”, says Remus.',
+        next1: [],
+        response: [],
+        hasScript: 's037'
+    },
+    2: {
+        _id: 2,
+        convo: '\“I\’m sorry for what me and my brother did to you yesterday...\”',
+        next1: [],
+        response: [3,4]
+    },
+    3: {
+        _id: 3,
+        convo: '\“It’s okay, you guys were just playing around anyway\”, you reply.',
+        next1: [5],
+        response: []
+    },
+    4: {
+        _id: 4,
+        convo: '\“Well, I would feel the same way too, you two are better fighters anyway\”, you reply.',
+        next1: [5],
+        response: []
+    },
+    5: {
+        _id: 5,
+        convo: 'Remus looks down sheepishly.',
+        next1: [],
+        response: [6,7]
+    },
+    6: {
+        _id: 6,
+        convo: '\“What were you doing here anyway?\”, you ask.',
+        next1: [8],
+        response: []
+    },
+    7: {
+        _id: 7,
+        convo: '\“Were you here for the herbs for Romulus?\”, you ask.',
+        next1: [8],
+        response: []
+    },
+    8: {
+        _id: 8,
+        convo: '\“Yeah I was trying to pick the herbs and the boar attacked me, thank goodness you came in time\”, Remus replies.',
+        next1: [],
+        response: []
+    },
+    9: {
+        _id: 9,
+        convo: '\“Were you here for the herbs for Romulus?\”, you ask.',
+        next1: [],
+        response: []
+    },
+    diaStatus: [0]
+});
+
+Dialogue.insert({
     _id: 'm004',
     1: {
         _id: 1,
