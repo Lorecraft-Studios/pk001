@@ -428,6 +428,30 @@ questEngine.s041 = {
 	}
 }
 
+questEngine.s042 = {
+	s1:function() {
+		Dialogue.update({_id: 'm004'}, {$set: {diaStatus: [7]}});
+	}
+}
+
+questEngine.s043 = {
+	s1:function() {
+		engine.echoPlayerEventLog('\“Here let me take a look at that…\” says Aerus as she looks over the herbs.');
+		Meteor.setTimeout(function() {engine.echoPlayerEventLog('“Hmmm looks like Feverfew.. grandma used to make poultices for me if I had headaches or just felt sick”, says Aerus.')}, 2000);
+		Meteor.setTimeout(function() {engine.echoPlayerEventLog('Aerus grabs a cloth bandage and makes a poultice out of the Feverfew.')}, 4000);
+		Meteor.setTimeout(function() {engine.echoPlayerEventLog('“Here you go, just put it on his forehead and he should be good as new”, says Aerus excitedly.');
+			Dialogue.update({_id: 'm004'}, {$set: {diaStatus: [10]}});
+			$('.dialogueResponse').show();
+		}, 6000);
+	}
+}
+
+questEngine.s044 = {
+	s1:function() {
+		engine.echoPlayerEventLog('Aerus now follows you.')
+	}
+}
+
 questEngine.s100 = {
 	s1: function(){
 		Meteor.setTimeout(function() {engine.echoPlayerEventLog('\“Ahh so it is…  It is you..\”, says the Village Elder with a calm smile.')}, 2000);

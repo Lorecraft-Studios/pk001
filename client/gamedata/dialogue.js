@@ -289,6 +289,44 @@ Dialogue.insert({
         response: [],
         hasScript: 's034'
     },
+    7: {
+        _id: 7,
+        convo: '\“Hey! What do you have there?\”, Aerus asks.',
+        next1: [],
+        response: [8]
+    },
+    8: {
+        _id: 8,
+        convo: '\“A bunch of herbs that Remus was trying to harvest... I don’t know what it is but I think it can help Romulus\”, you reply.',
+        next1: [9],
+        response: []
+    },
+    9: {
+        _id: 9,
+        convo: '\“A bunch of herbs that Remus was trying to harvest... I don’t know what it is but I think it can help Romulus\”, you reply.',
+        next1: [],
+        response: [],
+        hasScript: 's043'
+    },
+    10: {
+        _id: 10,
+        convo: '“Here you go, just put it on his forehead and he should be good as new”, says Aerus excitedly.',
+        next1: [],
+        response: [11]
+    },
+    11: {
+        _id: 11,
+        convo: '“Thanks Aerus, you’ll become a great healer one day!” you reply.',
+        next1: [12],
+        response: []
+    },
+    12: {
+        _id: 12,
+        convo: '“I’m coming with you!”, says Aerus.',
+        next1: [],
+        response: [],
+        hasScript: 's044'
+    },
     diaStatus: [1]
 });
 
@@ -709,13 +747,15 @@ Dialogue.insert({
         _id: 7,
         convo: '\“Can you help make a poultice of these herbs please? Romulus is very sick\”, you ask.',
         next1: [8],
-        response: []
+        response: [],
+        hasScript: 's042'
     },
     8: {
         _id: 8,
         convo: '\“Oh yes she just loves her herbs.  Why don\’t you give those herbs that you have to her, see what she can do with them?\”, suggests Aerus\’ Mother.',
         next1: [],
-        response: []
+        response: [],
+        hasScript: 's042'
     },
     diaStatus: [0]
 });
