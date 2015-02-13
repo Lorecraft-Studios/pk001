@@ -119,6 +119,11 @@ if (Meteor.isClient) {
     		var mobAttackTrigger = Mobs.findOne({_id: currentMob}).attackTrigger;
     		questEngine[mobAttackTrigger].s1();
     	}
+    	 if (Icons.hand.selected === 'yes') {
+    		var currentMob = Session.get('clickId');
+    		var mobHandTrigger = Mobs.findOne({_id: currentMob}).handTrigger;
+    		questEngine[mobHandTrigger].s1();
+    	}
     }
 	}),
 	Template.roomItems.events({

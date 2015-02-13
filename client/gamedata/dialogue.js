@@ -141,6 +141,31 @@ Dialogue.insert({
         response: [],
         hasScript: 's030'
     },
+    13: {
+        _id: 13,
+        convo: '“Thanks... for saving me... and my brother”, says Romulus.',
+        next1: [],
+        response: [14,15]
+    },
+    14: {
+        _id: 14,
+        convo: '“Don’t mention it”, you reply.',
+        next1: [16],
+        response: []
+    },
+    15: {
+        _id: 15,
+        convo: '“It wasn’t me, Aerus made the poultice”, you reply.',
+        next1: [16],
+        response: []
+    },
+    16: {
+        _id: 16,
+        convo: '“From now on, we’ll honor you as our squad leader! Quick lets go to the academy, the old sarge is waiting!” exclaims Romulus.',
+        next1: [],
+        response: [],
+        hasScript: 's046'
+    },
     diaStatus: [0]
 });
 

@@ -448,7 +448,32 @@ questEngine.s043 = {
 
 questEngine.s044 = {
 	s1:function() {
-		engine.echoPlayerEventLog('Aerus now follows you.')
+		engine.echoPlayerEventLog('Aerus now follows you.');
+		questEngine.s045.poulticeMade = 'yes'
+	}
+}
+
+questEngine.s045 = {
+	poulticeMade: 'no',
+	s1:function() {
+		if (questEngine.s045.poulticeMade === 'yes') {
+			engine.echoPlayerEventLog('You gently place the poultice on Romulus’ head.');
+			Meteor.setTimeout(function() {engine.echoPlayerEventLog('A few moments pass…')}, 2000);
+			Meteor.setTimeout(function() {engine.echoPlayerEventLog('Romulus seems to get a little better.');
+				engine.echoPlayerEventLog('“Thanks... for saving me... and my brother”, says Romulus.');
+				Dialogue.update({_id: 'm002'}, {$set: {diaStatus: [13]}});
+				$('.dialogueResponse').show();
+			}, 4000);
+		}
+	}
+}
+
+questEngine.s046 = {
+	s1:function() {
+		engine.echoPlayerEventLog('Both Romulus and Remus salute you.');
+		engine.echoPlayerEventLog('Romulus now follows you.');
+		engine.echoPlayerEventLog('Remus now follows you.');
+		engine.echoPlayerEventLog('You receive a warm smile from their mother before heading out.');
 	}
 }
 
@@ -459,7 +484,6 @@ questEngine.s100 = {
 				Dialogue.update({_id: 'm100'}, {$set: {diaStatus: [2]}});
 				$('.dialogueResponse').show();
 			}, 4000);
-
 	}
 }
 

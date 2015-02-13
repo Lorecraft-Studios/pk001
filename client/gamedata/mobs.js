@@ -27,7 +27,8 @@ Mobs.insert({
     clickPart3: '',
   },
   roomAt:'r002',
-  attackTrigger: 's005'
+  attackTrigger: 's005',
+  handTrigger: 's045'
 });
 
 Mobs.insert({
