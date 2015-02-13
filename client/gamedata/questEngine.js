@@ -297,12 +297,20 @@ questEngine.s031 = {
 }
 
 questEngine.s032 = {
+	returnRemus: 'no',
 	s1:function() {
-		//start Aerus mother quest
-		engine.echoPlayerEventLog('Aerus\’ Mother heaves a heavy sigh, \“Where is she, she hasn\’t come home yet.  Oh my Aerus.  Would you happen to know what happened to her?\”')
-		Session.set('clickId', 'm009');
-		Dialogue.update({_id: 'm009'}, {$set: {diaStatus: [1]}});
-		$('.dialogueResponse').show(); 
+		if (questEngine.s032.returnRemus === 'yes') {
+			Session.set('clickId', 'm009');
+			engine.echoPlayerEventLog('\“Thank you so much! You found Aerus! She\’s happier than ever now!\”, says Aerus\’ Mother.');
+			Dialogue.update({_id: 'm009'}, {$set: {diaStatus: [5]}});
+			$('.dialogueResponse').show(); 
+		} else {
+			//start Aerus mother quest
+			engine.echoPlayerEventLog('Aerus\’ Mother heaves a heavy sigh, \“Where is she, she hasn\’t come home yet.  Oh my Aerus.  Would you happen to know what happened to her?\”')
+			Session.set('clickId', 'm009');
+			Dialogue.update({_id: 'm009'}, {$set: {diaStatus: [1]}});
+			$('.dialogueResponse').show(); 
+		}
 	}
 }
 
@@ -395,6 +403,28 @@ questEngine.s039 = {
     	Rooms.update({_id: currentRoom}, {$pull: {items: {_id: currentItem}}});
     	engine.echoPlayerEventLog('Remus beings to follow you.');
     	Meteor.setTimeout(function () {engine.echoPlayerEventLog('\“Alright lets get back home before it gets dark\”, says Remus.');},3000);
+    	questEngine.s040.playerHerbs = 'yes';
+	}
+}
+
+questEngine.s040 = {
+	//did player pick up herbs
+	playerHerbs: 'no',
+	s1:function() {
+		if (questEngine.s040.playerHerbs === 'yes') {
+			Dialogue.update({_id: 'm008'}, {$set: {diaStatus: [8]}});
+			Session.set('clickId', 'm001');
+			engine.echoPlayerEventLog('Remus stops following you.')
+			engine.echoPlayerEventLog('\“Thank god you found Remus, he\’s safe!  You\’ve got the herbs too!\”, says Romulus\’ mother.');
+			engine.echoPlayerEventLog('\“Can you take these to Aerus\’ mother next door?\”, asks Romulus\’ mother,  \“I\’m afraid I don\’t know how to make a proper poultice with this complicated herb.\”');
+			$('.dialogueResponse').show();
+		}
+	}
+}
+
+questEngine.s041 = {
+	s1:function() {
+		questEngine.s032.returnRemus = 'yes';
 	}
 }
 

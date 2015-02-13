@@ -651,6 +651,19 @@ Dialogue.insert({
         response: [],
         hasScript: 's031'
     },
+    8: {
+        _id: 8,
+        convo: '\“Can you take these to Aerus\’ mother next door?\”, asks Romulus\’ mother,  \“I\’m afraid I don\’t know how to make a proper poultice with this complicated herb.\”',
+        next1: [],
+        response: [9]
+    },
+    9: {
+        _id: 9,
+        convo: '\“Sure thing!\” you reply.',
+        next1: [],
+        response: [],
+        hasScript: 's041'
+    },
     diaStatus: [0]
 });
 
@@ -677,6 +690,30 @@ Dialogue.insert({
     4: {
         _id: 4,
         convo: '\“Sure thing!”, you reply.',
+        next1: [],
+        response: []
+    },
+    5: {
+        _id: 5,
+        convo: '\“Thank you so much! You found Aerus! She\’s happier than ever now!\”, says Aerus\’ Mother.',
+        next1: [],
+        response: [6,7]
+    },
+    6: {
+        _id: 6,
+        convo: '\“No problem, she\’d make an excellent healer.  She was sincere in her wish to become a healer.\”, you reply.',
+        next1: [8],
+        response: []
+    },
+    7: {
+        _id: 7,
+        convo: '\“Can you help make a poultice of these herbs please? Romulus is very sick\”, you ask.',
+        next1: [8],
+        response: []
+    },
+    8: {
+        _id: 8,
+        convo: '\“Oh yes she just loves her herbs.  Why don\’t you give those herbs that you have to her, see what she can do with them?\”, suggests Aerus\’ Mother.',
         next1: [],
         response: []
     },
