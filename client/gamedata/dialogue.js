@@ -91,6 +91,33 @@ Dialogue.insert({
         response: [],
         hasScript: 's009'
     },
+    101: {
+        _id: 101,
+        convo: '“You’re late! You know how important it is to be punctual!”, says the Old Sarge.',
+        next1: [],
+        response: [102,103]
+    },
+    102: {
+        _id: 102,
+        convo: '“Sorry sarge, i know...”, you reply.',
+        next1: [104],
+        response: []
+    },
+    103: {
+        _id: 103,
+        convo: '“But I was helping out Romulus and Remus.. and…”, you reply.',
+        next1: [104],
+        response: []
+    },
+    104: {
+        _id: 104,
+        convo: '“I was just kidding.  I heard news of your deeds today.  I’m happy to say that you have the heart of a true warrior.  Training is cancelled today! The village elder would like to see you”, says the Old Seargent.',
+        next1: [104],
+        response: [],
+        hasScript: 's047'
+    },
+
+
     diaStatus: [1]
 });
 

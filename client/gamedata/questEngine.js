@@ -474,6 +474,13 @@ questEngine.s046 = {
 		engine.echoPlayerEventLog('Romulus now follows you.');
 		engine.echoPlayerEventLog('Remus now follows you.');
 		engine.echoPlayerEventLog('You receive a warm smile from their mother before heading out.');
+		Dialogue.update({_id: 'm001'}, {$set: {diaStatus: [101]}});
+	}
+}
+
+questEngine.s047 = {
+	s1:function() {
+		engine.echoPlayerEventLog('Romulus Remus and Aerus look up to you in wonderment.');	
 	}
 }
 
