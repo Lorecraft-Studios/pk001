@@ -754,7 +754,13 @@ Dialogue.insert({
         response: [],
         hasScript: 's041'
     },
-    diaStatus: [0]
+    100: {
+        _id: 100,
+        convo: '\"Hello, Remus and Romulus haven\'t returned from trianing yet,\" says Remus and Romulus\' mother.',
+        next1: [],
+        response: []
+    },
+    diaStatus: [100]
 });
 
 Dialogue.insert({
@@ -809,7 +815,13 @@ Dialogue.insert({
         response: [],
         hasScript: 's042'
     },
-    diaStatus: [0]
+    100: {
+        _id: 100,
+        convo: '\"Hello, Aerus isn\'t home yet," says Aerus\' mother.',
+        next1: [],
+        response: []
+    },
+    diaStatus: [100]
 });
 
 
@@ -995,7 +1007,14 @@ Dialogue.insert({
         response: [],
         hasScript: ''
     },
-    diaStatus: [1]
+     100: {
+        _id: 100,
+        convo: 'The village elder seems to be in a deep trance.',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+    diaStatus: [100]
 });
 
 
