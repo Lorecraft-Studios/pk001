@@ -91,6 +91,33 @@ Dialogue.insert({
         response: [],
         hasScript: 's009'
     },
+    101: {
+        _id: 101,
+        convo: '“You’re late! You know how important it is to be punctual!”, says the Old Sarge.',
+        next1: [],
+        response: [102,103]
+    },
+    102: {
+        _id: 102,
+        convo: '“Sorry sarge, i know...”, you reply.',
+        next1: [104],
+        response: []
+    },
+    103: {
+        _id: 103,
+        convo: '“But I was helping out Romulus and Remus.. and…”, you reply.',
+        next1: [104],
+        response: []
+    },
+    104: {
+        _id: 104,
+        convo: '“I was just kidding.  I heard news of your deeds today.  I’m happy to say that you have the heart of a true warrior.  Training is cancelled today! The village elder would like to see you”, says the Old Seargent.',
+        next1: [104],
+        response: [],
+        hasScript: 's047'
+    },
+
+
     diaStatus: [1]
 });
 
@@ -727,7 +754,13 @@ Dialogue.insert({
         response: [],
         hasScript: 's041'
     },
-    diaStatus: [0]
+    100: {
+        _id: 100,
+        convo: '\"Hello, Remus and Romulus haven\'t returned from trianing yet,\" says Remus and Romulus\' mother.',
+        next1: [],
+        response: []
+    },
+    diaStatus: [100]
 });
 
 Dialogue.insert({
@@ -782,7 +815,13 @@ Dialogue.insert({
         response: [],
         hasScript: 's042'
     },
-    diaStatus: [0]
+    100: {
+        _id: 100,
+        convo: '\"Hello, Aerus isn\'t home yet," says Aerus\' mother.',
+        next1: [],
+        response: []
+    },
+    diaStatus: [100]
 });
 
 
@@ -968,7 +1007,14 @@ Dialogue.insert({
         response: [],
         hasScript: ''
     },
-    diaStatus: [1]
+     100: {
+        _id: 100,
+        convo: 'The village elder seems to be in a deep trance.',
+        next1: [],
+        response: [],
+        hasScript: ''
+    },
+    diaStatus: [100]
 });
 
 

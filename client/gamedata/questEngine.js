@@ -88,6 +88,7 @@ questEngine.s007 = {
 				engine.moveMob('m004', 'east');
 				Rooms.update({_id: 'r001'}, {$set: {'exits.east': ''}});
 				questEngine.s007.attacked = 'yes';
+				Dialogue.update({_id: 'm004'}, {$set: {diaStatus: [0]}});
 			}
 		}
 		//conditional to check if all three mobs have been attacked
@@ -108,14 +109,18 @@ questEngine.s008 = {
 
 //After completing quest, Romulus and Remus move east and threaten player
 questEngine.s009 = {
+	questDone: 'no',
 	s1: function() {
-		//Update room to show east exit
-		Rooms.update({_id: 'r001'}, {$set: {'exits.east': 'r002'}});
-		engine.echoPlayerEventLog('Remus whispers, \"We\'ll be waiting for you outside.\"')
-		engine.moveMob('m002', 'east');
-		engine.moveMob('m003', 'east');
-		//Allows player to SPEAK with Romulus and Remus
-		Dialogue.update({_id: 'm002'}, {$set: {diaStatus: [1]}});
+		if (questEngine.s009.questDone === 'no') {
+			//Update room to show east exit
+			Rooms.update({_id: 'r001'}, {$set: {'exits.east': 'r002'}});
+			engine.echoPlayerEventLog('Remus whispers, \"We\'ll be waiting for you outside.\"')
+			engine.moveMob('m002', 'east');
+			engine.moveMob('m003', 'east');
+			//Allows player to SPEAK with Romulus and Remus
+			Dialogue.update({_id: 'm002'}, {$set: {diaStatus: [1]}});
+			questEngine.s009.questDone = 'yes';
+		}
 	}
 };
 
@@ -253,6 +258,8 @@ questEngine.s028 = {
 				//changes Romulus description and location
 				Mobs.update({_id: 'm002'}, {$set: {longDesc: {part1: '', part2: ' is here hunching over, not feeling too well.', part3: '', clickPart1: 'Romulus', clickPart2: '', clickPart3: '',}}});
 				engine.teleportMob('r011', 'm002');
+				engine.teleportMob('r028', 'm003');
+				engine.teleportMob('r030', 'm004');
 			}, 34000);
 		}
 		questEngine.s028.bedClicked = 'yes';
@@ -289,22 +296,29 @@ questEngine.s030 = {
 }
 
 questEngine.s031 = {
+	movedHome: 'no',
 	s1:function() {
-		//moves mother and romulus out of room to their home
-		engine.moveMob('m002', 'east');
-		engine.moveMob('m008', 'east');
+		if (questEngine.s031.movedHome === 'no') {
+			//moves mother and romulus out of room to their home
+			engine.moveMob('m002', 'east');
+			engine.moveMob('m008', 'east');
+			Dialogue.update({_id: 'm002'}, {$set: {diaStatus: [0]}});
+			Dialogue.update({_id: 'm008'}, {$set: {diaStatus: [0]}});
+			questEngine.s031.movedHome = 'yes';
+		}
 	}
 }
 
 questEngine.s032 = {
 	returnRemus: 'no',
+	savedAerus: 'no',
 	s1:function() {
-		if (questEngine.s032.returnRemus === 'yes') {
+		if (questEngine.s032.returnRemus === 'yes' && questEngine.s032.savedAerus === 'yes') {
 			Session.set('clickId', 'm009');
 			engine.echoPlayerEventLog('\“Thank you so much! You found Aerus! She\’s happier than ever now!\”, says Aerus\’ Mother.');
 			Dialogue.update({_id: 'm009'}, {$set: {diaStatus: [5]}});
 			$('.dialogueResponse').show(); 
-		} else {
+		} else if (questEngine.s029.playerSleep ==='yes' && questEngine.s032.savedAerus === 'no'){
 			//start Aerus mother quest
 			engine.echoPlayerEventLog('Aerus\’ Mother heaves a heavy sigh, \“Where is she, she hasn\’t come home yet.  Oh my Aerus.  Would you happen to know what happened to her?\”')
 			Session.set('clickId', 'm009');
@@ -318,7 +332,7 @@ questEngine.s033 = {
 	//Aerus crying quest
 	cryingAerus:'yes',
 	s1:function() {
-		if (questEngine.s033.cryingAerus === 'yes') {
+		if (questEngine.s033.cryingAerus === 'yes' && questEngine.s029.playerSleep === 'yes') {
 			engine.teleportMob('r026', 'm004');
 			Dialogue.update({_id: 'm004	'}, {$set: {diaStatus: [1]}});
 			var aerusCry = Meteor.setInterval(function(){
@@ -346,22 +360,28 @@ questEngine.s034 = {
 		Meteor.setTimeout(function() {engine.echoPlayerEventLog('\“Thanks for helping me out! I\’m going home now!\”, says Aerus');
 			engine.moveMob('m004', 'east');
 			engine.teleportMob('r022', 'm004');
+			questEngine.s032.savedAerus = 'yes';
 			questEngine.s033.cryingAerus = 'no';
+			Dialogue.update({_id: 'm004	'}, {$set: {diaStatus: [0]}});
 		}, 15000);
 	}
 }
 
 questEngine.s035 = {
+	boarDead: 'no',
 	s1:function() {
-		Mobs.update({_id: 'm003'}, {$set: {longDesc: {part1: '', part2: ' is here pinned down by a wild boar.', part3: '', clickPart1: 'Remus', clickPart2: '', clickPart3: ''}}});
-		engine.teleportMob('r030', 'm003');
-		engine.echoPlayerEventLog('\“Help!! Help!!\”, exclaims Remus.')
+		if (questEngine.s035.boarDead === 'no'){
+			Mobs.update({_id: 'm003'}, {$set: {longDesc: {part1: '', part2: ' is here pinned down by a wild boar.', part3: '', clickPart1: 'Remus', clickPart2: '', clickPart3: ''}}});
+			engine.teleportMob('r030', 'm003');
+			engine.echoPlayerEventLog('\“Help!! Help!!\”, exclaims Remus.')
+		}
 	}
 }
 
 questEngine.s036 = {
 	s1:function() {
 		engine.echoPlayerEventLog('You quickly dislodge the boars tusk with your practice wooden sword and it goes fleeing into the woods.');
+		questEngine.s035.boarDead = 'yes';
 		//Remove the boar
 		Rooms.update({_id: 'r030'}, {$pull: {mobs: {_id: 'm010'}}});
 		//Allows Remus dialogue
@@ -402,8 +422,12 @@ questEngine.s039 = {
 		//pulls/removes items from the room
     	Rooms.update({_id: currentRoom}, {$pull: {items: {_id: currentItem}}});
     	engine.echoPlayerEventLog('Remus beings to follow you.');
+    	//removes Remus from the room
+    	Rooms.update({_id: 'r030'},{$pull:{'mobs': {_id: 'm003'}}});
     	Meteor.setTimeout(function () {engine.echoPlayerEventLog('\“Alright lets get back home before it gets dark\”, says Remus.');},3000);
     	questEngine.s040.playerHerbs = 'yes';
+    	engine.teleportMob('r018', 'm002');
+    	engine.teleportMob('r018', 'm008');
 	}
 }
 
@@ -411,10 +435,12 @@ questEngine.s040 = {
 	//did player pick up herbs
 	playerHerbs: 'no',
 	s1:function() {
-		if (questEngine.s040.playerHerbs === 'yes') {
+		if (questEngine.s040.playerHerbs === 'yes' && questEngine.s045.poulticeMade === 'no') {
 			Dialogue.update({_id: 'm008'}, {$set: {diaStatus: [8]}});
-			Session.set('clickId', 'm001');
-			engine.echoPlayerEventLog('Remus stops following you.')
+			Session.set('clickId', 'm008');
+			engine.echoPlayerEventLog('Remus stops following you.');
+			//Shows remus in the room
+			engine.teleportMob('r018', 'm003');
 			engine.echoPlayerEventLog('\“Thank god you found Remus, he\’s safe!  You\’ve got the herbs too!\”, says Romulus\’ mother.');
 			engine.echoPlayerEventLog('\“Can you take these to Aerus\’ mother next door?\”, asks Romulus\’ mother,  \“I\’m afraid I don\’t know how to make a proper poultice with this complicated herb.\”');
 			$('.dialogueResponse').show();
@@ -449,6 +475,7 @@ questEngine.s043 = {
 questEngine.s044 = {
 	s1:function() {
 		engine.echoPlayerEventLog('Aerus now follows you.');
+		Rooms.update({_id: 'r022'},{$pull:{'mobs': {_id: 'm004'}}});
 		questEngine.s045.poulticeMade = 'yes'
 	}
 }
@@ -472,8 +499,21 @@ questEngine.s046 = {
 	s1:function() {
 		engine.echoPlayerEventLog('Both Romulus and Remus salute you.');
 		engine.echoPlayerEventLog('Romulus now follows you.');
+		Rooms.update({_id: 'r018'},{$pull:{'mobs': {_id: 'm002'}}});
 		engine.echoPlayerEventLog('Remus now follows you.');
+		Rooms.update({_id: 'r018'},{$pull:{'mobs': {_id: 'm003'}}});
 		engine.echoPlayerEventLog('You receive a warm smile from their mother before heading out.');
+		Dialogue.update({_id: 'm001'}, {$set: {diaStatus: [101]}});
+		Dialogue.update({_id: 'm100'}, {$set: {diaStatus: [1]}});
+	}
+}
+
+questEngine.s047 = {
+	s1:function() {
+		engine.echoPlayerEventLog('Romulus Remus and Aerus look up to you in wonderment.');	
+		engine.teleportMob('r001','m002');
+		engine.teleportMob('r001','m003');
+		engine.teleportMob('r001','m004');
 	}
 }
 
