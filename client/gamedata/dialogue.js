@@ -379,7 +379,7 @@ Dialogue.insert({
         response: [],
         hasScript: 's044'
     },
-    diaStatus: [1]
+    diaStatus: [0]
 });
 
 
